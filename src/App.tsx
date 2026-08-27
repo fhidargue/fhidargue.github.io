@@ -65,7 +65,7 @@ function App() {
           </a>
 
           <a
-            href="https://www.youtube.com/watch?v=wVyrzA45nrs"
+            href="https://www.youtube.com/watch?v=_JaxgaLM55I"
             target="_blank"
             rel="noreferrer"
           >
