@@ -1,0 +1,62 @@
+@use "@styles/abstracts/utils";
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: utils.toRem(168px);
+  min-height: utils.toRem(80px);
+  padding: 0 utils.toRem(34px);
+  overflow: hidden;
+  border-radius: utils.toRem(999px);
+  background-color: var(--color-button);
+  color: var(--color-button-text);
+  font: inherit;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    color: var(--color-button-text-hover);
+  }
+
+  &__accent {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: var(--color-accent);
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    * {
+      color: inherit;
+    }
+  }
+
+  &--icon-only {
+    width: utils.toRem(84px);
+    min-width: utils.toRem(84px);
+    height: utils.toRem(84px);
+    min-height: utils.toRem(84px);
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  &--secondary {
+    background-color: var(--color-button-secondary);
+    color: var(--color-button-text-secondary);
+  }
+
+  &--alpha {
+    background-color: var(--color-button-alpha);
+    color: var(--color-button-text-secondary);
+    cursor: not-allowed;
+  }
+}

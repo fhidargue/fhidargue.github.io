@@ -1,0 +1,31 @@
+@use "@styles/abstracts/fonts";
+@use "@styles/abstracts/utils";
+@use "@styles/base/typography";
+
+.text {
+  color: var(--color-text);
+}
+
+.section-title-large {
+  @include typography.section-title-large;
+}
+
+.section-title-small {
+  @include typography.section-title-small;
+}
+
+.paragraph-large {
+  @include typography.paragraph-large;
+}
+
+.paragraph-small {
+  @include typography.paragraph-small;
+}
+
+.roboto-large {
+  @include typography.roboto-large;
+}
+
+.roboto-small {
+  @include typography.roboto-small;
+}

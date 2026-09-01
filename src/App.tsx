@@ -1,3 +1,5 @@
+import ThemeToggle from "@components/ThemeToggle/ThemeToggle";
+import "@styles/main.scss";
 import "./App.css";
 
 function App() {
@@ -6,9 +8,11 @@ function App() {
       <section className="hero">
         <img
           className="profile-image"
-          src="/felipehidalgo.png"
+          src="/images/felipehidalgo.png"
           alt="Felipe Hidalgo"
         />
+
+        <ThemeToggle />
 
         <h1>Felipe Hidalgo</h1>
 

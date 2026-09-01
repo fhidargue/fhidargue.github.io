@@ -1,0 +1,52 @@
+[data-theme="light"] {
+  color-scheme: light;
+
+  // Background
+  --color-background: #ffffff;
+
+  // Text
+  --color-text: #000000;
+  --color-text-secondary: #525252;
+  --color-text-tertiary: #cccccc;
+  --color-text-inverse: #ffffff;
+  --color-text-link: #000000;
+
+  // Cards
+  --color-card: #f5f5f5;
+  --color-card-hover: #ebebeb;
+
+  // Buttons CTA
+  --color-button: #000000;
+  --color-button-secondary: #ffffff;
+  --color-button-alpha: #989898;
+  --color-button-text: #ffffff;
+  --color-button-text-secondary: #000000;
+  --color-button-text-hover: #000000;
+
+  // Tags
+  --color-tag: #ffffff;
+  --color-tag-secondary: #000000;
+  --color-tag-alpha: #989898;
+  --color-tag-text: #000000;
+  --color-tag-text-secondary: #ffffff;
+  --color-tag-text-hover: #ffffff;
+
+  // Border
+  --color-border: rgba(#000000, 0.12);
+
+  // Icons
+  --color-icon: #000000;
+  --color-icon-inverse: #ffffff;
+
+  // Accents
+  --color-accent: #00b4f5;
+  --color-accent-alpha: rgba(#00b4f5, 0.36);
+
+  // Tint
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  // Materials
+  --color-glass: rgba(#000000, 0.36);
+  --color-transparent: rgba(#ffffff, 0);
+}
