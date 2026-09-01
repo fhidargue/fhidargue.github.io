@@ -54,7 +54,6 @@ h3 {
 }
 
 @mixin paragraph-small {
-  font-family: fonts.$font-family-secondary;
   font-size: utils.toRem(24px);
   letter-spacing: utils.toRem(0px);
   font-weight: fonts.$font-weight-regular;
