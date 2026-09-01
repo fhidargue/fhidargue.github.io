@@ -1,0 +1,39 @@
+.link {
+  position: relative;
+  display: inline-flex;
+  color: var(--color-text-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// Underline
+
+.link::after {
+  position: absolute;
+
+  right: 0;
+  bottom: -0.25rem;
+  left: 0;
+
+  height: 1px;
+
+  background-color: currentColor;
+
+  content: "";
+
+  transform: scaleX(0);
+  transform-origin: right;
+
+  transition: transform 0.3s ease;
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+// Characters
+
+.character {
+  display: inline-block;
+}

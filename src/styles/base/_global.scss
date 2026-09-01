@@ -1,0 +1,17 @@
+html {
+  background: var(--color-background);
+}
+
+body {
+  min-width: 320px;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

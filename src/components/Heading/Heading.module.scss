@@ -1,0 +1,15 @@
+@use "@styles/abstracts/fonts";
+@use "@styles/abstracts/utils";
+@use "@styles/base/typography";
+
+.heading-1 {
+  @include typography.heading-1;
+}
+
+.heading-2 {
+  @include typography.heading-2;
+}
+
+.heading-3 {
+  @include typography.heading-3;
+}

@@ -1,0 +1,40 @@
+:root {
+  color-scheme: dark;
+
+  // Background
+  --color-background: #000000;
+
+  // Text
+  --color-text: #ffffff;
+  --color-text-secondary: #a3a3a3;
+  --color-text-tertiary: #3d3d3d;
+  --color-text-inverse: #000000;
+  --color-text-link: #ffffff;
+
+  // Cards
+  --color-card: #141414;
+  --color-card-hover: #292929;
+
+  // Buttons CTA
+  --color-button: #ffffff;
+  --color-button-secondary: #000000;
+
+  // Border
+  --color-border: rgba(#ffffff, 0.24);
+
+  // Icons
+  --color-icon: #ffffff;
+  --color-icon-inverse: #000000;
+
+  // Accents
+  --color-accent: #ff2200;
+  --color-accent-alpha: rgba(#ff2200, 0.48);
+
+  // Tint
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  // Materials
+  --color-glass: rgba(#000000, 0.36);
+  --color-transparent: rgba(#000000, 0);
+}

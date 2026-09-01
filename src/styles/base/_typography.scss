@@ -1,0 +1,78 @@
+@use "../abstracts/fonts";
+@use "../abstracts/utils";
+
+body {
+  font-family: fonts.$font-family-primary;
+  font-size: fonts.$font-size-base;
+  font-weight: fonts.$font-weight-regular;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: fonts.$font-family-primary;
+  font-weight: fonts.$font-weight-bold;
+  line-height: 1;
+}
+
+@mixin heading-1 {
+  font-size: utils.toRem(152px);
+  letter-spacing: utils.toRem(-4px);
+  line-height: utils.toRem(128px);
+}
+
+@mixin heading-2 {
+  font-size: utils.toRem(120px);
+  letter-spacing: utils.toRem(-2px);
+  line-height: utils.toRem(104px);
+}
+
+@mixin heading-3 {
+  font-size: utils.toRem(96px);
+  letter-spacing: utils.toRem(-2px);
+  line-height: utils.toRem(88px);
+}
+
+@mixin section-title-large {
+  font-size: utils.toRem(64px);
+  letter-spacing: utils.toRem(-2px);
+  line-height: utils.toRem(64px);
+}
+
+@mixin section-title-small {
+  font-size: utils.toRem(48px);
+  letter-spacing: utils.toRem(-1px);
+  line-height: utils.toRem(48px);
+}
+
+@mixin paragraph-large {
+  font-size: utils.toRem(32px);
+  letter-spacing: utils.toRem(0px);
+  font-weight: fonts.$font-weight-regular;
+  line-height: utils.toRem(40px);
+}
+
+@mixin paragraph-small {
+  font-family: fonts.$font-family-secondary;
+  font-size: utils.toRem(24px);
+  letter-spacing: utils.toRem(0px);
+  font-weight: fonts.$font-weight-regular;
+  line-height: utils.toRem(32px);
+}
+
+@mixin roboto-large {
+  font-family: fonts.$font-family-secondary;
+  font-size: utils.toRem(20px);
+  letter-spacing: utils.toRem(0px);
+  font-weight: fonts.$font-weight-regular;
+  line-height: utils.toRem(24px);
+}
+
+@mixin roboto-small {
+  font-family: fonts.$font-family-secondary;
+  font-size: utils.toRem(16px);
+  letter-spacing: utils.toRem(0px);
+  font-weight: fonts.$font-weight-regular;
+  line-height: utils.toRem(24px);
+}
