@@ -8,10 +8,12 @@ import {
   type ReactElement,
   type ReactNode,
 } from "react";
+import { ArrowUpRightIcon } from "@phosphor-icons/react";
+import styles from "./Link.module.scss";
 
 interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  isExternal: boolean;
   changed: string;
-
   children: ReactElement<{
     children?: ReactNode;
   }>;
@@ -21,6 +23,9 @@ const Link = ({
   children,
   changed,
   className = "",
+  isExternal = false,
+  target,
+  rel,
   style,
   ...props
 }: LinkProps) => {
@@ -33,7 +38,6 @@ const Link = ({
   }, [children]);
 
   const originalCharacters = useMemo(() => Array.from(original), [original]);
-
   const changedCharacters = useMemo(() => Array.from(changed), [changed]);
 
   // Underline
@@ -72,9 +76,7 @@ const Link = ({
       }
 
       const progress = Math.min((timestamp - startTime) / duration, 1);
-
       const easedProgress = easeOutCubic(progress);
-
       const next = startScale + delta * easedProgress;
 
       scaleXRef.current = next;
@@ -101,7 +103,6 @@ const Link = ({
     <>
       {originalCharacters.map((character, index) => {
         const changedCharacter = changedCharacters[index] ?? character;
-
         const hasChanged = character !== changedCharacter;
 
         if (character === " ") {
@@ -111,16 +112,12 @@ const Link = ({
         return (
           <span
             key={`${character}-${index}`}
-            style={{
-              position: "relative",
-              display: "inline-block",
-            }}
+            className={styles.link__character}
           >
             <span
+              className={styles.link__original}
               style={{
-                display: "inline-block",
                 opacity: isHovered && hasChanged ? 0 : 1,
-                transition: "opacity 220ms cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             >
               {character}
@@ -128,14 +125,9 @@ const Link = ({
             {hasChanged && (
               <span
                 aria-hidden="true"
+                className={styles.link__changed}
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  textAlign: "center",
                   opacity: isHovered ? 1 : 0,
-                  transition: "opacity 220ms cubic-bezier(0.16, 1, 0.3, 1)",
                 }}
               >
                 {changedCharacter}
@@ -149,36 +141,36 @@ const Link = ({
 
   return (
     <a
-      className={className}
-      style={{
-        position: "relative",
-        display: "inline-block",
-        textDecoration: "none",
-        cursor: "pointer",
-        ...style,
-      }}
+      className={`${styles.link} ${className}`}
+      style={style}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      target={isExternal ? "_blank" : target}
+      rel={isExternal ? "noopener noreferrer" : rel}
       {...props}
     >
-      {cloneElement(children, {
-        children: animatedText,
-      })}
-
-      <span
-        aria-hidden
-        style={{
-          position: "absolute",
-          bottom: "-4px",
-          left: 0,
-          width: "100%",
-          height: "1px",
-          background: "currentColor",
-          transform: `scaleX(${scaleX})`,
-          transformOrigin: "left center",
-          willChange: "transform",
-        }}
-      />
+      <span className={styles.link__content}>
+        <span className={styles.link__text}>
+          {cloneElement(children, {
+            children: animatedText,
+          })}
+          <span
+            aria-hidden
+            className={styles.link__underline}
+            style={{
+              transform: `scaleX(${scaleX})`,
+            }}
+          />
+        </span>
+        {isExternal && (
+          <ArrowUpRightIcon
+            size={21}
+            weight="bold"
+            aria-hidden="true"
+            className={styles.link__arrow}
+          />
+        )}
+      </span>
     </a>
   );
 };

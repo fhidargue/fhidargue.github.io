@@ -1,0 +1,54 @@
+@use "@styles/abstracts/utils";
+
+.tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: utils.toRem(40px);
+  padding: 0 utils.toRem(16px);
+  overflow: hidden;
+  border-radius: utils.toRem(999px);
+  background-color: var(--color-tag);
+  color: var(--color-tag-text);
+
+  cursor: default;
+
+  &__accent {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: var(--color-accent);
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+
+    * {
+      color: inherit;
+    }
+  }
+
+  &--primary {
+    background-color: var(--color-tag);
+    color: var(--color-tag-text);
+  }
+
+  &--secondary {
+    background-color: var(--color-tag-secondary);
+    color: var(--color-tag-text-secondary);
+  }
+
+  &--alpha {
+    background-color: var(--color-tag-alpha);
+    color: var(--color-tag-text-secondary);
+  }
+}

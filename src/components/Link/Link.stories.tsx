@@ -23,9 +23,24 @@ export const Default: Story = {
   args: {
     href: "#",
     changed: "DE5IGN3D BY P4UL",
+    isExternal: false,
+
     children: (
-      <Text as="span" variant="roboto-small">
+      <Text as="span" variant="roboto-large">
         DESIGNED BY PAUL
+      </Text>
+    ),
+  },
+};
+
+export const ExternalLink: Story = {
+  args: {
+    href: "#",
+    changed: "EXT3RN4L L1NK",
+    isExternal: true,
+    children: (
+      <Text as="span" variant="roboto-large">
+        EXTERNAL LINK
       </Text>
     ),
   },

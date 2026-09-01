@@ -1,39 +1,54 @@
+@use "@styles/abstracts/utils";
+
 .link {
-  position: relative;
-  display: inline-flex;
-  color: var(--color-text-link);
+  display: inline-block;
   text-decoration: none;
   cursor: pointer;
-}
 
-// Underline
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    gap: utils.toRem(6px);
+    white-space: nowrap;
+  }
 
-.link::after {
-  position: absolute;
+  &__text {
+    position: relative;
+    display: inline-block;
+  }
 
-  right: 0;
-  bottom: -0.25rem;
-  left: 0;
+  &__underline {
+    position: absolute;
+    bottom: utils.toRem(-4px);
+    left: 0;
+    width: 100%;
+    height: utils.toRem(1px);
+    background: currentColor;
+    transform-origin: left center;
+    will-change: transform;
+  }
 
-  height: 1px;
+  &__arrow {
+    flex-shrink: 0;
+    color: currentColor;
+  }
 
-  background-color: currentColor;
+  &__character {
+    position: relative;
+    display: inline-block;
+  }
 
-  content: "";
+  &__original {
+    display: inline-block;
+    transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-  transform: scaleX(0);
-  transform-origin: right;
-
-  transition: transform 0.3s ease;
-}
-
-.link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-// Characters
-
-.character {
-  display: inline-block;
+  &__changed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
