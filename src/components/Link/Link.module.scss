@@ -51,4 +51,9 @@
     text-align: center;
     transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  &__bracket {
+    display: inline-block;
+    font-size: utils.toRem(22px);
+  }
 }

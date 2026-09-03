@@ -1,0 +1,33 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: utils.toRem(32px);
+
+    @media #{variables.$screen-md} {
+      padding: utils.toRem(42px);
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: utils.toRem(16px);
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: utils.toRem(8px);
+  }
+}

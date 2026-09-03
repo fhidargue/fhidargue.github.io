@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import cx from "classnames";
 
 import styles from "./Text.module.scss";
 
@@ -16,14 +17,20 @@ interface TextProps {
   children: ReactNode;
   variant?: TextVariant;
   as?: TextElement;
+  className?: string;
 }
 
 const Text = ({
   children,
   variant = "paragraph-small",
   as: Tag = "p",
+  className = "",
 }: TextProps) => {
-  return <Tag className={`${styles.text} ${styles[variant]}`}>{children}</Tag>;
+  return (
+    <Tag className={cx(styles.text, styles[variant], className)}>
+      {children}
+    </Tag>
+  );
 };
 
 export default Text;

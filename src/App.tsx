@@ -1,91 +1,30 @@
-import ThemeToggle from "@components/ThemeToggle/ThemeToggle";
-import "@styles/main.scss";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App() {
+import Footer from "@components/Footer/Footer";
+import TopBar from "@components/TopBar/TopBar";
+
+import Home from "@pages/Home/Home";
+import Work from "@pages/Work/Work";
+import About from "@pages/About/About";
+
+import "./styles/main.scss";
+
+const App = () => {
   return (
-    <main className="portfolio">
-      <section className="hero">
-        <img
-          className="profile-image"
-          src="/images/felipehidalgo.png"
-          alt="Felipe Hidalgo"
-        />
-
-        <ThemeToggle />
-
-        <h1>Felipe Hidalgo</h1>
-
-        <h2>Pipeline TD · Senior Software Developer</h2>
-
-        <div className="description">
-          <p>
-            I'm Felipe Hidalgo, a problem solver with a background in software
-            engineering, web development, and architecture.
-          </p>
-
-          <p>
-            I'm passionate about using technology to solve problems and make
-            other people's work a little easier. I enjoy building tools,
-            automating workflows, and exploring the technology behind animation
-            and VFX. I'm currently finishing my MSc in Computer Animation and
-            Visual Effects at Bournemouth University, where I've been able to
-            explore these interests further through pipeline development,
-            OpenUSD, rendering, computer graphics, and simulation.
-          </p>
-
-          <p>
-            I've had the chance to work across software engineering, tool
-            development, and automation, while also exploring areas such as
-            pipeline development, OpenUSD, rendering, computer graphics, and
-            simulation. I'm always interested in learning more about the
-            technology behind how things are made.
-          </p>
+    <BrowserRouter>
+      <div className="app">
+        <TopBar />
+        <div className="app__content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
         </div>
-
-        <nav className="links" aria-label="Contact links">
-          <a
-            href="https://www.linkedin.com/in/fhidargue"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-
-          <a
-            href="https://github.com/fhidargue"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-
-          <a
-            href="https://www.youtube.com/@phil_ha"
-            target="_blank"
-            rel="noreferrer"
-          >
-            YouTube
-          </a>
-
-          <a
-            href="https://www.youtube.com/watch?v=_JaxgaLM55I"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Showreel
-          </a>
-
-          <a href="mailto:fi.ha@hotmail.com">Contact</a>
-        </nav>
-      </section>
-
-      <footer>
-        <p>🚧 This portfolio is currently under construction. 🚧</p>
-        <span>More projects and updates coming soon.</span>
-      </footer>
-    </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

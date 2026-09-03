@@ -1,0 +1,17 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.container {
+  width: 100%;
+  max-width: utils.toRem(1200px);
+  margin: 0 auto;
+  padding: 0 utils.toRem(32px);
+
+  @media #{variables.$screen-md} {
+    padding: 0 utils.toRem(42px);
+  }
+
+  &--story {
+    padding: utils.toRem(40px);
+  }
+}
