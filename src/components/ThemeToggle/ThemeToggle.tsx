@@ -1,38 +1,27 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 
-type Theme = "dark" | "light";
+import useTheme from "@hooks/useTheme";
 
 interface ThemeToggleProps {
-  children: ReactNode;
+  className?: string;
+  iconSize?: number;
 }
 
-const ThemeToggle = ({ children }: ThemeToggleProps) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const storedTheme = sessionStorage.getItem("theme") as Theme | null;
-
-    if (storedTheme === "dark" || storedTheme === "light") {
-      return storedTheme;
-    }
-
-    return "dark";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    sessionStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
-  };
+const ThemeToggle = ({ className, iconSize = 24 }: ThemeToggleProps) => {
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      className={className}
     >
-      {children}
+      {theme === "dark" ? (
+        <SunIcon size={iconSize} weight="regular" />
+      ) : (
+        <MoonIcon size={iconSize} weight="regular" />
+      )}
     </button>
   );
 };

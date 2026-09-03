@@ -1,3 +1,5 @@
+@use "@styles/abstracts/utils";
+
 .overlay-menu-item {
   display: inline-block;
   cursor: pointer;
@@ -33,7 +35,11 @@
 
   &__item {
     flex-shrink: 0;
-    margin-right: 32px;
+    margin-right: utils.toRem(32px);
+  }
+
+  &__text {
+    font-weight: 700;
   }
 
   &--full-width {

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
-import Heading from "@components/Heading/Heading";
+import { MemoryRouter } from "react-router-dom";
 
 import OverlayMenuItem from "./OverlayMenuItem";
 
@@ -12,20 +11,20 @@ const meta = {
     layout: "centered",
   },
 
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+
   tags: ["autodocs"],
 
   argTypes: {
-    item: {
-      control: "text",
-    },
-
     contentType: {
       control: "select",
       options: ["heading", "text"],
-    },
-
-    children: {
-      control: false,
     },
   },
 } satisfies Meta<typeof OverlayMenuItem>;
@@ -36,21 +35,17 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    item: "[ VIEW MENU ITEM ]",
+    label: "MENU ITEM",
+    to: "/work",
     contentType: "heading",
-    children: <Heading level={2}>MENU ITEM</Heading>,
   },
-
-  render: (args) => <OverlayMenuItem {...args} />,
 };
 
 export const FullWidth: Story = {
   args: {
-    item: "[ VIEW MENU ITEM ]",
+    label: "MENU ITEM",
+    to: "/work",
     contentType: "heading",
-    children: <Heading level={2}>MENU ITEM</Heading>,
     fullWidth: true,
   },
-
-  render: (args) => <OverlayMenuItem {...args} />,
 };
