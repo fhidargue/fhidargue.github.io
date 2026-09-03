@@ -1,9 +1,11 @@
-import styles from "./Work.module.scss";
+import Container from "@components/Container/Container";
 
 const Work = () => {
   return (
-    <main className={styles.work}>
-      <h1>Work</h1>
+    <main>
+      <Container>
+        <h1>Work</h1>
+      </Container>
     </main>
   );
 };

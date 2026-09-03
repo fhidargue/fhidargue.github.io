@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import Footer from "@components/Footer/Footer";
 import TopBar from "@components/TopBar/TopBar";
 
 import Home from "@pages/Home/Home";
@@ -11,13 +12,17 @@ import "./styles/main.scss";
 const App = () => {
   return (
     <BrowserRouter>
-      <TopBar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <div className="app">
+        <TopBar />
+        <div className="app__content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 };

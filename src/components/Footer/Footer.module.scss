@@ -1,0 +1,80 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.footer {
+  width: 100%;
+  padding: utils.toRem(32px) 0;
+
+  @media #{variables.$screen-md} {
+    padding: utils.toRem(42px) 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: utils.toRem(32px);
+
+    @media #{variables.$screen-md} {
+      gap: utils.toRem(64px);
+    }
+
+    @media #{variables.$screen-xl} {
+      gap: utils.toRem(0px);
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(8px);
+    width: 100%;
+  }
+
+  &__information-text {
+    color: var(--color-text-secondary);
+  }
+
+  &__information-line {
+    line-height: 1.2;
+
+    > * {
+      display: inline;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: utils.toRem(8px);
+
+    @media #{variables.$screen-md} {
+      flex-direction: row;
+      gap: utils.toRem(28px);
+    }
+  }
+
+  &__bottom-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media #{variables.$screen-xl} {
+      gap: utils.toRem(42px);
+    }
+  }
+
+  &__back-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    button {
+      height: max-content;
+    }
+  }
+}

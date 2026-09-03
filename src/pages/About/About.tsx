@@ -1,9 +1,11 @@
-import styles from "./About.module.scss";
+import Container from "@components/Container/Container";
 
 const About = () => {
   return (
-    <main className={styles.about}>
-      <h1>About</h1>
+    <main>
+      <Container>
+        <h1>About</h1>
+      </Container>
     </main>
   );
 };

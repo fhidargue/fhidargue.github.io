@@ -6,21 +6,10 @@ import styles from "./Container.module.scss";
 interface ContainerProps {
   children: ReactNode;
   className?: string;
-  isMain?: boolean;
 }
 
-const Container = ({ children, className, isMain = false }: ContainerProps) => {
-  const Tag = isMain ? "main" : "div";
-
-  return (
-    <Tag
-      className={cx(styles.container, className, {
-        [styles["container__main"]]: isMain,
-      })}
-    >
-      {children}
-    </Tag>
-  );
+const Container = ({ children, className }: ContainerProps) => {
+  return <div className={cx(styles.container, className)}>{children}</div>;
 };
 
 export default Container;

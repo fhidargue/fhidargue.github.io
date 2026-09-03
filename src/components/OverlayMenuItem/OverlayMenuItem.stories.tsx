@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import OverlayMenuItem from "./OverlayMenuItem";
 
 const meta = {
-  title: "Components/OverlayMenuItem",
+  title: "Components/Overlay Menu Item",
   component: OverlayMenuItem,
 
   parameters: {

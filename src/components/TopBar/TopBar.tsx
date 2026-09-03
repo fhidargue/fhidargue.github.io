@@ -39,12 +39,12 @@ const TopBar = ({ className }: TopBarProps) => {
             <Logo size={40} theme={theme} />
             <Link
               to="/"
-              changed={isHome ? "FU7UR3" : "[ G0 B4CK ]"}
+              changed={isHome ? "F3L1PE" : "[ G0 B4CK ]"}
               isExternal={false}
               onClick={closeMenu}
             >
               <Text as="span" variant="roboto-large">
-                {isHome ? "FUTURE" : "[ GO BACK ]"}
+                {isHome ? "FELIPE" : "[ GO BACK ]"}
               </Text>
             </Link>
           </div>

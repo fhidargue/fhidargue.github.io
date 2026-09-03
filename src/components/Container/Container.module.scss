@@ -11,18 +11,6 @@
     padding: 0 utils.toRem(42px);
   }
 
-  @media #{variables.$screen-xl} {
-    padding: 0 utils.toRem(42px);
-  }
-
-  &__main {
-    margin-top: utils.toRem(104px);
-
-    @media #{variables.$screen-md} {
-      margin-top: utils.toRem(124px);
-    }
-  }
-
   &--story {
     padding: utils.toRem(40px);
   }

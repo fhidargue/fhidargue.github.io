@@ -1,0 +1,52 @@
+@use "@styles/abstracts/utils";
+
+.film-strip {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: utils.toRem(16px);
+
+  &__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+
+  &__item {
+    position: relative;
+    flex-shrink: 0;
+    margin-right: utils.toRem(16px);
+    overflow: hidden;
+
+    &--sm {
+      width: utils.toRem(240px);
+    }
+
+    &--md {
+      width: utils.toRem(360px);
+    }
+
+    &--lg {
+      width: utils.toRem(480px);
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+
+    &--sm {
+      border-radius: utils.toRem(28px);
+    }
+
+    &--md {
+      border-radius: utils.toRem(32px);
+    }
+
+    &--lg {
+      border-radius: utils.toRem(42px);
+    }
+  }
+}
