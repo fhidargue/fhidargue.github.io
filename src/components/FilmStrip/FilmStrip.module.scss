@@ -1,13 +1,19 @@
 @use "@styles/abstracts/utils";
 
 .film-strip {
-  position: relative;
   width: 100%;
   overflow: hidden;
   padding: utils.toRem(16px);
 
+  &--full-width {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+
   &__track {
     display: flex;
+    gap: utils.toRem(16px);
     width: max-content;
     will-change: transform;
   }
@@ -15,20 +21,7 @@
   &__item {
     position: relative;
     flex-shrink: 0;
-    margin-right: utils.toRem(16px);
     overflow: hidden;
-
-    &--sm {
-      width: utils.toRem(240px);
-    }
-
-    &--md {
-      width: utils.toRem(360px);
-    }
-
-    &--lg {
-      width: utils.toRem(480px);
-    }
   }
 
   &__image {

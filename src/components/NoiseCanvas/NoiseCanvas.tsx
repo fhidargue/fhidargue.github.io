@@ -8,6 +8,7 @@ interface NoiseCanvasProps {
   density?: number;
   speed?: number;
   pixelSize?: number;
+  borderRadius?: number;
   className?: string;
 }
 
@@ -16,6 +17,7 @@ const NoiseCanvas = ({
   density = 0.65,
   speed = 30,
   pixelSize = 1,
+  borderRadius = 0,
   className,
 }: NoiseCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -118,6 +120,7 @@ const NoiseCanvas = ({
       ref={canvasRef}
       aria-hidden="true"
       className={cx(styles["noise-canvas"], className)}
+      style={{ borderRadius }}
     />
   );
 };
