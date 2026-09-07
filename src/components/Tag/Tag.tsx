@@ -1,40 +1,35 @@
-import type { ReactNode } from "react";
-import { motion, type HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
+import cx from "classnames";
+
+import Text from "@components/Text/Text";
 
 import styles from "./Tag.module.scss";
-
-type TagVariant = "primary" | "secondary" | "alpha";
-
-interface TagProps extends HTMLMotionProps<"div"> {
-  variant?: TagVariant;
-  children: ReactNode;
-}
+import type { TagProps } from "./Tag.types";
 
 const Tag = ({
   variant = "primary",
+  textVariant = "roboto-small",
   children,
-  className = "",
+  isHovered = false,
+  className,
   ...props
 }: TagProps) => {
   const isAlpha = variant === "alpha";
 
   return (
     <motion.div
-      className={`${styles.tag} ${styles[`tag--${variant}`]} ${className}`}
+      className={cx(styles.tag, styles[`tag--${variant}`], className)}
       initial="initial"
       whileHover={isAlpha ? undefined : "hover"}
+      animate={isHovered ? "hover" : "initial"}
       {...props}
     >
       {!isAlpha && (
         <motion.span
           className={styles.tag__accent}
           variants={{
-            initial: {
-              y: "100%",
-            },
-            hover: {
-              y: "0%",
-            },
+            initial: { y: "100%" },
+            hover: { y: "0%" },
           }}
           transition={{
             duration: 0.45,
@@ -42,8 +37,11 @@ const Tag = ({
           }}
         />
       )}
-
-      <span className={styles.tag__content}>{children}</span>
+      <span className={styles.tag__content}>
+        <Text as="span" variant={textVariant}>
+          {children}
+        </Text>
+      </span>
     </motion.div>
   );
 };

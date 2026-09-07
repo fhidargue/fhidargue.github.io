@@ -1,0 +1,199 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { FramerLogoIcon, AppleLogoIcon } from "@phosphor-icons/react";
+import { MemoryRouter } from "react-router-dom";
+
+import useBreakpoints from "@hooks/useBreakpoints";
+
+import Card, { type CardProps } from "./Card";
+
+const meta = {
+  title: "Components/Card",
+  component: Card,
+  parameters: {
+    layout: "centered",
+  },
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
+} satisfies Meta<CardProps>;
+
+export default meta;
+
+type Story = StoryObj<CardProps>;
+
+export const Project: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 360 : 480}
+      />
+    );
+  },
+  args: {
+    variant: "project",
+    image: "/images/cards/man.png",
+    title: "HUD",
+    category: "AR/VR",
+    to: "/work/hud",
+    width: 480,
+    height: 480,
+    type: "image",
+    hasNoise: true,
+  },
+};
+
+export const TechStack: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 360 : 480}
+      />
+    );
+  },
+  args: {
+    variant: "tech-stack",
+    icon: <FramerLogoIcon size={96} weight="fill" />,
+    title: "Framer",
+    category: "WEBSITE BUILDER",
+    to: "/stack/framer",
+    width: 480,
+    height: 480,
+  },
+};
+
+export const Client: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 360 : 480}
+      />
+    );
+  },
+
+  args: {
+    variant: "client",
+    icon: <AppleLogoIcon size={120} weight="fill" />,
+    to: "/clients/apple",
+    width: 480,
+    height: 480,
+  },
+};
+
+export const Colophon: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 240 : 320}
+      />
+    );
+  },
+
+  args: {
+    variant: "colophon",
+    video: "/videos/bunny.mp4",
+    thumbnail: "/images/film-strip/pc.png",
+    title: "Inter by Rasmus Andersson",
+    category: "TYPOGRAPHY",
+    to: "/work",
+    width: 480,
+    height: 320,
+    hasNoise: true,
+  },
+};
+
+export const Award: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 720}
+        height={isMobile ? 104 : 96}
+      />
+    );
+  },
+
+  args: {
+    variant: "award",
+    category: "WEBSITE",
+    title: "AWARD",
+    year: "2022",
+    to: "/awards/example",
+    width: 720,
+    height: 96,
+  },
+};
+
+export const PlaygroundImage: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 360 : 480}
+      />
+    );
+  },
+
+  args: {
+    variant: "playground",
+    media: "/images/cards/man.png",
+    title: "Image Study",
+    category: "PLAYGROUND",
+    to: "/playground/image",
+    width: 480,
+    height: 480,
+    type: "image",
+    hasNoise: true,
+  },
+};
+
+export const PlaygroundVideo: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 240 : 320}
+      />
+    );
+  },
+
+  args: {
+    variant: "playground",
+    media: "/videos/bunny.mp4",
+    poster: "/images/film-strip/pc.png",
+    title: "Motion Study",
+    category: "PLAYGROUND",
+    to: "/playground/video",
+    width: 480,
+    height: 320,
+    type: "video",
+    hasNoise: true,
+  },
+};

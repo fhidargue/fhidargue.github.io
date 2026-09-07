@@ -29,7 +29,7 @@ const useTheme = () => {
 
     document.documentElement.setAttribute("data-theme", nextTheme);
 
-    sessionStorage.setItem("theme", nextTheme);
+    localStorage.setItem("theme", nextTheme);
   };
 
   return {

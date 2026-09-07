@@ -1,11 +1,5 @@
 import styles from "./Logo.module.scss";
-
-type LogoTheme = "light" | "dark";
-
-interface LogoProps {
-  theme?: LogoTheme;
-  size?: number;
-}
+import type { LogoProps } from "./Logo.types";
 
 const Logo = ({ theme = "dark", size = 48 }: LogoProps) => {
   const logo =

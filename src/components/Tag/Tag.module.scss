@@ -39,16 +39,29 @@
 
   &--primary {
     background-color: var(--color-tag);
-    color: var(--color-tag-text);
+
+    .tag__content,
+    .tag__content * {
+      color: var(--color-tag-text);
+    }
+
+    &:hover {
+      .tag__content,
+      .tag__content * {
+        color: var(--color-tag);
+      }
+    }
   }
 
   &--secondary {
     background-color: var(--color-tag-secondary);
+    border: utils.toRem(1px) solid var(--color-tag-border);
     color: var(--color-tag-text-secondary);
   }
 
   &--alpha {
     background-color: var(--color-tag-alpha);
-    color: var(--color-tag-text-secondary);
+    backdrop-filter: blur(utils.toRem(10px));
+    color: var(--color-tag-text-hover);
   }
 }

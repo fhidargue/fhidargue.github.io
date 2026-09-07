@@ -1,33 +1,15 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 
 import NoiseCanvas from "@components/NoiseCanvas/NoiseCanvas";
 
+import {
+  BORDER_RADII,
+  FILM_STRIP_GAP,
+  SLIDE_WIDTHS,
+  type FilmStripProps,
+} from "./FilmStrip.types";
 import styles from "./FilmStrip.module.scss";
-
-type FilmStripSize = "sm" | "md" | "lg";
-
-interface FilmStripProps {
-  images: string[];
-  size?: FilmStripSize;
-  speed?: number;
-  isFullWidth?: boolean;
-  className?: string;
-}
-
-const SLIDE_WIDTHS: Record<FilmStripSize, number> = {
-  sm: 240,
-  md: 360,
-  lg: 480,
-};
-
-const BORDER_RADII: Record<FilmStripSize, number> = {
-  sm: 28,
-  md: 32,
-  lg: 42,
-};
-
-const GAP = 16;
 
 const FilmStrip = ({
   images,
@@ -38,13 +20,12 @@ const FilmStrip = ({
 }: FilmStripProps) => {
   const filmStripRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-
   const animationFrameRef = useRef<number | null>(null);
   const positionRef = useRef(0);
   const lastTimeRef = useRef<number | null>(null);
 
   const slideWidth = SLIDE_WIDTHS[size];
-  const itemWidth = slideWidth + GAP;
+  const itemWidth = slideWidth + FILM_STRIP_GAP;
 
   const [visibleImages, setVisibleImages] = useState<string[]>(images);
 
@@ -57,17 +38,12 @@ const FilmStrip = ({
 
     const updateImages = () => {
       const containerWidth = container.clientWidth;
-
       const imagesPerViewport = Math.ceil(containerWidth / itemWidth) + 2;
-
       const requiredSets = Math.ceil(imagesPerViewport / images.length);
 
-      const repeatedImages = Array.from(
-        { length: requiredSets },
-        () => images,
-      ).flat();
-
-      setVisibleImages(repeatedImages);
+      setVisibleImages(
+        Array.from({ length: requiredSets }, () => images).flat(),
+      );
     };
 
     updateImages();
@@ -121,7 +97,6 @@ const FilmStrip = ({
 
       lastTimeRef.current = null;
       positionRef.current = 0;
-
       track.style.transform = "";
     };
   }, [visibleImages.length, itemWidth, speed]);
@@ -142,9 +117,7 @@ const FilmStrip = ({
           <div
             key={`${src}-${index}`}
             className={styles["film-strip__item"]}
-            style={{
-              width: `${slideWidth}px`,
-            }}
+            style={{ width: `${slideWidth}px` }}
           >
             <img
               src={src}
@@ -155,9 +128,9 @@ const FilmStrip = ({
               )}
             />
             <NoiseCanvas
-              opacity={0.25}
+              opacity={0.15}
               density={0.7}
-              speed={50}
+              speed={120}
               pixelSize={1}
               borderRadius={BORDER_RADII[size]}
             />

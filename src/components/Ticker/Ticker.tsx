@@ -32,7 +32,6 @@ const Ticker = ({ title1, title2, duration = 150, className }: TickerProps) => {
             <span className={styles["ticker__title--primary"]}>
               <Heading level={2}>{title1}</Heading>
             </span>
-
             <span className={styles["ticker__title--secondary"]}>
               <Heading level={2}>{title2}</Heading>
             </span>
