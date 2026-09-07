@@ -1,11 +1,16 @@
-import FilmStrip from "@components/FilmStrip/FilmStrip";
 import Container from "@components/Container/Container";
+import FilmStrip from "@components/FilmStrip/FilmStrip";
+import HomeBanner from "@components/HomeBanner/HomeBanner";
 
 const Home = () => {
   return (
     <main>
       <Container>
-        <h1>Home</h1>
+        <HomeBanner>
+          FELIPE
+          <br />
+          HIDALGO
+        </HomeBanner>
         <FilmStrip
           images={[
             "/images/film-strip/subway.png",

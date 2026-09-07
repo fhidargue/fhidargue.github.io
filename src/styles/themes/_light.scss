@@ -35,6 +35,10 @@
   --color-tag-text-secondary: #{variables.$black};
   --color-tag-text-hover: #{variables.$white};
 
+  // Status Indicator
+  --color-dot: #{variables.$black};
+  --color-dot-background: #{variables.$grey-300};
+
   // Border
   --color-border: rgba(0, 0, 0, 0.12);
 
