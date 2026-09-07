@@ -8,12 +8,6 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-  argTypes: {
-    size: {
-      control: "select",
-      options: ["sm", "md", "lg"],
-    },
-  },
   tags: ["autodocs"],
 } satisfies Meta<typeof FilmStrip>;
 
@@ -21,15 +15,31 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+const images = [
+  "/images/film-strip/subway.png",
+  "/images/film-strip/desk.png",
+  "/images/film-strip/stairs.png",
+  "/images/film-strip/deck.png",
+  "/images/film-strip/pc.png",
+];
+
+export const Small: Story = {
   args: {
-    images: [
-      "/images/film-strip/subway.png",
-      "/images/film-strip/desk.png",
-      "/images/film-strip/stairs.png",
-      "/images/film-strip/deck.png",
-      "/images/film-strip/pc.png",
-    ],
+    images,
+    size: "sm",
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    images,
     size: "md",
+  },
+};
+
+export const Large: Story = {
+  args: {
+    images,
+    size: "lg",
   },
 };

@@ -1,25 +1,10 @@
-import type { ReactNode } from "react";
-import { motion, type HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
 import cx from "classnames";
 
 import Text from "@components/Text/Text";
 
 import styles from "./Tag.module.scss";
-
-type TagVariant = "primary" | "secondary" | "alpha";
-
-type TagTextVariant =
-  | "paragraph-large"
-  | "paragraph-small"
-  | "roboto-large"
-  | "roboto-small";
-
-interface TagProps extends HTMLMotionProps<"div"> {
-  variant?: TagVariant;
-  textVariant?: TagTextVariant;
-  isHovered?: boolean;
-  children: ReactNode;
-}
+import type { TagProps } from "./Tag.types";
 
 const Tag = ({
   variant = "primary",

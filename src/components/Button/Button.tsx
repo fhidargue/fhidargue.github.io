@@ -1,18 +1,9 @@
-import type { ReactNode } from "react";
 import cx from "classnames";
 import { ArrowUpRightIcon } from "@phosphor-icons/react";
-import { motion, type HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
 
 import styles from "./Button.module.scss";
-
-type ButtonVariant = "primary" | "secondary" | "alpha";
-
-interface ButtonProps extends HTMLMotionProps<"button"> {
-  variant?: ButtonVariant;
-  children?: ReactNode;
-  iconOnly?: boolean;
-  iconSize?: number;
-}
+import type { ButtonProps, ButtonVariant } from "./Button.types";
 
 const Button = ({
   variant = "primary",
@@ -23,7 +14,31 @@ const Button = ({
   type = "button",
   ...props
 }: ButtonProps) => {
+  const getTextColor = (variant: ButtonVariant) => {
+    switch (variant) {
+      case "secondary":
+        return {
+          initial: "var(--color-button-text-secondary)",
+          hover: "var(--color-button-text-hover)",
+        };
+
+      case "alpha":
+        return {
+          initial: "var(--color-button-text-secondary)",
+          hover: "var(--color-button-text-secondary)",
+        };
+
+      case "primary":
+      default:
+        return {
+          initial: "var(--color-button-text)",
+          hover: "var(--color-button-text-hover)",
+        };
+    }
+  };
+
   const isAlpha = variant === "alpha";
+  const textColor = getTextColor(variant);
 
   return (
     <motion.button
@@ -41,10 +56,10 @@ const Button = ({
       whileTap={isAlpha ? undefined : { scale: 0.97 }}
       variants={{
         initial: {
-          color: "var(--color-button-text)",
+          color: textColor.initial,
         },
         hover: {
-          color: "var(--color-button-text-hover)",
+          color: textColor.hover,
         },
       }}
       {...props}
@@ -66,7 +81,6 @@ const Button = ({
           }}
         />
       )}
-
       <span className={styles.button__content}>
         {iconOnly ? (
           <ArrowUpRightIcon

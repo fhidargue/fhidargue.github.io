@@ -144,3 +144,56 @@ export const Award: Story = {
     height: 96,
   },
 };
+
+export const PlaygroundImage: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 360 : 480}
+      />
+    );
+  },
+
+  args: {
+    variant: "playground",
+    media: "/images/cards/man.png",
+    title: "Image Study",
+    category: "PLAYGROUND",
+    to: "/playground/image",
+    width: 480,
+    height: 480,
+    type: "image",
+    hasNoise: true,
+  },
+};
+
+export const PlaygroundVideo: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 240 : 320}
+      />
+    );
+  },
+
+  args: {
+    variant: "playground",
+    media: "/videos/bunny.mp4",
+    poster: "/images/film-strip/pc.png",
+    title: "Motion Study",
+    category: "PLAYGROUND",
+    to: "/playground/video",
+    width: 480,
+    height: 320,
+    type: "video",
+    hasNoise: true,
+  },
+};

@@ -4,29 +4,7 @@ import cx from "classnames";
 import NoiseCanvas from "@components/NoiseCanvas/NoiseCanvas";
 
 import styles from "./Media.module.scss";
-
-type MediaType = "image" | "video";
-
-interface MediaProps {
-  src: string;
-  type?: MediaType;
-  alt?: string;
-  poster?: string;
-
-  width: number;
-  height: number;
-  scale?: number;
-
-  hasNoise?: boolean;
-  noiseOpacity?: number;
-  noiseDensity?: number;
-  noiseSpeed?: number;
-  noisePixelSize?: number;
-
-  borderRadius?: number;
-  isHovered?: boolean;
-  className?: string;
-}
+import type { MediaProps } from "./Media.types";
 
 const Media = ({
   src,

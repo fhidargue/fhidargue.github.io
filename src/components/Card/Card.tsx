@@ -9,72 +9,109 @@ import Text from "@components/Text/Text";
 
 import useA11yClick from "@hooks/useA11yClick";
 
+import type { CardProps } from "./Card.types";
 import styles from "./Card.module.scss";
 
-type ProjectCardProps = {
-  variant?: "project";
-  image: string;
-  title: string;
-  category: string;
-  to: string;
-  width: number;
-  height: number;
+type CardMediaProps = {
+  src: string;
   type?: "image" | "video";
+  alt: string;
   poster?: string;
-  hasNoise?: boolean;
-  className?: string;
-};
-
-type TechStackCardProps = {
-  variant: "tech-stack";
-  icon: ReactNode;
-  title: string;
-  category: string;
-  to: string;
-  width: number;
-  height: number;
-  className?: string;
-};
-
-type ClientCardProps = {
-  variant: "client";
-  icon: ReactNode;
-  to: string;
-  width: number;
-  height: number;
-  className?: string;
-};
-
-type ColophonCardProps = {
-  variant: "colophon";
-  video: string;
-  thumbnail: string;
-  title: string;
-  category: string;
-  to: string;
   width: number;
   height: number;
   hasNoise?: boolean;
-  className?: string;
+  isHovered: boolean;
 };
 
-type AwardCardProps = {
-  variant: "award";
-  category: string;
-  title: string;
-  year: string;
-  to: string;
-  width: number;
-  height: number;
-  className?: string;
+const CARD_TYPES = {
+  PROJECT: "project",
+  TECH_STACK: "tech-stack",
+  CLIENT: "client",
+  COLOPHON: "colophon",
+  AWARD: "award",
+  PLAYGROUND: "playground",
+} as const;
+
+const CardMedia = ({
+  src,
+  type = "image",
+  alt,
+  poster,
+  width,
+  height,
+  hasNoise = false,
+  isHovered,
+}: CardMediaProps) => (
+  <div className={styles["card__media"]}>
+    <Media
+      src={src}
+      type={type}
+      alt={alt}
+      poster={poster}
+      width={width}
+      height={height}
+      hasNoise={hasNoise}
+      borderRadius={32}
+      isHovered={isHovered}
+    />
+  </div>
+);
+
+type CardCategoryProps = {
+  children: ReactNode;
+  variant?: "alpha" | "secondary";
+  textVariant?: "roboto-large" | "roboto-small";
+  isHovered?: boolean;
 };
 
-export type CardProps =
-  | ProjectCardProps
-  | TechStackCardProps
-  | ClientCardProps
-  | ColophonCardProps
-  | AwardCardProps;
+const CardCategory = ({
+  children,
+  variant,
+  textVariant = "roboto-large",
+  isHovered = false,
+}: CardCategoryProps) => (
+  <div className={styles["card__category"]}>
+    {variant ? (
+      <Tag variant={variant} textVariant={textVariant} isHovered={isHovered}>
+        {children}
+      </Tag>
+    ) : (
+      <Text as="span" variant={textVariant}>
+        {children}
+      </Text>
+    )}
+  </div>
+);
+
+type CardTitleProps = {
+  children: ReactNode;
+  variant:
+    | "section-title-small"
+    | "paragraph-large"
+    | "paragraph-small"
+    | "roboto-large";
+};
+
+const CardTitle = ({ children, variant }: CardTitleProps) => (
+  <div className={styles["card__title"]}>
+    <Text as="span" variant={variant}>
+      {children}
+    </Text>
+  </div>
+);
+
+const CardLink = ({ label }: { label: string }) => (
+  <div className={styles["card__link"]}>
+    <Button
+      className={styles["card__link-button"]}
+      variant="primary"
+      iconOnly
+      iconSize={24}
+      type="button"
+      aria-label={label}
+    />
+  </div>
+);
 
 const Card = (props: CardProps) => {
   const navigate = useNavigate();
@@ -86,239 +123,133 @@ const Card = (props: CardProps) => {
 
   const a11yProps = useA11yClick(handleClick, "link");
 
-  if ("image" in props) {
-    const {
-      image,
-      title,
-      category,
-      width,
-      height,
-      type = "image",
-      poster,
-      hasNoise = false,
-      className,
-    } = props;
-
-    return (
-      <article
-        className={cx(styles.card, styles["card--project"], className)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        {...a11yProps}
-      >
-        <div className={styles["card__media"]}>
-          <Media
-            src={image}
-            type={type}
-            alt={title}
-            poster={poster}
-            width={width}
-            height={height}
-            hasNoise={hasNoise}
-            borderRadius={32}
-            isHovered={isHovered}
-          />
-        </div>
-
-        <div className={styles["card__category"]}>
-          <Tag variant="alpha" textVariant="roboto-large" isHovered={isHovered}>
-            {category}
-          </Tag>
-        </div>
-
-        <div className={styles["card__title"]}>
-          <Text as="span" variant="section-title-small">
-            {title}
-          </Text>
-        </div>
-
-        <div className={styles["card__link"]}>
-          <Button
-            className={styles["card__link-button"]}
-            variant="primary"
-            iconOnly
-            iconSize={24}
-            type="button"
-            aria-label={`View ${title} project`}
-          />
-        </div>
-      </article>
-    );
-  }
-
-  if (props.variant === "tech-stack") {
-    const { icon, title, category, width, height, className } = props;
-
-    return (
-      <article
-        className={cx(styles.card, styles["card--tech-stack"], className)}
-        style={{ width, height }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        {...a11yProps}
-      >
-        <div className={styles["card__category"]}>
-          <Tag
-            variant="secondary"
-            textVariant="roboto-small"
-            isHovered={isHovered}
-          >
-            {category}
-          </Tag>
-        </div>
-
-        <div className={styles["card__icon"]}>{icon}</div>
-
-        <div className={styles["card__title"]}>
-          <Text as="span" variant="paragraph-large">
-            {title}
-          </Text>
-        </div>
-
-        <div className={styles["card__link"]}>
-          <Button
-            className={styles["card__link-button"]}
-            variant="primary"
-            iconOnly
-            iconSize={24}
-            type="button"
-            aria-label={`View ${title}`}
-          />
-        </div>
-      </article>
-    );
-  }
-
-  if (props.variant === "client") {
-    const { icon, width, height, className } = props;
-
-    return (
-      <article
-        className={cx(styles.card, styles["card--client"], className)}
-        style={{ width, height }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        {...a11yProps}
-      >
-        <div className={styles["card__icon"]}>{icon}</div>
-
-        <div className={styles["card__link"]}>
-          <Button
-            className={styles["card__link-button"]}
-            variant="primary"
-            iconOnly
-            iconSize={24}
-            type="button"
-            aria-label="View client"
-          />
-        </div>
-      </article>
-    );
-  }
-
-  if (props.variant === "colophon") {
-    const {
-      video,
-      thumbnail,
-      title,
-      category,
-      width,
-      height,
-      hasNoise = false,
-      className,
-    } = props;
-
-    return (
-      <article
-        className={cx(styles.card, styles["card--colophon"], className)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        {...a11yProps}
-      >
-        <div className={styles["card__media"]}>
-          <Media
-            src={video}
-            type="video"
-            alt={title}
-            poster={thumbnail}
-            width={width}
-            height={height}
-            hasNoise={hasNoise}
-            borderRadius={32}
-            isHovered={isHovered}
-          />
-        </div>
-        <div className={styles["card__category"]}>
-          <Tag
-            variant="secondary"
-            textVariant="roboto-large"
-            isHovered={isHovered}
-          >
-            {category}
-          </Tag>
-        </div>
-        <div className={styles["card__title"]}>
-          <Text as="span" variant="paragraph-small">
-            {title}
-          </Text>
-        </div>
-        <div className={styles["card__link"]}>
-          <Button
-            className={styles["card__link-button"]}
-            variant="primary"
-            iconOnly
-            iconSize={24}
-            type="button"
-            aria-label={`View ${title}`}
-          />
-        </div>
-      </article>
-    );
-  }
-
-  if (props.variant === "award") {
-    const { category, title, year, width, height, className } = props;
-
-    return (
-      <article
-        className={cx(styles.card, styles["card--award"], className)}
-        style={{ width, height }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        {...a11yProps}
-      >
-        <div className={styles["card__category"]}>
-          <Text as="span" variant="roboto-large">
-            {category}
-          </Text>
-        </div>
-        <div className={styles["card__title"]}>
-          <Text as="span" variant="roboto-large">
-            {title}
-          </Text>
-        </div>
-        <div className={styles["card__year-group"]}>
-          <div className={styles["card__year"]}>
-            <Text as="span" variant="roboto-large">
-              {year}
-            </Text>
-          </div>
-          <div className={styles["card__link"]}>
-            <Button
-              className={styles["card__link-button"]}
-              variant="primary"
-              iconOnly
-              iconSize={24}
-              type="button"
-              aria-label={`View ${title}`}
+  const renderContent = () => {
+    switch (props.variant) {
+      case CARD_TYPES.PROJECT:
+        return (
+          <>
+            <CardMedia
+              src={props.image}
+              type={props.type}
+              alt={props.title}
+              poster={props.poster}
+              width={props.width}
+              height={props.height}
+              hasNoise={props.hasNoise}
+              isHovered={isHovered}
             />
-          </div>
-        </div>
-      </article>
-    );
-  }
+            <CardCategory variant="alpha" isHovered={isHovered}>
+              {props.category}
+            </CardCategory>
+            <CardTitle variant="section-title-small">{props.title}</CardTitle>
+            <CardLink label={`View ${props.title} project`} />
+          </>
+        );
 
-  return null;
+      case CARD_TYPES.TECH_STACK:
+        return (
+          <>
+            <CardCategory
+              variant="secondary"
+              textVariant="roboto-small"
+              isHovered={isHovered}
+            >
+              {props.category}
+            </CardCategory>
+            <div className={styles["card__icon"]}>{props.icon}</div>
+            <CardTitle variant="paragraph-large">{props.title}</CardTitle>
+            <CardLink label={`View ${props.title}`} />
+          </>
+        );
+
+      case CARD_TYPES.CLIENT:
+        return (
+          <>
+            <div className={styles["card__icon"]}>{props.icon}</div>
+            <CardLink label="View client" />
+          </>
+        );
+
+      case CARD_TYPES.COLOPHON:
+        return (
+          <>
+            <CardMedia
+              src={props.video}
+              type="video"
+              alt={props.title}
+              poster={props.thumbnail}
+              width={props.width}
+              height={props.height}
+              hasNoise={props.hasNoise}
+              isHovered={isHovered}
+            />
+            <CardCategory variant="secondary" isHovered={isHovered}>
+              {props.category}
+            </CardCategory>
+            <CardTitle variant="paragraph-small">{props.title}</CardTitle>
+            <CardLink label={`View ${props.title}`} />
+          </>
+        );
+
+      case CARD_TYPES.AWARD:
+        return (
+          <>
+            <CardCategory>{props.category}</CardCategory>
+            <CardTitle variant="roboto-large">{props.title}</CardTitle>
+            <div className={styles["card__year-group"]}>
+              <div className={styles["card__year"]}>
+                <Text as="span" variant="roboto-large">
+                  {props.year}
+                </Text>
+              </div>
+              <CardLink label={`View ${props.title}`} />
+            </div>
+          </>
+        );
+
+      case CARD_TYPES.PLAYGROUND:
+        return (
+          <>
+            <CardMedia
+              src={props.media}
+              type={props.type}
+              alt={props.title}
+              poster={props.poster}
+              width={props.width}
+              height={props.height}
+              hasNoise={props.hasNoise}
+              isHovered={isHovered}
+            />
+            <CardCategory textVariant="roboto-small">
+              {props.category}
+            </CardCategory>
+            <CardTitle variant="paragraph-large">{props.title}</CardTitle>
+          </>
+        );
+    }
+  };
+
+  const variantClass = styles[`card--${props.variant}`];
+
+  const style =
+    props.variant === "project" || props.variant === "playground"
+      ? undefined
+      : {
+          width: props.width,
+          height: props.height,
+        };
+
+  return (
+    <article
+      className={cx(styles.card, variantClass, props.className)}
+      style={style}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      {...a11yProps}
+    >
+      {renderContent()}
+    </article>
+  );
 };
 
 export default Card;

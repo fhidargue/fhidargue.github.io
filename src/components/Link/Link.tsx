@@ -4,58 +4,27 @@ import {
   useMemo,
   useRef,
   useState,
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  type ReactElement,
-  type ReactNode,
+  type MouseEvent,
+  type MouseEventHandler,
 } from "react";
 import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import { Link as RouterLink } from "react-router-dom";
 
+import type { LinkProps } from "./Link.types";
 import styles from "./Link.module.scss";
 
-type LinkChild = ReactElement<{
-  children?: ReactNode;
-}>;
+const UNDERLINE_DURATION_MS = 320;
 
-interface InternalLinkProps {
-  as?: "a";
-  to: string;
-  isExternal: false;
-  changed: string;
-  children: LinkChild;
-  className?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-  onMouseEnter?: React.MouseEventHandler<HTMLAnchorElement>;
-  onMouseLeave?: React.MouseEventHandler<HTMLAnchorElement>;
-}
-
-interface ExternalLinkProps extends Omit<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  "children" | "href"
-> {
-  as?: "a";
-  href: string;
-  isExternal: true;
-  changed: string;
-  children: LinkChild;
-}
-
-interface ButtonLinkProps extends Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  "children"
-> {
-  as: "button";
-  changed: string;
-  children: LinkChild;
-}
-
-export type LinkProps = InternalLinkProps | ExternalLinkProps | ButtonLinkProps;
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 const Link = (props: LinkProps) => {
   const { children, changed, className = "" } = props;
 
   const [isHovered, setIsHovered] = useState(false);
+  const [scaleX, setScaleX] = useState(0);
+
+  const scaleXRef = useRef(0);
+  const rafRef = useRef<number | null>(null);
 
   const original = useMemo(() => {
     const childContent = children.props.children;
@@ -70,25 +39,13 @@ const Link = (props: LinkProps) => {
   const suffix = textMatch?.[3] ?? "";
 
   const changedTextMatch = changed.match(/^(\[\s*)(.*?)(\s*\])$/);
-
   const changedText = changedTextMatch?.[2] ?? changed;
 
   const originalCharacters = useMemo(() => Array.from(text), [text]);
-
   const changedCharacters = useMemo(
     () => Array.from(changedText),
     [changedText],
   );
-
-  // Underline animation
-  const [scaleX, setScaleX] = useState(0);
-
-  const scaleXRef = useRef(0);
-  const rafRef = useRef<number | null>(null);
-
-  const UNDERLINE_DURATION_MS = 320;
-
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
   useEffect(() => {
     if (rafRef.current !== null) {
@@ -114,10 +71,7 @@ const Link = (props: LinkProps) => {
       }
 
       const progress = Math.min((timestamp - startTime) / duration, 1);
-
-      const easedProgress = easeOutCubic(progress);
-
-      const next = startScale + delta * easedProgress;
+      const next = startScale + delta * easeOutCubic(progress);
 
       scaleXRef.current = next;
       setScaleX(next);
@@ -143,7 +97,6 @@ const Link = (props: LinkProps) => {
     <>
       {originalCharacters.map((character, index) => {
         const changedCharacter = changedCharacters[index] ?? character;
-
         const hasChanged = character !== changedCharacter;
 
         if (character === " ") {
@@ -212,13 +165,24 @@ const Link = (props: LinkProps) => {
     </span>
   );
 
-  // Button
+  const handleMouseEnter = (
+    event: MouseEvent<HTMLElement>,
+    callback?: MouseEventHandler<HTMLElement>,
+  ) => {
+    setIsHovered(true);
+    callback?.(event);
+  };
+
+  const handleMouseLeave = (
+    event: MouseEvent<HTMLElement>,
+    callback?: MouseEventHandler<HTMLElement>,
+  ) => {
+    setIsHovered(false);
+    callback?.(event);
+  };
+
   if (props.as === "button") {
     const {
-      as: _as,
-      changed: _changed,
-      children: _children,
-      className: _className,
       onMouseEnter,
       onMouseLeave,
       type = "button",
@@ -230,35 +194,17 @@ const Link = (props: LinkProps) => {
         {...buttonProps}
         type={type}
         className={`${styles.link} ${className}`}
-        onMouseEnter={(event) => {
-          setIsHovered(true);
-          onMouseEnter?.(event);
-        }}
-        onMouseLeave={(event) => {
-          setIsHovered(false);
-          onMouseLeave?.(event);
-        }}
+        onMouseEnter={(event) => handleMouseEnter(event, onMouseEnter)}
+        onMouseLeave={(event) => handleMouseLeave(event, onMouseLeave)}
       >
         {content(false)}
       </button>
     );
   }
 
-  // External link
   if (props.isExternal) {
-    const {
-      as: _as,
-      changed: _changed,
-      children: _children,
-      className: _className,
-      isExternal: _isExternal,
-      href,
-      target,
-      rel,
-      onMouseEnter,
-      onMouseLeave,
-      ...anchorProps
-    } = props;
+    const { href, target, rel, onMouseEnter, onMouseLeave, ...anchorProps } =
+      props;
 
     return (
       <a
@@ -267,48 +213,23 @@ const Link = (props: LinkProps) => {
         className={`${styles.link} ${className}`}
         target={target ?? "_blank"}
         rel={rel ?? "noopener noreferrer"}
-        onMouseEnter={(event) => {
-          setIsHovered(true);
-          onMouseEnter?.(event);
-        }}
-        onMouseLeave={(event) => {
-          setIsHovered(false);
-          onMouseLeave?.(event);
-        }}
+        onMouseEnter={(event) => handleMouseEnter(event, onMouseEnter)}
+        onMouseLeave={(event) => handleMouseLeave(event, onMouseLeave)}
       >
         {content(true)}
       </a>
     );
   }
 
-  // Internal React Router link
-  const {
-    as: _as,
-    changed: _changed,
-    children: _children,
-    className: _className,
-    isExternal: _isExternal,
-    to,
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-  } = props;
+  const { to, onClick, onMouseEnter, onMouseLeave } = props;
 
   return (
     <RouterLink
       to={to}
       className={`${styles.link} ${className}`}
-      onMouseEnter={(event) => {
-        setIsHovered(true);
-        onMouseEnter?.(event);
-      }}
-      onMouseLeave={(event) => {
-        setIsHovered(false);
-        onMouseLeave?.(event);
-      }}
-      onClick={(event) => {
-        onClick?.(event);
-      }}
+      onMouseEnter={(event) => handleMouseEnter(event, onMouseEnter)}
+      onMouseLeave={(event) => handleMouseLeave(event, onMouseLeave)}
+      onClick={onClick}
     >
       {content(false)}
     </RouterLink>

@@ -207,6 +207,33 @@
     }
   }
 
+  &--playground {
+    width: max-content;
+    border-radius: 0;
+    overflow: visible;
+
+    .card__category {
+      margin-top: utils.toRem(12px);
+
+      & span {
+        color: var(--color-text-secondary);
+      }
+    }
+
+    .card__title {
+      margin-top: utils.toRem(4px);
+    }
+
+    .card__category,
+    .card__title {
+      padding: 0 utils.toRem(16px);
+
+      @media #{variables.$screen-md} {
+        padding: 0 utils.toRem(28px);
+      }
+    }
+  }
+
   &__media {
     position: relative;
     z-index: 1;
