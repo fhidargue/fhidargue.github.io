@@ -155,9 +155,9 @@ const FilmStrip = ({
               )}
             />
             <NoiseCanvas
-              opacity={0.25}
+              opacity={0.15}
               density={0.7}
-              speed={50}
+              speed={120}
               pixelSize={1}
               borderRadius={BORDER_RADII[size]}
             />

@@ -1,52 +1,55 @@
+@use "@styles/abstracts/variables";
+
 :root {
   color-scheme: dark;
 
   // Background
-  --color-background: #000000;
+  --color-background: #{variables.$black};
 
   // Text
-  --color-text: #ffffff;
-  --color-text-secondary: #a3a3a3;
-  --color-text-tertiary: #3d3d3d;
-  --color-text-inverse: #000000;
-  --color-text-link: #ffffff;
+  --color-text: #{variables.$white};
+  --color-text-secondary: #{variables.$grey-300};
+  --color-text-tertiary: #{variables.$grey-600};
+  --color-text-inverse: #{variables.$black};
+  --color-text-link: #{variables.$white};
 
   // Cards
-  --color-card: #141414;
-  --color-card-hover: #292929;
+  --color-card: #{variables.$grey-800};
+  --color-card-hover: #{variables.$grey-700};
 
   // Buttons CTA
-  --color-button: #ffffff;
-  --color-button-secondary: #000000;
-  --color-button-alpha: #0f0f0f;
-  --color-button-text: #000000;
-  --color-button-text-secondary: #ffffff;
-  --color-button-text-hover: #ffffff;
+  --color-button: #{variables.$white};
+  --color-button-secondary: #{variables.$black};
+  --color-button-alpha: rgba(15, 15, 15, 60%);
+  --color-button-text: #{variables.$black};
+  --color-button-text-secondary: #{variables.$white};
+  --color-button-text-hover: #{variables.$white};
 
   // Tags
-  --color-tag: #ffffff;
-  --color-tag-secondary: #000000;
-  --color-tag-alpha: #0f0f0f;
-  --color-tag-text: #000000;
-  --color-tag-text-secondary: #ffffff;
-  --color-tag-text-hover: #ffffff;
+  --color-tag: #{variables.$white};
+  --color-tag-secondary: #{variables.$black};
+  --color-tag-border: rgba(255, 255, 255, 0.24);
+  --color-tag-alpha: rgba(15, 15, 15, 60%);
+  --color-tag-text: #{variables.$black};
+  --color-tag-text-secondary: #{variables.$white};
+  --color-tag-text-hover: #{variables.$white};
 
   // Border
-  --color-border: rgba(#ffffff, 0.24);
+  --color-border: rgba(255, 255, 255, 0.24);
 
   // Icons
-  --color-icon: #ffffff;
-  --color-icon-inverse: #000000;
+  --color-icon: #{variables.$white};
+  --color-icon-inverse: #{variables.$black};
 
   // Accents
-  --color-accent: #ff2200;
-  --color-accent-alpha: rgba(#ff2200, 0.48);
+  --color-accent: #{variables.$red};
+  --color-accent-alpha: rgba(255, 34, 0, 0.48);
 
   // Tint
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --color-black: #{variables.$black};
+  --color-white: #{variables.$white};
 
   // Materials
-  --color-glass: rgba(#000000, 0.36);
-  --color-transparent: rgba(#000000, 0);
+  --color-glass: rgba(0, 0, 0, 0.36);
+  --color-transparent: rgba(0, 0, 0, 0);
 }

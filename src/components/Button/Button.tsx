@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import cx from "classnames";
 import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import { motion, type HTMLMotionProps } from "motion/react";
 
@@ -10,13 +11,15 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: ButtonVariant;
   children?: ReactNode;
   iconOnly?: boolean;
+  iconSize?: number;
 }
 
 const Button = ({
   variant = "primary",
   children,
   iconOnly = false,
-  className = "",
+  iconSize = 52,
+  className,
   type = "button",
   ...props
 }: ButtonProps) => {
@@ -25,12 +28,25 @@ const Button = ({
   return (
     <motion.button
       type={type}
-      className={`${styles.button} ${styles[`button--${variant}`]} ${
-        iconOnly ? styles["button--icon-only"] : ""
-      } ${className}`}
+      className={cx(
+        styles.button,
+        styles[`button--${variant}`],
+        {
+          [styles["button--icon-only"]]: iconOnly,
+        },
+        className,
+      )}
       initial="initial"
       whileHover={isAlpha ? undefined : "hover"}
       whileTap={isAlpha ? undefined : { scale: 0.97 }}
+      variants={{
+        initial: {
+          color: "var(--color-button-text)",
+        },
+        hover: {
+          color: "var(--color-button-text-hover)",
+        },
+      }}
       {...props}
     >
       {!isAlpha && (
@@ -53,7 +69,11 @@ const Button = ({
 
       <span className={styles.button__content}>
         {iconOnly ? (
-          <ArrowUpRightIcon size={52} weight="regular" aria-hidden="true" />
+          <ArrowUpRightIcon
+            size={iconSize}
+            weight="regular"
+            aria-hidden="true"
+          />
         ) : (
           children
         )}
