@@ -45,7 +45,36 @@ type ClientCardProps = {
   className?: string;
 };
 
-export type CardProps = ProjectCardProps | TechStackCardProps | ClientCardProps;
+type ColophonCardProps = {
+  variant: "colophon";
+  video: string;
+  thumbnail: string;
+  title: string;
+  category: string;
+  to: string;
+  width: number;
+  height: number;
+  hasNoise?: boolean;
+  className?: string;
+};
+
+type AwardCardProps = {
+  variant: "award";
+  category: string;
+  title: string;
+  year: string;
+  to: string;
+  width: number;
+  height: number;
+  className?: string;
+};
+
+export type CardProps =
+  | ProjectCardProps
+  | TechStackCardProps
+  | ClientCardProps
+  | ColophonCardProps
+  | AwardCardProps;
 
 const Card = (props: CardProps) => {
   const navigate = useNavigate();
@@ -182,6 +211,108 @@ const Card = (props: CardProps) => {
             type="button"
             aria-label="View client"
           />
+        </div>
+      </article>
+    );
+  }
+
+  if (props.variant === "colophon") {
+    const {
+      video,
+      thumbnail,
+      title,
+      category,
+      width,
+      height,
+      hasNoise = false,
+      className,
+    } = props;
+
+    return (
+      <article
+        className={cx(styles.card, styles["card--colophon"], className)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        {...a11yProps}
+      >
+        <div className={styles["card__media"]}>
+          <Media
+            src={video}
+            type="video"
+            alt={title}
+            poster={thumbnail}
+            width={width}
+            height={height}
+            hasNoise={hasNoise}
+            borderRadius={32}
+            isHovered={isHovered}
+          />
+        </div>
+        <div className={styles["card__category"]}>
+          <Tag
+            variant="secondary"
+            textVariant="roboto-large"
+            isHovered={isHovered}
+          >
+            {category}
+          </Tag>
+        </div>
+        <div className={styles["card__title"]}>
+          <Text as="span" variant="paragraph-small">
+            {title}
+          </Text>
+        </div>
+        <div className={styles["card__link"]}>
+          <Button
+            className={styles["card__link-button"]}
+            variant="primary"
+            iconOnly
+            iconSize={24}
+            type="button"
+            aria-label={`View ${title}`}
+          />
+        </div>
+      </article>
+    );
+  }
+
+  if (props.variant === "award") {
+    const { category, title, year, width, height, className } = props;
+
+    return (
+      <article
+        className={cx(styles.card, styles["card--award"], className)}
+        style={{ width, height }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        {...a11yProps}
+      >
+        <div className={styles["card__category"]}>
+          <Text as="span" variant="roboto-large">
+            {category}
+          </Text>
+        </div>
+        <div className={styles["card__title"]}>
+          <Text as="span" variant="roboto-large">
+            {title}
+          </Text>
+        </div>
+        <div className={styles["card__year-group"]}>
+          <div className={styles["card__year"]}>
+            <Text as="span" variant="roboto-large">
+              {year}
+            </Text>
+          </div>
+          <div className={styles["card__link"]}>
+            <Button
+              className={styles["card__link-button"]}
+              variant="primary"
+              iconOnly
+              iconSize={24}
+              type="button"
+              aria-label={`View ${title}`}
+            />
+          </div>
         </div>
       </article>
     );

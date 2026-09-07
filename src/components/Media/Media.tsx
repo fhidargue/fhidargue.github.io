@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import cx from "classnames";
 
 import NoiseCanvas from "@components/NoiseCanvas/NoiseCanvas";
@@ -42,41 +42,31 @@ const Media = ({
   noiseSpeed = 120,
   noisePixelSize = 1,
   borderRadius = 0,
-  isHovered = false,
+  isHovered,
   className,
 }: MediaProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleMouseEnter = () => {
+  useEffect(() => {
     if (type !== "video") {
       return;
     }
 
     const video = videoRef.current;
 
-    if (!video) {
+    if (!video || isHovered === undefined) {
       return;
     }
 
-    video.play().catch(() => {
-      // Playback was prevented by the browser.
-    });
-  };
-
-  const handleMouseLeave = () => {
-    if (type !== "video") {
-      return;
+    if (isHovered) {
+      video.play().catch(() => {
+        // Playback was prevented by the browser.
+      });
+    } else {
+      video.pause();
+      video.currentTime = 0;
     }
-
-    const video = videoRef.current;
-
-    if (!video) {
-      return;
-    }
-
-    video.pause();
-    video.currentTime = 0;
-  };
+  }, [isHovered, type]);
 
   return (
     <div
@@ -93,8 +83,6 @@ const Media = ({
           "--media-scale": scale,
         } as React.CSSProperties
       }
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {type === "video" ? (
         <>
@@ -123,7 +111,6 @@ const Media = ({
           alt={alt}
         />
       )}
-
       {hasNoise && (
         <NoiseCanvas
           opacity={noiseOpacity}

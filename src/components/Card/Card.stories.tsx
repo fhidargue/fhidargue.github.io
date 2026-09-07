@@ -94,3 +94,53 @@ export const Client: Story = {
     height: 480,
   },
 };
+
+export const Colophon: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 480}
+        height={isMobile ? 240 : 320}
+      />
+    );
+  },
+
+  args: {
+    variant: "colophon",
+    video: "/videos/bunny.mp4",
+    thumbnail: "/images/film-strip/pc.png",
+    title: "Inter by Rasmus Andersson",
+    category: "TYPOGRAPHY",
+    to: "/work",
+    width: 480,
+    height: 320,
+    hasNoise: true,
+  },
+};
+
+export const Award: Story = {
+  render: (args: CardProps) => {
+    const { isMobile } = useBreakpoints();
+
+    return (
+      <Card
+        {...args}
+        width={isMobile ? 360 : 720}
+        height={isMobile ? 104 : 96}
+      />
+    );
+  },
+
+  args: {
+    variant: "award",
+    category: "WEBSITE",
+    title: "AWARD",
+    year: "2022",
+    to: "/awards/example",
+    width: 720,
+    height: 96,
+  },
+};
