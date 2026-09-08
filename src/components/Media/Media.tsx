@@ -11,8 +11,6 @@ const Media = ({
   type = "image",
   alt = "",
   poster,
-  width,
-  height,
   scale = 1.25,
   hasNoise = false,
   noiseOpacity = 0.15,
@@ -55,8 +53,6 @@ const Media = ({
       )}
       style={
         {
-          width,
-          height,
           borderRadius,
           "--media-scale": scale,
         } as React.CSSProperties

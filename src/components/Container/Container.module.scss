@@ -11,6 +11,10 @@
     padding: 0 utils.toRem(42px);
   }
 
+  @media #{variables.$screen-lg} {
+    max-width: utils.toRem(1440px);
+  }
+
   &--story {
     padding: utils.toRem(40px);
   }

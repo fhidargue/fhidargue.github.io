@@ -2,7 +2,7 @@
 
 .status-indicator {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: utils.toRem(12px);
 
   & p {
