@@ -1,0 +1,66 @@
+@use "@styles/abstracts/utils";
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: utils.toRem(12px);
+
+  & p {
+    min-width: 0;
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+
+  &__dot {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: utils.toRem(24px);
+    height: utils.toRem(24px);
+    flex-shrink: 0;
+    border-radius: 50%;
+    margin-top: utils.toRem(2px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: utils.toRem(12px);
+      height: utils.toRem(12px);
+      border-radius: 50%;
+      background-color: var(--color-dot);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: utils.toRem(24px);
+      height: utils.toRem(24px);
+      border-radius: 50%;
+      background-color: var(--color-dot-background);
+      transform: translate(-50%, -50%) scale(0.333);
+      transform-origin: center;
+      animation: status-indicator-breathe 2.2s cubic-bezier(0.45, 0, 0.55, 1)
+        infinite;
+    }
+  }
+}
+
+@keyframes status-indicator-breathe {
+  0%,
+  100% {
+    opacity: 0.01;
+    transform: translate(-50%, -50%) scale(0.333);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

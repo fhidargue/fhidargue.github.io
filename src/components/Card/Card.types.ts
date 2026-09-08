@@ -6,8 +6,6 @@ export type ProjectCardProps = {
   title: string;
   category: string;
   to: string;
-  width: number;
-  height: number;
   type?: "image" | "video";
   poster?: string;
   hasNoise?: boolean;
@@ -20,8 +18,6 @@ export type TechStackCardProps = {
   title: string;
   category: string;
   to: string;
-  width: number;
-  height: number;
   className?: string;
 };
 
@@ -29,8 +25,6 @@ export type ClientCardProps = {
   variant: "client";
   icon: ReactNode;
   to: string;
-  width: number;
-  height: number;
   className?: string;
 };
 
@@ -41,8 +35,6 @@ export type ColophonCardProps = {
   title: string;
   category: string;
   to: string;
-  width: number;
-  height: number;
   hasNoise?: boolean;
   className?: string;
 };
@@ -53,8 +45,6 @@ export type AwardCardProps = {
   title: string;
   year: string;
   to: string;
-  width: number;
-  height: number;
   className?: string;
 };
 
@@ -64,8 +54,6 @@ export type PlaygroundCardProps = {
   title: string;
   category: string;
   to: string;
-  width: number;
-  height: number;
   type?: "image" | "video";
   poster?: string;
   hasNoise?: boolean;

@@ -1,3 +1,9 @@
+@use "@styles/abstracts/utils";
+
 .home {
   min-height: 100vh;
+
+  &__grid {
+    padding: 0 utils.toRem(16px);
+  }
 }

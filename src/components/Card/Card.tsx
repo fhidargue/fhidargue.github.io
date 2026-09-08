@@ -17,8 +17,6 @@ type CardMediaProps = {
   type?: "image" | "video";
   alt: string;
   poster?: string;
-  width: number;
-  height: number;
   hasNoise?: boolean;
   isHovered: boolean;
 };
@@ -37,8 +35,6 @@ const CardMedia = ({
   type = "image",
   alt,
   poster,
-  width,
-  height,
   hasNoise = false,
   isHovered,
 }: CardMediaProps) => (
@@ -48,8 +44,6 @@ const CardMedia = ({
       type={type}
       alt={alt}
       poster={poster}
-      width={width}
-      height={height}
       hasNoise={hasNoise}
       borderRadius={32}
       isHovered={isHovered}
@@ -133,8 +127,6 @@ const Card = (props: CardProps) => {
               type={props.type}
               alt={props.title}
               poster={props.poster}
-              width={props.width}
-              height={props.height}
               hasNoise={props.hasNoise}
               isHovered={isHovered}
             />
@@ -178,8 +170,6 @@ const Card = (props: CardProps) => {
               type="video"
               alt={props.title}
               poster={props.thumbnail}
-              width={props.width}
-              height={props.height}
               hasNoise={props.hasNoise}
               isHovered={isHovered}
             />
@@ -215,8 +205,6 @@ const Card = (props: CardProps) => {
               type={props.type}
               alt={props.title}
               poster={props.poster}
-              width={props.width}
-              height={props.height}
               hasNoise={props.hasNoise}
               isHovered={isHovered}
             />
@@ -231,18 +219,9 @@ const Card = (props: CardProps) => {
 
   const variantClass = styles[`card--${props.variant}`];
 
-  const style =
-    props.variant === "project" || props.variant === "playground"
-      ? undefined
-      : {
-          width: props.width,
-          height: props.height,
-        };
-
   return (
     <article
       className={cx(styles.card, variantClass, props.className)}
-      style={style}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       {...a11yProps}

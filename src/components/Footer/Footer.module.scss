@@ -3,10 +3,14 @@
 
 .footer {
   width: 100%;
-  padding: utils.toRem(32px) 0;
+  padding: utils.toRem(48px) 0;
 
   @media #{variables.$screen-md} {
-    padding: utils.toRem(42px) 0;
+    padding: utils.toRem(64px) 0 utils.toRem(48px);
+  }
+
+  @media #{variables.$screen-lg} {
+    padding: utils.toRem(72px) 0 utils.toRem(52px);
   }
 
   &__container {
