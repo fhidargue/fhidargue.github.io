@@ -33,4 +33,12 @@
     white-space: normal;
     overflow-wrap: break-word;
   }
+
+  &__button {
+    margin-top: utils.toRem(32px);
+
+    @media #{variables.$screen-md} {
+      margin-top: utils.toRem(48px);
+    }
+  }
 }

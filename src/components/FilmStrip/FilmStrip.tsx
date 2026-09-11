@@ -49,7 +49,6 @@ const FilmStrip = ({
     updateImages();
 
     const resizeObserver = new ResizeObserver(updateImages);
-
     resizeObserver.observe(container);
 
     return () => {
