@@ -1,3 +1,59 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
 .about {
-  // min-height: 100vh;
+  &__description {
+    padding: utils.toRem(100px) utils.toRem(32px);
+
+    @media #{variables.$screen-md} {
+      padding: utils.toRem(140px) utils.toRem(32px);
+    }
+
+    @media #{variables.$screen-lg} {
+      padding: utils.toRem(150px) utils.toRem(172px);
+    }
+  }
+
+  &__clients {
+    @media #{variables.$screen-md} {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__client-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  &__awards {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(8px);
+  }
+
+  &__awards > * {
+    width: 100%;
+    height: utils.toRem(96px);
+  }
+
+  &__colophon-card {
+    width: 100%;
+    height: utils.toRem(240px);
+  }
+
+  &__banner-heading {
+    font-size: utils.toRem(64px);
+    line-height: utils.toRem(64px);
+
+    @media #{variables.$screen-md} {
+      font-size: utils.toRem(80px);
+      line-height: utils.toRem(72px);
+    }
+
+    @media #{variables.$screen-lg} {
+      margin-top: utils.toRem(52px);
+      font-size: utils.toRem(96px);
+      line-height: utils.toRem(88px);
+    }
+  }
 }

@@ -1,0 +1,19 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.sticky-section {
+  &__story {
+    width: 100%;
+  }
+
+  &__block {
+    width: 100%;
+    height: utils.toRem(200px);
+    background-color: variables.$grey-300;
+  }
+
+  &__client-card {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+}

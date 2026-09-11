@@ -6,4 +6,5 @@ export interface HeadingProps {
   children: ReactNode;
   level?: HeadingLevel;
   className?: string;
+  id?: string;
 }

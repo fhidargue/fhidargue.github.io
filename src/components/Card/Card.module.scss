@@ -123,6 +123,18 @@
       background-color 500ms cubic-bezier(0.16, 1, 0.3, 1),
       border-color 500ms cubic-bezier(0.16, 1, 0.3, 1);
 
+    & span {
+      font-size: utils.toRem(14px);
+
+      @media screen and (min-width: 460px) {
+        font-size: utils.toRem(16px);
+      }
+
+      @media #{variables.$screen-sm} {
+        font-size: utils.toRem(20px);
+      }
+    }
+
     @media #{variables.$screen-md} {
       grid-template-columns: 1fr 1fr auto;
       grid-template-rows: 1fr;

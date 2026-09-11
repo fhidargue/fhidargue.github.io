@@ -1,0 +1,130 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.services {
+  padding: utils.toRem(100px) 0;
+
+  @media #{variables.$screen-md} {
+    padding: utils.toRem(120px) 0;
+  }
+
+  @media #{variables.$screen-lg} {
+    padding: utils.toRem(160px) 0;
+  }
+
+  &__heading {
+    margin-bottom: utils.toRem(32px);
+    text-align: center;
+
+    @media #{variables.$screen-md} {
+      margin-bottom: utils.toRem(48px);
+    }
+
+    @media #{variables.$screen-lg} {
+      margin-bottom: utils.toRem(64px);
+    }
+
+    & p {
+      margin: 0;
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__image {
+    width: utils.toRem(168px);
+    height: utils.toRem(104px);
+    flex-shrink: 0;
+    overflow: hidden;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media #{variables.$screen-md} {
+      display: none;
+    }
+
+    @media #{variables.$screen-lg} {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: utils.toRem(16px);
+
+    @media #{variables.$screen-lg} {
+      margin-bottom: utils.toRem(8px);
+    }
+
+    &--left {
+      .services__image {
+        order: 1;
+      }
+
+      .services__title {
+        order: 2;
+      }
+    }
+
+    &--right {
+      .services__title {
+        order: 1;
+      }
+
+      .services__image {
+        order: 2;
+      }
+    }
+
+    @media #{variables.$screen-md} {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    @media #{variables.$screen-lg} {
+      display: flex;
+      width: auto;
+      min-width: auto;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: utils.toRem(54px);
+    line-height: utils.toRem(54px);
+
+    @media #{variables.$screen-md} {
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+      font-size: utils.toRem(96px);
+      line-height: utils.toRem(88px);
+    }
+
+    @media #{variables.$screen-lg} {
+      width: auto;
+      min-width: auto;
+      text-align: left;
+      font-size: utils.toRem(120px);
+      line-height: utils.toRem(104px);
+    }
+  }
+}
