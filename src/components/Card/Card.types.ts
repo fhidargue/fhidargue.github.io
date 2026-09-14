@@ -58,6 +58,7 @@ export type PlaygroundCardProps = {
   poster?: string;
   hasNoise?: boolean;
   className?: string;
+  autoPlay?: boolean;
 };
 
 export type CardProps =

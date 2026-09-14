@@ -14,3 +14,19 @@
     @include typography.heading-1();
   }
 }
+
+@mixin banner-heading {
+  font-size: utils.toRem(64px);
+  line-height: utils.toRem(64px);
+
+  @media #{variables.$screen-md} {
+    font-size: utils.toRem(80px);
+    line-height: utils.toRem(72px);
+  }
+
+  @media #{variables.$screen-lg} {
+    margin-top: utils.toRem(52px);
+    font-size: utils.toRem(96px);
+    line-height: utils.toRem(88px);
+  }
+}

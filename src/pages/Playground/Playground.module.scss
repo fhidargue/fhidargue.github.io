@@ -1,5 +1,18 @@
 @use "@styles/abstracts/utils";
 @use "@styles/abstracts/variables";
+@use "@styles/abstracts/mixins";
+
+@mixin section-spacing {
+  padding: 0 utils.toRem(12px) utils.toRem(64px);
+
+  @media #{variables.$screen-md} {
+    padding: 0 utils.toRem(42px) utils.toRem(120px);
+  }
+
+  @media #{variables.$screen-lg} {
+    padding: 0 utils.toRem(42px) utils.toRem(148px);
+  }
+}
 
 .playground {
   &__container {
@@ -8,5 +21,53 @@
     @media #{variables.$screen-md} {
       margin-top: utils.toRem(-124px);
     }
+  }
+
+  &__grid-container {
+    padding: utils.toRem(64px) utils.toRem(12px);
+
+    @media #{variables.$screen-md} {
+      padding: utils.toRem(120px) utils.toRem(42px);
+    }
+
+    @media #{variables.$screen-lg} {
+      padding: utils.toRem(148px) utils.toRem(42px);
+    }
+
+    &--three-columns {
+      @include section-spacing;
+    }
+
+    &--left {
+      padding: 0 utils.toRem(12px) utils.toRem(96px);
+
+      @media #{variables.$screen-md} {
+        padding: 0 utils.toRem(42px) utils.toRem(120px);
+      }
+
+      @media #{variables.$screen-lg} {
+        padding: 0 utils.toRem(42px) utils.toRem(148px);
+      }
+    }
+  }
+
+  &__video-container {
+    @include section-spacing;
+  }
+
+  &__banner {
+    padding: 0 0 utils.toRem(64px);
+
+    @media #{variables.$screen-md} {
+      padding: 0 0 utils.toRem(92px);
+    }
+
+    @media #{variables.$screen-lg} {
+      padding: 0 0 utils.toRem(128px);
+    }
+  }
+
+  &__banner-heading {
+    @include mixins.banner-heading();
   }
 }
