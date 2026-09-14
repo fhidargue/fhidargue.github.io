@@ -1,5 +1,6 @@
 @use "@styles/abstracts/utils";
 @use "@styles/abstracts/variables";
+@use "@styles/abstracts/mixins";
 
 .home-banner {
   display: flex;
@@ -32,6 +33,8 @@
     margin-top: utils.toRem(32px);
     white-space: normal;
     overflow-wrap: break-word;
+
+    @include mixins.heading-title();
   }
 
   &__button {

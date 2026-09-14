@@ -1,0 +1,12 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.playground {
+  &__container {
+    margin-top: utils.toRem(-104px);
+
+    @media #{variables.$screen-md} {
+      margin-top: utils.toRem(-124px);
+    }
+  }
+}

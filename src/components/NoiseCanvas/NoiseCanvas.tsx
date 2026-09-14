@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import cx from "classnames";
-
 import styles from "./NoiseCanvas.module.scss";
 
 interface NoiseCanvasProps {
@@ -25,22 +24,19 @@ const NoiseCanvas = ({
   useEffect(() => {
     const canvas = canvasRef.current;
 
-    if (!canvas) {
-      return;
-    }
+    if (!canvas) return;
 
     const context = canvas.getContext("2d");
 
-    if (!context) {
-      return;
-    }
+    if (!context) return;
 
     const resizeCanvas = () => {
-      const rect = canvas.getBoundingClientRect();
+      const width = canvas.offsetWidth;
+      const height = canvas.offsetHeight;
       const dpr = window.devicePixelRatio || 1;
 
-      canvas.width = Math.ceil(rect.width * dpr);
-      canvas.height = Math.ceil(rect.height * dpr);
+      canvas.width = Math.ceil(width * dpr);
+      canvas.height = Math.ceil(height * dpr);
     };
 
     const renderNoise = () => {
@@ -48,14 +44,11 @@ const NoiseCanvas = ({
       const height = canvas.height;
       const dpr = window.devicePixelRatio || 1;
 
-      if (!width || !height) {
-        return;
-      }
+      if (!width || !height) return;
 
       context.clearRect(0, 0, width, height);
 
       const size = Math.max(1, Math.round(pixelSize * dpr));
-
       const columns = Math.ceil(width / size);
       const rows = Math.ceil(height / size);
 
@@ -64,9 +57,7 @@ const NoiseCanvas = ({
 
       for (let y = 0; y < rows; y += 1) {
         for (let x = 0; x < columns; x += 1) {
-          if (Math.random() > density) {
-            continue;
-          }
+          if (Math.random() > density) continue;
 
           // Dark grayscale noise
           const brightness = Math.floor(Math.random() * 35);
@@ -79,9 +70,7 @@ const NoiseCanvas = ({
               const pixelX = x * size + px;
               const pixelY = y * size + py;
 
-              if (pixelX >= width || pixelY >= height) {
-                continue;
-              }
+              if (pixelX >= width || pixelY >= height) continue;
 
               const index = (pixelY * width + pixelX) * 4;
 

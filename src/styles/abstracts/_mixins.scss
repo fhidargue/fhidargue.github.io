@@ -1,0 +1,16 @@
+@use "@styles/base/typography";
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+@mixin heading-title {
+  @include typography.section-title-large();
+  line-height: utils.toRem(58px);
+
+  @media #{variables.$screen-md} {
+    @include typography.heading-2();
+  }
+
+  @media #{variables.$screen-lg} {
+    @include typography.heading-1();
+  }
+}
