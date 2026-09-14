@@ -19,6 +19,7 @@ const Media = ({
   noisePixelSize = 1,
   borderRadius = 0,
   isHovered,
+  autoPlay = false,
   className,
 }: MediaProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -30,7 +31,19 @@ const Media = ({
 
     const video = videoRef.current;
 
-    if (!video || isHovered === undefined) {
+    if (!video) {
+      return;
+    }
+
+    if (autoPlay) {
+      video.play().catch(() => {
+        // Playback was prevented by the browser.
+      });
+
+      return;
+    }
+
+    if (isHovered === undefined) {
       return;
     }
 
@@ -42,13 +55,14 @@ const Media = ({
       video.pause();
       video.currentTime = 0;
     }
-  }, [isHovered, type]);
+  }, [autoPlay, isHovered, type]);
 
   return (
     <div
       className={cx(
         styles.media,
         isHovered && styles["media--hovered"],
+        autoPlay && styles["media--autoplay"],
         className,
       )}
       style={
@@ -67,9 +81,9 @@ const Media = ({
             muted
             loop
             playsInline
-            preload="metadata"
+            autoPlay={autoPlay}
+            preload="auto"
           />
-
           {poster && (
             <img
               className={cx(styles["media__content"], styles["media__poster"])}

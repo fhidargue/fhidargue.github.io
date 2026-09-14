@@ -27,14 +27,4 @@
     width: utils.toRem(720px);
     height: utils.toRem(96px);
   }
-
-  &--playground-image {
-    width: utils.toRem(480px);
-    height: utils.toRem(480px);
-  }
-
-  &--playground-video {
-    width: utils.toRem(480px);
-    height: utils.toRem(320px);
-  }
 }

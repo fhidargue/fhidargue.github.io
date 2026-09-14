@@ -13,5 +13,6 @@ export interface MediaProps {
   noisePixelSize?: number;
   borderRadius?: number;
   isHovered?: boolean;
+  autoPlay?: boolean;
   className?: string;
 }

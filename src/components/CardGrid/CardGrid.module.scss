@@ -6,8 +6,47 @@
   grid-template-columns: 1fr;
   gap: utils.toRem(14px);
 
-  @media #{variables.$screen-md} {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: utils.toRem(16px);
+  &--default {
+    @media #{variables.$screen-md} {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: utils.toRem(16px);
+    }
+  }
+
+  &--playground {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(64px);
+
+    @media #{variables.$screen-md} {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: utils.toRem(12px);
+    }
+
+    @media #{variables.$screen-lg} {
+      &.card-grid--featured-right {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      }
+
+      &.card-grid--featured-left {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      }
+    }
+  }
+
+  &--three-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: utils.toRem(64px);
+
+    > * {
+      aspect-ratio: 1 / 1;
+    }
+
+    @media #{variables.$screen-md} {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: utils.toRem(12px);
+    }
   }
 }

@@ -7,6 +7,7 @@ import TopBar from "@components/TopBar/TopBar";
 import Home from "@pages/Home/Home";
 import Work from "@pages/Work/Work";
 import About from "@pages/About/About";
+import Playground from "@pages/Playground/Playground";
 
 import "./styles/main.scss";
 
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/work" element={<Work />} />
             <Route path="/about" element={<About />} />
+            <Route path="/playground" element={<Playground />} />
           </Routes>
         </div>
         <Footer />

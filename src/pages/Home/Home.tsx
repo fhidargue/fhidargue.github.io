@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <main>
       <Container>
-        <HomeBanner>
+        <HomeBanner hasDot>
           FELIPE
           <br />
           HIDALGO

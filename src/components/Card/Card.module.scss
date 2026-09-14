@@ -223,8 +223,14 @@
   }
 
   &--playground {
+    height: max-content;
     border-radius: 0;
     overflow: visible;
+
+    .card__media {
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
 
     .card__category {
       margin-top: utils.toRem(12px);

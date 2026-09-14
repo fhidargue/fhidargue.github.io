@@ -19,6 +19,7 @@ type CardMediaProps = {
   poster?: string;
   hasNoise?: boolean;
   isHovered: boolean;
+  autoPlay?: boolean;
 };
 
 const CARD_TYPES = {
@@ -37,6 +38,7 @@ const CardMedia = ({
   poster,
   hasNoise = false,
   isHovered,
+  autoPlay = false,
 }: CardMediaProps) => (
   <div className={styles["card__media"]}>
     <Media
@@ -47,6 +49,7 @@ const CardMedia = ({
       hasNoise={hasNoise}
       borderRadius={32}
       isHovered={isHovered}
+      autoPlay={autoPlay}
     />
   </div>
 );
@@ -207,6 +210,7 @@ const Card = (props: CardProps) => {
               poster={props.poster}
               hasNoise={props.hasNoise}
               isHovered={isHovered}
+              autoPlay={props.autoPlay}
             />
             <CardCategory textVariant="roboto-small">
               {props.category}
