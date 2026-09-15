@@ -9,6 +9,7 @@ import Work from "@pages/Work/Work";
 import About from "@pages/About/About";
 import Playground from "@pages/Playground/Playground";
 import TechStack from "@pages/TechStack/TechStack";
+import Contact from "@pages/Contact/Contact";
 
 import "./styles/main.scss";
 
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/playground" element={<Playground />} />
             <Route path="/stack" element={<TechStack />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
         <Footer />

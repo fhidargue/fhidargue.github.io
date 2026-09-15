@@ -12,6 +12,7 @@ const Media = ({
   alt = "",
   poster,
   scale = 1.25,
+  hasParallax = false,
   hasNoise = false,
   noiseOpacity = 0.15,
   noiseDensity = 0.7,
@@ -62,6 +63,7 @@ const Media = ({
       className={cx(
         styles.media,
         isHovered && styles["media--hovered"],
+        hasParallax && styles["media--parallax"],
         autoPlay && styles["media--autoplay"],
         className,
       )}
@@ -69,6 +71,7 @@ const Media = ({
         {
           borderRadius,
           "--media-scale": scale,
+          "--media-background-image": `url(${src})`,
         } as React.CSSProperties
       }
     >
@@ -84,6 +87,7 @@ const Media = ({
             autoPlay={autoPlay}
             preload="auto"
           />
+
           {poster && (
             <img
               className={cx(styles["media__content"], styles["media__poster"])}
@@ -99,6 +103,7 @@ const Media = ({
           alt={alt}
         />
       )}
+
       {hasNoise && (
         <NoiseCanvas
           opacity={noiseOpacity}

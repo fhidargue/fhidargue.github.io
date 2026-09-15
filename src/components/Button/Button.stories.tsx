@@ -40,7 +40,7 @@ export const Primary: Story = {
     variant: "primary",
     iconOnly: false,
     children: (
-      <Text as="span" variant="paragraph-large">
+      <Text as="span" variant="paragraph-large" inheritColor>
         Button
       </Text>
     ),
@@ -110,7 +110,7 @@ export const AllVariants: Story = {
       }}
     >
       <Button variant="primary">
-        <Text as="span" variant="paragraph-large">
+        <Text as="span" variant="paragraph-large" inheritColor>
           Button
         </Text>
       </Button>

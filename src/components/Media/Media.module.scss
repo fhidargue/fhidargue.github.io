@@ -55,4 +55,15 @@
       opacity: 0;
     }
   }
+
+  &--parallax {
+    background-image: var(--media-background-image);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    .media__image {
+      opacity: 0;
+    }
+  }
 }

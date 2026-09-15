@@ -4,6 +4,10 @@
 
 .text {
   color: var(--color-text);
+
+  &--inherit {
+    color: inherit;
+  }
 }
 
 .section-title-large {

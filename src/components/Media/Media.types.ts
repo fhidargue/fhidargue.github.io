@@ -15,4 +15,5 @@ export interface MediaProps {
   isHovered?: boolean;
   autoPlay?: boolean;
   className?: string;
+  hasParallax?: boolean;
 }
