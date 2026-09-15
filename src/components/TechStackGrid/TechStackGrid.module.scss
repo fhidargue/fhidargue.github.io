@@ -1,0 +1,63 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.tech-stack-grid {
+  display: flex;
+  flex-direction: column;
+  gap: utils.toRem(12px);
+
+  &__featured,
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: utils.toRem(12px);
+  }
+
+  &__featured {
+    > * {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  &__items {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    > * {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  @media #{variables.$screen-md} {
+    &__featured {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      > * {
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    &__items {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media #{variables.$screen-lg} {
+    &__featured {
+      min-height: utils.toRem(384px);
+
+      > * {
+        aspect-ratio: 2 / 1;
+      }
+    }
+
+    &__items {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media #{variables.$screen-xl} {
+    &__featured {
+      min-height: utils.toRem(444px);
+    }
+  }
+}
