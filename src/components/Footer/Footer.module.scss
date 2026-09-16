@@ -4,6 +4,7 @@
 .footer {
   width: 100%;
   padding: utils.toRem(48px) 0;
+  position: relative;
 
   @media #{variables.$screen-md} {
     padding: utils.toRem(64px) 0 utils.toRem(48px);
@@ -13,7 +14,18 @@
     padding: utils.toRem(72px) 0 utils.toRem(52px);
   }
 
+  &__noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
   &__container {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
