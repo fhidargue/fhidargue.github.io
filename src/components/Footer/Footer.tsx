@@ -4,18 +4,36 @@ import Text from "@components/Text/Text";
 
 import styles from "./Footer.module.scss";
 
-const informationLinks = [
+type InformationLink =
+  | {
+      prefix: string;
+      label: string;
+      changed: string;
+      to: string;
+      isExternal: false;
+    }
+  | {
+      prefix: string;
+      label: string;
+      changed: string;
+      href: string;
+      isExternal: true;
+    };
+
+const informationLinks: InformationLink[] = [
   {
     prefix: "FUTURE FOLIO TEMPLATE FOR",
     label: "FRAMER",
     changed: "FR4MER",
     to: "#",
+    isExternal: false,
   },
   {
-    prefix: "BUILT AND",
-    label: "DESIGNED BY FELIPE",
-    changed: "DE5IGN3D BY F3L1PE",
-    to: "#",
+    prefix: "BUILT ",
+    label: "BY FELIPE",
+    changed: "BY F3L1PE",
+    href: "https://www.linkedin.com/in/fhidargue/",
+    isExternal: true,
   },
 ];
 
@@ -42,25 +60,41 @@ const Footer = () => {
     <footer className={styles.footer}>
       <Container className={styles["footer__container"]}>
         <div className={styles["footer__information"]}>
-          {informationLinks.map(({ prefix, label, changed, to }) => (
-            <div key={label} className={styles["footer__information-line"]}>
+          {informationLinks.map((link) => (
+            <div
+              key={link.label}
+              className={styles["footer__information-line"]}
+            >
               <Text
                 as="span"
                 variant="roboto-large"
                 className={styles["footer__information-text"]}
               >
-                {prefix}{" "}
+                {link.prefix}{" "}
               </Text>
-              <Link
-                to={to}
-                changed={changed}
-                isExternal={false}
-                className={styles["footer__information-link"]}
-              >
-                <Text as="span" variant="roboto-large">
-                  {label}
-                </Text>
-              </Link>
+              {link.isExternal ? (
+                <Link
+                  href={link.href}
+                  changed={link.changed}
+                  isExternal
+                  className={styles["footer__information-link"]}
+                >
+                  <Text as="span" variant="roboto-large">
+                    {link.label}
+                  </Text>
+                </Link>
+              ) : (
+                <Link
+                  to={link.to}
+                  changed={link.changed}
+                  isExternal={false}
+                  className={styles["footer__information-link"]}
+                >
+                  <Text as="span" variant="roboto-large">
+                    {link.label}
+                  </Text>
+                </Link>
+              )}
             </div>
           ))}
         </div>
