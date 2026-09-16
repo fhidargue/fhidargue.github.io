@@ -9,6 +9,9 @@ import Text from "@components/Text/Text";
 import ThemeToggle from "@components/ThemeToggle/ThemeToggle";
 import OverlayMenu from "@components/OverlayMenu/OverlayMenu";
 import useTheme from "@hooks/useTheme";
+import useIsNotFound from "@hooks/useIsNotFound";
+
+import { ROUTES } from "@constants/routes";
 
 import styles from "./TopBar.module.scss";
 
@@ -17,11 +20,25 @@ interface TopBarProps {
 }
 
 const TopBar = ({ className }: TopBarProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme } = useTheme();
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isNotFound = useIsNotFound();
 
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === ROUTES.HOME;
+
+  let linkText = "[ GO BACK ]";
+  let changedText = "[ G0 B4CK ]";
+
+  if (isHome) {
+    linkText = "FELIPE";
+    changedText = "F3L1PE";
+  }
+
+  if (isNotFound) {
+    linkText = "[ GO HOME ]";
+    changedText = "[ G0 H0M3 ]";
+  }
 
   const toggleMenu = () => {
     setIsMenuOpen((isOpen) => !isOpen);
@@ -38,13 +55,13 @@ const TopBar = ({ className }: TopBarProps) => {
           <div className={styles["top-bar__logo"]}>
             <Logo size={40} theme={theme} />
             <Link
-              to="/"
-              changed={isHome ? "F3L1PE" : "[ G0 B4CK ]"}
+              to={ROUTES.HOME}
+              changed={changedText}
               isExternal={false}
               onClick={closeMenu}
             >
               <Text as="span" variant="roboto-large">
-                {isHome ? "FELIPE" : "[ GO BACK ]"}
+                {linkText}
               </Text>
             </Link>
           </div>
@@ -63,6 +80,7 @@ const TopBar = ({ className }: TopBarProps) => {
           </nav>
         </Container>
       </header>
+
       <OverlayMenu isOpen={isMenuOpen} onClose={closeMenu} />
     </>
   );

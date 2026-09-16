@@ -1,0 +1,63 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+$shadow-border: utils.toRem(1.5px);
+
+.not-found {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: utils.toRem(-104px);
+
+  @media #{variables.$screen-md} {
+    margin-top: utils.toRem(-124px);
+  }
+
+  &__globe {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: utils.toRem(32px);
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+  }
+
+  &__ticker {
+    width: 100vw;
+    pointer-events: none;
+
+    :global([class*="ticker__title--secondary"]) {
+      opacity: 0.75;
+      text-shadow:
+        $shadow-border 0 0 var(--color-text),
+        -$shadow-border 0 0 var(--color-text),
+        0 $shadow-border 0 var(--color-text),
+        0 -$shadow-border 0 var(--color-text);
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import Container from "@components/Container/Container";
 import Link from "@components/Link/Link";
+import NoiseCanvas from "@components/NoiseCanvas/NoiseCanvas";
 import Text from "@components/Text/Text";
+import useIsNotFound from "@hooks/useIsNotFound";
 
 import styles from "./Footer.module.scss";
 
@@ -56,8 +58,15 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const isNotFound = useIsNotFound();
+
   return (
     <footer className={styles.footer}>
+      {isNotFound && (
+        <div className={styles["footer__noise"]}>
+          <NoiseCanvas opacity={0.15} density={0.7} speed={120} pixelSize={1} />
+        </div>
+      )}
       <Container className={styles["footer__container"]}>
         <div className={styles["footer__information"]}>
           {informationLinks.map((link) => (

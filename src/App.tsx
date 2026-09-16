@@ -12,6 +12,8 @@ import TechStack from "@pages/TechStack/TechStack";
 import Contact from "@pages/Contact/Contact";
 import NotFound from "@pages/NotFound/NotFound";
 
+import { ROUTES } from "@constants/routes";
+
 import "./styles/main.scss";
 
 const ScrollReset = () => {
@@ -41,12 +43,12 @@ const App = () => {
         <TopBar />
         <div className="app__content">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/playground" element={<Playground />} />
-            <Route path="/stack" element={<TechStack />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path={ROUTES.HOME} element={<Home />} />
+            <Route path={ROUTES.WORK} element={<Work />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
+            <Route path={ROUTES.STACK} element={<TechStack />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
