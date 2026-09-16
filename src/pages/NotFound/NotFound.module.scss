@@ -55,9 +55,9 @@ $shadow-border: utils.toRem(1.5px);
       opacity: 0.75;
       text-shadow:
         $shadow-border 0 0 var(--color-text),
-        -$shadow-border 0 0 var(--color-text),
+        calc($shadow-border * -1) 0 0 var(--color-text),
         0 $shadow-border 0 var(--color-text),
-        0 -$shadow-border 0 var(--color-text);
+        0 calc($shadow-border * -1) 0 var(--color-text);
     }
   }
 }
