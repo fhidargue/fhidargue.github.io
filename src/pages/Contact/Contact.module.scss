@@ -1,0 +1,51 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.contact {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: utils.toRem(32px);
+    padding-top: utils.toRem(32px);
+    padding-bottom: utils.toRem(64px);
+
+    @media #{variables.$screen-md} {
+      gap: utils.toRem(42px);
+      padding-top: utils.toRem(42px);
+      padding-bottom: utils.toRem(72px);
+    }
+
+    @media #{variables.$screen-lg} {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: utils.toRem(28px);
+      padding-bottom: utils.toRem(24px);
+    }
+  }
+
+  &__form {
+    width: 100%;
+
+    @media #{variables.$screen-lg} {
+      min-width: 0;
+    }
+  }
+
+  &__media {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    @media #{variables.$screen-md} {
+      aspect-ratio: 16 / 9;
+    }
+
+    @media #{variables.$screen-lg} {
+      min-width: 0;
+      aspect-ratio: auto;
+
+      > * {
+        height: 100%;
+      }
+    }
+  }
+}

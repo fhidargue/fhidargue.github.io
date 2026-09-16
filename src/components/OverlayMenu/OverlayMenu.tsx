@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
+
 import Container from "@components/Container/Container";
 import Link from "@components/Link/Link";
+import NoiseCanvas from "@components/NoiseCanvas/NoiseCanvas";
 import OverlayMenuItem from "@components/OverlayMenuItem/OverlayMenuItem";
 import Text from "@components/Text/Text";
 
@@ -9,6 +12,8 @@ interface OverlayMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const OVERLAY_TIMEOUT = 200;
 
 const menuItems = [
   { label: "WORK", to: "/work" },
@@ -37,12 +42,23 @@ const socialLinks = [
 ];
 
 const OverlayMenu = ({ isOpen, onClose }: OverlayMenuProps) => {
-  if (!isOpen) {
-    return null;
-  }
+  const [visible, setVisible] = useState(isOpen);
+
+  useEffect(() => {
+    if (isOpen) return;
+    const timer = setTimeout(() => setVisible(false), OVERLAY_TIMEOUT);
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
+  if (isOpen && !visible) setVisible(true);
+
+  if (!visible) return null;
 
   return (
     <div className={styles["overlay-menu"]}>
+      <div className={styles["overlay-menu__noise"]}>
+        <NoiseCanvas opacity={0.15} density={0.7} speed={120} pixelSize={1} />
+      </div>
       <Container className={styles["overlay-menu__container"]}>
         <nav className={styles["overlay-menu__navigation"]}>
           {menuItems.map(({ label, to }) => (

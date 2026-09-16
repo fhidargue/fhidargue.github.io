@@ -15,4 +15,6 @@ export interface TextProps {
   variant?: TextVariant;
   as?: TextElement;
   className?: string;
+  inheritColor?: boolean;
+  id?: string;
 }
