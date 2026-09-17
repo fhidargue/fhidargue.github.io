@@ -1,6 +1,7 @@
 import Container from "@components/Container/Container";
 import Card from "@components/Card/Card";
 import CardGrid from "@components/CardGrid/CardGrid";
+import Globe from "@components/Globe/Globe";
 import HomeBanner from "@components/HomeBanner/HomeBanner";
 
 import styles from "./Home.module.scss";
@@ -34,14 +35,21 @@ const projects = [
 
 const Home = () => {
   return (
-    <main>
-      <Container>
-        <HomeBanner hasDot>
-          FELIPE
-          <br />
-          HIDALGO
-        </HomeBanner>
-      </Container>
+    <main className={styles.home}>
+      <section className={styles["home__hero"]}>
+        <div className={styles["home__globe"]}>
+          <Globe />
+        </div>
+        <div className={styles["home__content"]}>
+          <Container>
+            <HomeBanner hasDot>
+              FELIPE
+              <br />
+              HIDALGO
+            </HomeBanner>
+          </Container>
+        </div>
+      </section>
       <Container className={styles["home__grid"]}>
         <CardGrid>
           {projects.map((project) => (
