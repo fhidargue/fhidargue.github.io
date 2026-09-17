@@ -17,4 +17,5 @@ export interface TextProps {
   className?: string;
   inheritColor?: boolean;
   id?: string;
+  colorType?: string;
 }

@@ -8,6 +8,18 @@
   &--inherit {
     color: inherit;
   }
+
+  &--secondary {
+    color: var(--color-text-secondary);
+  }
+
+  &--tertiary {
+    color: var(--color-text-tertiary);
+  }
+
+  &--inverse {
+    color: var(--color-text-inverse);
+  }
 }
 
 .section-title-large {
