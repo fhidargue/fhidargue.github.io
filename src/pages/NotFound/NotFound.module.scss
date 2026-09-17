@@ -1,7 +1,6 @@
 @use "@styles/abstracts/utils";
 @use "@styles/abstracts/variables";
-
-$shadow-border: utils.toRem(1.5px);
+@use "@styles/abstracts/mixins";
 
 .not-found {
   position: relative;
@@ -9,11 +8,8 @@ $shadow-border: utils.toRem(1.5px);
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  margin-top: utils.toRem(-104px);
 
-  @media #{variables.$screen-md} {
-    margin-top: utils.toRem(-124px);
-  }
+  @include mixins.adjust-topbar-sizing(-104px, -124px);
 
   &__globe {
     position: absolute;
@@ -54,10 +50,10 @@ $shadow-border: utils.toRem(1.5px);
     :global([class*="ticker__title--secondary"]) {
       opacity: 0.75;
       text-shadow:
-        $shadow-border 0 0 var(--color-text),
-        calc($shadow-border * -1) 0 0 var(--color-text),
-        0 $shadow-border 0 var(--color-text),
-        0 calc($shadow-border * -1) 0 var(--color-text);
+        variables.$shadow-border 0 0 var(--color-text),
+        calc(variables.$shadow-border * -1) 0 0 var(--color-text),
+        0 variables.$shadow-border 0 var(--color-text),
+        0 calc(variables.$shadow-border * -1) 0 var(--color-text);
     }
   }
 }

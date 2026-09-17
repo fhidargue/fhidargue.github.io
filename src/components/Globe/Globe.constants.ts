@@ -70,7 +70,7 @@ export const MOUSE_POSITION_LERP = 0.15;
 // Particle
 export const PARTICLE_SIZE = 1.4;
 export const PARTICLE_SIZE_MOBILE = 1.2;
-export const PARTICLE_HOVER_SIZE = 2.5;
+export const PARTICLE_HOVER_SIZE = 3.5;
 export const PARTICLE_COLOR_LIGHT = "#ffffff";
 export const PARTICLE_COLOR_DARK = "#000000";
 

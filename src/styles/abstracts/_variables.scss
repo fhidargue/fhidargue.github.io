@@ -1,3 +1,5 @@
+@use "@styles/abstracts/utils";
+
 // Breakpoints
 $breakpoint-xs: 375px;
 $breakpoint-sm: 640px;
@@ -53,3 +55,6 @@ $dark: #000000;
 // Accents
 $red: #ff2200;
 $blue: #00b4f5;
+
+// Shadows
+$shadow-border: utils.toRem(1.5px);

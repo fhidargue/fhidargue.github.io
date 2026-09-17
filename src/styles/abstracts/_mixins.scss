@@ -30,3 +30,11 @@
     line-height: utils.toRem(88px);
   }
 }
+
+@mixin adjust-topbar-sizing($small, $medium) {
+  margin-top: utils.toRem($small);
+
+  @media #{variables.$screen-md} {
+    margin-top: utils.toRem($medium);
+  }
+}

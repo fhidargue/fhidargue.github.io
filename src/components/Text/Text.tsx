@@ -9,6 +9,7 @@ const Text = ({
   as: Tag = "p",
   className = "",
   inheritColor = false,
+  colorType,
   id,
 }: TextProps) => {
   return (
@@ -18,6 +19,9 @@ const Text = ({
         styles[variant],
         className,
         inheritColor && styles["text--inherit"],
+        {
+          [styles[`text--${colorType}`]]: colorType !== "",
+        },
       )}
       id={id}
     >
