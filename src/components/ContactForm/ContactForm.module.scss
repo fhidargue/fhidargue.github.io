@@ -31,10 +31,19 @@
     flex-direction: column;
     gap: utils.toRem(12px);
     margin-bottom: utils.toRem(12px);
+
+    @media #{variables.$screen-md} {
+      flex-direction: row;
+    }
   }
 
   &__field {
     width: 100%;
+
+    @media #{variables.$screen-md} {
+      flex: 1;
+      min-width: 0;
+    }
   }
 
   &__input-wrapper {
@@ -94,6 +103,14 @@
     padding: utils.toRem(16px);
     resize: vertical;
     line-height: 1.4;
+
+    @media #{variables.$screen-md} {
+      min-height: utils.toRem(180px);
+    }
+
+    @media #{variables.$screen-lg} {
+      min-height: utils.toRem(270px);
+    }
   }
 
   &__input::placeholder,
@@ -124,6 +141,8 @@
     width: 100%;
     margin-top: utils.toRem(12px);
     border-radius: utils.toRem(8px);
+    min-height: 0;
+    height: utils.toRem(64px);
 
     & span {
       font-weight: 700;
@@ -158,26 +177,5 @@
   &__success-description {
     margin-top: utils.toRem(8px);
     color: var(--color-text-secondary);
-  }
-
-  @media #{variables.$screen-md} {
-    &__fields {
-      flex-direction: row;
-    }
-
-    &__fields > &__field {
-      flex: 1;
-      min-width: 0;
-    }
-
-    &__textarea {
-      min-height: utils.toRem(180px);
-    }
-  }
-
-  @media #{variables.$screen-lg} {
-    &__textarea {
-      min-height: utils.toRem(270px);
-    }
   }
 }

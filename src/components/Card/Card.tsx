@@ -7,8 +7,6 @@ import Media from "@components/Media/Media";
 import Tag from "@components/Tag/Tag";
 import Text from "@components/Text/Text";
 
-import useA11yClick from "@hooks/useA11yClick";
-
 import type { CardProps } from "./Card.types";
 import styles from "./Card.module.scss";
 
@@ -115,10 +113,22 @@ const Card = (props: CardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    navigate(props.to);
+    if ("href" in props && props.href) {
+      window.open(props.href, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    if ("to" in props && props.to) {
+      navigate(props.to);
+    }
   };
 
-  const a11yProps = useA11yClick(handleClick, "link");
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleClick();
+    }
+  };
 
   const renderContent = () => {
     switch (props.variant) {
@@ -228,7 +238,10 @@ const Card = (props: CardProps) => {
       className={cx(styles.card, variantClass, props.className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      {...a11yProps}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      role="link"
+      tabIndex={0}
     >
       {renderContent()}
     </article>

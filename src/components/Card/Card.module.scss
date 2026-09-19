@@ -21,19 +21,7 @@
   }
 
   &--project {
-    height: utils.toRem(366px);
-
-    @media #{variables.$screen-md} {
-      height: utils.toRem(387px);
-    }
-
-    @media #{variables.$screen-lg} {
-      height: utils.toRem(582px);
-    }
-
-    @media #{variables.$screen-xl} {
-      height: utils.toRem(696px);
-    }
+    aspect-ratio: 1 / 1;
 
     .card__category {
       position: absolute;

@@ -21,12 +21,12 @@ import styles from "./About.module.scss";
 import { useNavigate } from "react-router-dom";
 
 const clients = [
-  { icon: <AppleLogoIcon />, to: "/clients/apple" },
-  { icon: <FramerLogoIcon />, to: "/clients/framer" },
-  { icon: <GithubLogoIcon />, to: "/clients/github" },
-  { icon: <InstagramLogoIcon />, to: "/clients/instagram" },
-  { icon: <MetaLogoIcon />, to: "/clients/meta" },
-  { icon: <GoogleLogoIcon />, to: "/clients/google" },
+  { icon: <AppleLogoIcon />, href: "https://www.apple.com/" },
+  { icon: <FramerLogoIcon />, href: "https://www.framer.com/" },
+  { icon: <GithubLogoIcon />, href: "https://github.com/" },
+  { icon: <InstagramLogoIcon />, href: "https://www.instagram.com/" },
+  { icon: <MetaLogoIcon />, href: "https://about.meta.com/" },
+  { icon: <GoogleLogoIcon />, href: "https://www.google.com/" },
 ];
 
 const awards = [
@@ -34,7 +34,7 @@ const awards = [
     category: "SEBASTIAN CAMARGO",
     title: "CSSDA BEST INNOVATION",
     year: "2022",
-    to: "/awards/cssda-best-innovation",
+    href: "https://www.cssdesignawards.com/",
   },
   {
     category: "SEBASTIAN CAMARGO",
@@ -46,15 +46,27 @@ const awards = [
     category: "SEBASTIAN CAMARGO",
     title: "CSSDA BEST UX",
     year: "2022",
-    to: "/awards/cssda-best-ux",
+    href: "https://www.cssdesignawards.com/",
   },
 ];
 
 const colophon = [
-  "/images/film-strip/pc.png",
-  "/images/film-strip/desk.png",
-  "/images/film-strip/subway.png",
-  "/images/film-strip/stairs.png",
+  {
+    thumbnail: "/images/film-strip/pc.png",
+    to: "/colophon/1",
+  },
+  {
+    thumbnail: "/images/film-strip/desk.png",
+    to: "/colophon/2",
+  },
+  {
+    thumbnail: "/images/film-strip/subway.png",
+    href: "https://example.com/colophon/3",
+  },
+  {
+    thumbnail: "/images/film-strip/stairs.png",
+    href: "https://example.com/colophon/4",
+  },
 ];
 
 const About = () => {
@@ -130,9 +142,9 @@ const About = () => {
             title: "Select Clients",
             children: (
               <CardGrid className={styles["about__clients"]}>
-                {clients.map(({ icon, to }) => (
-                  <div key={to} className={styles["about__client-card"]}>
-                    <Card variant="client" icon={icon} to={to} />
+                {clients.map(({ icon, href }) => (
+                  <div key={href} className={styles["about__client-card"]}>
+                    <Card variant="client" icon={icon} href={href} />
                   </div>
                 ))}
               </CardGrid>
@@ -154,18 +166,17 @@ const About = () => {
             title: "Colophon",
             children: (
               <CardGrid>
-                {colophon.map((thumbnail, index) => (
+                {colophon.map((item) => (
                   <div
-                    key={thumbnail}
+                    key={item.thumbnail}
                     className={styles["about__colophon-card"]}
                   >
                     <Card
                       variant="colophon"
                       video="/videos/bunny.mp4"
-                      thumbnail={thumbnail}
                       title="COLPHON"
                       category="MOTION"
-                      to={`/colophon/${index + 1}`}
+                      {...item}
                       hasNoise
                     />
                   </div>

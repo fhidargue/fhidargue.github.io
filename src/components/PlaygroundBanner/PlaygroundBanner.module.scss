@@ -75,12 +75,12 @@
     padding: utils.toRem(12px);
 
     @media #{variables.$screen-md} {
-      width: 50%;
+      width: 35%;
       padding: 0;
     }
 
     @media #{variables.$screen-lg} {
-      width: 30%;
+      width: 25%;
     }
   }
 

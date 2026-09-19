@@ -36,6 +36,32 @@ const App = () => {
     document.documentElement.setAttribute("data-theme", theme);
   }, []);
 
+  useEffect(() => {
+    const updateFavicon = () => {
+      const theme = document.documentElement.getAttribute("data-theme");
+      const favicon =
+        document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+
+      if (!favicon) {
+        return;
+      }
+
+      favicon.href =
+        theme === "light" ? "/logos/star-black.svg" : "/logos/star-white.svg";
+    };
+
+    updateFavicon();
+
+    const observer = new MutationObserver(updateFavicon);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollReset />
