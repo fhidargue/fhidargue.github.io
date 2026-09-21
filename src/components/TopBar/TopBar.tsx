@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import cx from "classnames";
 
 import Container from "@components/Container/Container";
@@ -22,22 +23,24 @@ interface TopBarProps {
 const TopBar = ({ className }: TopBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme } = useTheme();
+  const { t } = useTranslation();
+
   const location = useLocation();
   const isNotFound = useIsNotFound();
 
   const isHome = location.pathname === ROUTES.HOME;
 
-  let linkText = "[ GO BACK ]";
-  let changedText = "[ G0 B4CK ]";
+  let linkText = t("topBar.back.default");
+  let changedText = t("topBar.back.changed");
 
   if (isHome) {
-    linkText = "FELIPE";
-    changedText = "F3L1PE";
+    linkText = t("topBar.home.default");
+    changedText = t("topBar.home.changed");
   }
 
   if (isNotFound) {
-    linkText = "[ GO HOME ]";
-    changedText = "[ G0 H0M3 ]";
+    linkText = t("topBar.notFound.default");
+    changedText = t("topBar.notFound.changed");
   }
 
   const toggleMenu = () => {
@@ -69,11 +72,17 @@ const TopBar = ({ className }: TopBarProps) => {
             <Link
               as="button"
               type="button"
-              changed={isMenuOpen ? "[ CL0S3 ]" : "M3NU"}
+              changed={
+                isMenuOpen
+                  ? t("topBar.close.changed")
+                  : t("topBar.menu.changed")
+              }
               onClick={toggleMenu}
             >
               <Text as="span" variant="roboto-large">
-                {isMenuOpen ? "[ CLOSE ]" : "MENU"}
+                {isMenuOpen
+                  ? t("topBar.close.default")
+                  : t("topBar.menu.default")}
               </Text>
             </Link>
             <ThemeToggle iconSize={26} />

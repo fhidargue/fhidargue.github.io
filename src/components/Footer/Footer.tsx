@@ -5,60 +5,34 @@ import Text from "@components/Text/Text";
 import useIsNotFound from "@hooks/useIsNotFound";
 
 import styles from "./Footer.module.scss";
+import { useTranslation } from "react-i18next";
 
-type InformationLink =
-  | {
-      prefix: string;
-      label: string;
-      changed: string;
-      to: string;
-      isExternal: false;
-    }
-  | {
-      prefix: string;
-      label: string;
-      changed: string;
-      href: string;
-      isExternal: true;
-    };
+interface InformationLink {
+  prefix: string;
+  label: string;
+  changed: string;
+  href: string;
+  isExternal: false;
+}
 
-const informationLinks: InformationLink[] = [
-  {
-    prefix: "FUTURE FOLIO TEMPLATE FOR",
-    label: "FRAMER",
-    changed: "FR4MER",
-    to: "#",
-    isExternal: false,
-  },
-  {
-    prefix: "BUILT ",
-    label: "BY FELIPE",
-    changed: "BY F3L1PE",
-    href: "https://www.linkedin.com/in/fhidargue/",
-    isExternal: true,
-  },
-];
-
-const socialLinks = [
-  {
-    label: "DRIBBBLE",
-    changed: "DR1BBBLE",
-    href: "https://dribbble.com",
-  },
-  {
-    label: "INSTAGRAM",
-    changed: "INST4GRAM",
-    href: "https://instagram.com",
-  },
-  {
-    label: "TWITTER",
-    changed: "TW1TTER",
-    href: "https://twitter.com",
-  },
-];
+interface SocialLinks {
+  label: string;
+  changed: string;
+  href: string;
+}
 
 const Footer = () => {
   const isNotFound = useIsNotFound();
+  const { t } = useTranslation();
+
+  const informationLinks = t("footer.information", {
+    returnObjects: true,
+  }) as InformationLink[];
+
+  const socialLinks = t("footer.social", {
+    returnObjects: true,
+  }) as SocialLinks[];
+  console.log("socialLinks: ", socialLinks);
 
   return (
     <footer className={styles.footer}>
@@ -94,7 +68,7 @@ const Footer = () => {
                 </Link>
               ) : (
                 <Link
-                  to={link.to}
+                  to={link.href}
                   changed={link.changed}
                   isExternal={false}
                   className={styles["footer__information-link"]}
@@ -121,7 +95,7 @@ const Footer = () => {
             <Link
               as="button"
               type="button"
-              changed="B4CK TO T0P"
+              changed={t("footer.backTop.changed")}
               onClick={() =>
                 window.scrollTo({
                   top: 0,
@@ -130,7 +104,7 @@ const Footer = () => {
               }
             >
               <Text as="span" variant="roboto-large">
-                BACK TO TOP
+                {t("footer.backTop.default")}
               </Text>
             </Link>
           </div>

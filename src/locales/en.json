@@ -1,0 +1,96 @@
+{
+  "topBar": {
+    "home": {
+      "default": "HOME",
+      "changed": "H0M3"
+    },
+    "back": {
+      "default": "[ GO BACK ]",
+      "changed": "[ G0 B4CK ]"
+    },
+    "notFound": {
+      "default": "[ GO HOME ]",
+      "changed": "[ G0 H0M3 ]"
+    },
+    "menu": {
+      "default": "MENU",
+      "changed": "M3NU"
+    },
+    "close": {
+      "default": "[ CLOSE ]",
+      "changed": "[ CL0S3 ]"
+    }
+  },
+  "footer": {
+    "information": [
+      {
+        "prefix": "EXPLORE MY WORK &",
+        "label": "SHOWREEL",
+        "changed": "SH0WREEL",
+        "href": "https://www.youtube.com/watch?v=_JaxgaLM55I",
+        "isExternal": true
+      },
+      {
+        "prefix": "BUILT ",
+        "label": "BY FELIPE",
+        "changed": "BY F3L1PE",
+        "href": "https://www.linkedin.com/in/fhidargue/",
+        "isExternal": false
+      }
+    ],
+    "social": [
+      {
+        "label": "LINKEDIN",
+        "changed": "L1NK3D1N",
+        "href": "https://www.linkedin.com/in/fhidargue/"
+      },
+      {
+        "label": "GITHUB",
+        "changed": "G1THUB",
+        "href": "https://github.com/fhidargue"
+      },
+      {
+        "label": "YOUTUBE",
+        "changed": "Y0UTUB3",
+        "href": "https://www.youtube.com/@phil_ha"
+      }
+    ],
+    "backTop": {
+      "default": "BACK TO TOP",
+      "changed": "B4CK TO T0P"
+    }
+  },
+  "home": {
+    "homeBanner": {
+      "label": "SOFTWARE | PIPELINE | R&D",
+      "title1": "FELIPE",
+      "title2": "HIDALGO"
+    },
+    "projects": [
+      {
+        "image": "/images/home/dragons.png",
+        "title": "Wavefront Path Tracer",
+        "category": "RENDERING",
+        "to": "/work/project-1"
+      },
+      {
+        "image": "/images/home/kitchen.png",
+        "title": "DCC Translation Pipeline",
+        "category": "PIPELINE",
+        "to": "/work/project-2"
+      },
+      {
+        "image": "/images/home/dancer.png",
+        "title": "Motion Capture Retargeting",
+        "category": "MOCAP / PIPELINE",
+        "to": "/work/project-3"
+      },
+      {
+        "image": "/images/home/hair-sim.png",
+        "title": "Hair Simulation",
+        "category": "SIMULATION",
+        "to": "/work/project-4"
+      }
+    ]
+  }
+}

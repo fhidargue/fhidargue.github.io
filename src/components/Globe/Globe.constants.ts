@@ -87,11 +87,11 @@ export const PARTICLE_CIRCLE_CENTER = 0.5;
 
 // Neon palette
 export const NEON_COLORS = [
-  "#ff2bd6",
-  "#39ff14",
-  "#fff01f",
-  "#ff3131",
-  "#0066ff",
-  "#00e5ff",
-  "#a855f7",
+  "#00ffff",
+  "#ff00ff",
+  "#faff00",
+  "#00f0ff",
+  "#ff2a6d",
+  "#8338ec",
+  "#9ef01a",
 ];

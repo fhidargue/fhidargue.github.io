@@ -5,35 +5,16 @@ import Globe from "@components/Globe/Globe";
 import HomeBanner from "@components/HomeBanner/HomeBanner";
 
 import styles from "./Home.module.scss";
-
-const projects = [
-  {
-    image: "/images/cards/man.png",
-    title: "HUD",
-    category: "AR/VR",
-    to: "/work/project-1",
-  },
-  {
-    image: "/images/film-strip/peace.png",
-    title: "London",
-    category: "ARCHITECTURE",
-    to: "/work/project-2",
-  },
-  {
-    image: "/images/film-strip/deck.png",
-    title: "Smart Home",
-    category: "IOS APP",
-    to: "/work/project-3",
-  },
-  {
-    image: "/images/film-strip/subway.png",
-    title: "Edge Runner",
-    category: "AUTOMOTIVE",
-    to: "/work/project-4",
-  },
-];
+import { useTranslation } from "react-i18next";
+import type { HomeProject } from "./Home.types";
 
 const Home = () => {
+  const { t } = useTranslation();
+
+  const projects = t("home.projects", {
+    returnObjects: true,
+  }) as HomeProject[];
+
   return (
     <main className={styles.home}>
       <section className={styles["home__hero"]}>
@@ -42,10 +23,10 @@ const Home = () => {
         </div>
         <div className={styles["home__content"]}>
           <Container>
-            <HomeBanner hasDot>
-              FELIPE
+            <HomeBanner hasDot label={t("home.homeBanner.label")}>
+              {t("home.homeBanner.title1")}
               <br />
-              HIDALGO
+              {t("home.homeBanner.title2")}
             </HomeBanner>
           </Container>
         </div>

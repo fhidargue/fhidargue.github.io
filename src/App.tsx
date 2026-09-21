@@ -12,9 +12,12 @@ import TechStack from "@pages/TechStack/TechStack";
 import Contact from "@pages/Contact/Contact";
 import NotFound from "@pages/NotFound/NotFound";
 
+import useLocale from "@hooks/useLocale";
+
 import { ROUTES } from "@constants/routes";
 
 import "./styles/main.scss";
+import "./i18n/i18n";
 
 const ScrollReset = () => {
   const { pathname } = useLocation();
@@ -29,6 +32,8 @@ const ScrollReset = () => {
 };
 
 const App = () => {
+  useLocale();
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const theme = savedTheme === "light" ? "light" : "dark";
