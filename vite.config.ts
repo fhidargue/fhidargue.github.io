@@ -13,6 +13,7 @@ export default defineConfig({
       "@pages": resolve(__dirname, "./src/pages"),
       "@constants": resolve(__dirname, "./src/constants"),
       "@hooks": resolve(__dirname, "./src/utilities/hooks"),
+      "@locales": resolve(__dirname, "./src/locales"),
     },
   },
 });

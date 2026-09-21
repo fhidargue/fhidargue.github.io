@@ -181,6 +181,14 @@ const Link = (props: LinkProps) => {
     callback?.(event);
   };
 
+  const handleClick = (
+    event: MouseEvent<HTMLElement>,
+    callback?: MouseEventHandler<HTMLElement>,
+  ) => {
+    setIsHovered(false);
+    callback?.(event);
+  };
+
   if (props.as === "button") {
     const {
       onMouseEnter,
@@ -229,7 +237,7 @@ const Link = (props: LinkProps) => {
       className={`${styles.link} ${className}`}
       onMouseEnter={(event) => handleMouseEnter(event, onMouseEnter)}
       onMouseLeave={(event) => handleMouseLeave(event, onMouseLeave)}
-      onClick={onClick}
+      onClick={(event) => handleClick(event, onClick)}
     >
       {content(false)}
     </RouterLink>

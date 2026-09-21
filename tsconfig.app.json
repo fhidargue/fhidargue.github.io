@@ -36,7 +36,9 @@
       "@pages": ["./src/pages"],
       "@pages/*": ["./src/pages/*"],
       "@hooks": ["./src/utilities/hooks"],
-      "@hooks/*": ["./src/utilities/hooks/*"]
+      "@hooks/*": ["./src/utilities/hooks/*"],
+      "@locales": ["./src/locales"],
+      "@locales/*": ["./src/locales/*"]
     }
   },
   "include": ["src"]
