@@ -170,7 +170,15 @@ const Card = (props: CardProps) => {
       case CARD_TYPES.CLIENT:
         return (
           <>
-            <div className={styles["card__icon"]}>{props.icon}</div>
+            <div className={styles["card__icon"]}>
+              {typeof props.icon === "string" ? (
+                <div className={styles["card__icon--png"]}>
+                  <img src={props.icon} alt="" title={props.name} />
+                </div>
+              ) : (
+                props.icon
+              )}
+            </div>
             <CardLink label="View client" />
           </>
         );
@@ -190,7 +198,7 @@ const Card = (props: CardProps) => {
               {props.category}
             </CardCategory>
             <CardTitle variant="paragraph-small">{props.title}</CardTitle>
-            <CardLink label={`View ${props.title}`} />
+            {!props.disableLink && <CardLink label={`View ${props.title}`} />}
           </>
         );
 

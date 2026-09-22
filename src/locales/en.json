@@ -31,9 +31,9 @@
         "isExternal": true
       },
       {
-        "prefix": "BUILT ",
-        "label": "BY FELIPE",
-        "changed": "BY F3L1PE",
+        "prefix": "BUILT BY ",
+        "label": "FELIPE",
+        "changed": "F3L1PE",
         "href": "https://www.linkedin.com/in/fhidargue/",
         "isExternal": false
       }
@@ -90,6 +90,130 @@
         "title": "Hair Simulation",
         "category": "SIMULATION",
         "to": "/work/project-4"
+      }
+    ]
+  },
+  "about": {
+    "homeBanner": {
+      "label": "SOFTWARE | PIPELINE | R&D",
+      "title1": "FELIPE",
+      "title2": "HIDALGO"
+    },
+    "aboutMedia": {
+      "image": "/images/about/felipe.png",
+      "imageAlt": "Felipe Hidalgo",
+      "leftText": "CODE IS THE FOUNDATION. CREATIVITY IS THE OUTPUT.",
+      "rightText": "FROM SOFTWARE ENGINEERING TO VFX PIPELINES."
+    },
+    "pitch": "Meet Felipe, a Senior Software Engineer focused on building tools, pipelines, and systems for VFX, animation, and real-time content. A natural problem solver, he builds technology that removes complexity from creative workflows, giving artists and teams more time to focus on what they do best. With over five years of commercial software engineering experience and an MSc in Computer Animation and Visual Effects, he combines software engineering with hands-on experience in computer graphics, rendering, simulation, and pipeline development.",
+    "images": [
+      "/images/about/subway.png",
+      "/images/film-strip/desk.png",
+      "/images/about/controller.png",
+      "/images/about/drums.png",
+      "/images/film-strip/pc.png"
+    ],
+    "services": [
+      {
+        "title": "SOFTWARE",
+        "image": "/images/services/keyboard.png",
+        "imagePosition": "left"
+      },
+      {
+        "title": "PIPELINE",
+        "image": "/images/services/girl.png",
+        "imagePosition": "right"
+      },
+      {
+        "title": "AUTOMATION",
+        "image": "/images/services/robot.png",
+        "imagePosition": "left"
+      },
+      {
+        "title": "R&D",
+        "image": "/images/services/laptop.png",
+        "imagePosition": "right"
+      }
+    ],
+    "sections": [
+      {
+        "title": "My Specialties",
+        "clients": [
+          "https://isocpp.org/",
+          "https://www.python.org/",
+          "https://openusd.org/release/index.html",
+          "https://www.autodesk.com/uk/products/maya/overview",
+          "https://www.sidefx.com/",
+          "https://www.unrealengine.com/",
+          "https://react.dev/",
+          "https://vuejs.org/",
+          "https://www.typescriptlang.org/",
+          "https://www.oracle.com/uk/java/",
+          "https://www.docker.com/",
+          "https://cloud.google.com/"
+        ]
+      },
+      {
+        "title": "Certifications",
+        "awards": [
+          {
+            "category": "GOOGLE CLOUD CERTIFIED",
+            "title": "ASSOCIATE CLOUD ENGINEER",
+            "year": "2024",
+            "href": "https://drive.google.com/file/d/1reDmsNzFaFRAtNFokb_FcoRpQjhpRpPW/view?usp=sharing"
+          },
+          {
+            "category": "ADOBE CERTIFIED EXPERT",
+            "title": "MAGENTO COMMERCE BUSINESS PRACTITIONER",
+            "year": "2021",
+            "href": "https://drive.google.com/file/d/1qkgEOnr12vGP5bSDTaITEROuQTG7svTp/view?usp=sharing"
+          },
+          {
+            "category": "CISCO NETWORKING ACADEMY",
+            "title": "CERTIFIED NETWORKING ASSOCIATE",
+            "year": "2020",
+            "href": "https://drive.google.com/file/d/1me9wR2GjGE9rU_iprVg6FDN0qaPwzpnm/view"
+          },
+          {
+            "category": "SCRUMstudy SCRUM AND AGILE",
+            "title": "SCRUM FUNDAMENTALS CERTIFIED",
+            "year": "2019",
+            "href": "https://drive.google.com/file/d/17eRNyZf1yXaZR54jB3fwsIxq5GgzTNd7/view"
+          }
+        ]
+      },
+      {
+        "title": "My Story",
+        "colophons": [
+          {
+            "label": "SOFTWARE",
+            "title": "5+ Years",
+            "thumbnail": "/images/about/software.png",
+            "video": "/videos/about/coding.mp4",
+            "disableLink": true
+          },
+          {
+            "label": "ANIMATION & VFX",
+            "title": "MSc @ BU",
+            "thumbnail": "/images/about/pgb.png",
+            "video": "/videos/about/dancer.mp4",
+            "disableLink": true
+          },
+          {
+            "label": "PIPELINE",
+            "title": "Pipeline Development",
+            "thumbnail": "/images/about/dcc.png",
+            "video": "/videos/about/pipeline.mp4",
+            "disableLink": true
+          },
+          {
+            "label": "R&D",
+            "title": "Building Things",
+            "thumbnail": "/images/about/dragons.png",
+            "video": "/videos/about/rand.mp4",
+            "disableLink": true
+          }
+        ]
       }
     ]
   }
