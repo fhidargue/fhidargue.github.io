@@ -1,11 +1,16 @@
 import {
-  AppleLogoIcon,
-  FramerLogoIcon,
-  GithubLogoIcon,
-  InstagramLogoIcon,
-  MetaLogoIcon,
-  GoogleLogoIcon,
-} from "@phosphor-icons/react";
+  SiCplusplus,
+  SiPython,
+  SiAutodeskmaya,
+  SiHoudini,
+  SiUnrealengine,
+  SiReact,
+  SiVuedotjs,
+  SiTypescript,
+  SiOpenjdk,
+  SiDocker,
+  SiGooglecloud,
+} from "@icons-pack/react-simple-icons";
 
 import Container from "@components/Container/Container";
 import HomeBanner from "@components/HomeBanner/HomeBanner";
@@ -18,144 +23,107 @@ import Card from "@components/Card/Card";
 import CardGrid from "@components/CardGrid/CardGrid";
 
 import styles from "./About.module.scss";
+
+import useBreakpoints from "@hooks/useBreakpoints";
+import useTheme from "@hooks/useTheme";
+
 import { useNavigate } from "react-router-dom";
-
-const clients = [
-  { icon: <AppleLogoIcon />, href: "https://www.apple.com/" },
-  { icon: <FramerLogoIcon />, href: "https://www.framer.com/" },
-  { icon: <GithubLogoIcon />, href: "https://github.com/" },
-  { icon: <InstagramLogoIcon />, href: "https://www.instagram.com/" },
-  { icon: <MetaLogoIcon />, href: "https://about.meta.com/" },
-  { icon: <GoogleLogoIcon />, href: "https://www.google.com/" },
-];
-
-const awards = [
-  {
-    category: "SEBASTIAN CAMARGO",
-    title: "CSSDA BEST INNOVATION",
-    year: "2022",
-    href: "https://www.cssdesignawards.com/",
-  },
-  {
-    category: "SEBASTIAN CAMARGO",
-    title: "CSSDA BEST UI",
-    year: "2022",
-    to: "/awards/cssda-best-ui",
-  },
-  {
-    category: "SEBASTIAN CAMARGO",
-    title: "CSSDA BEST UX",
-    year: "2022",
-    href: "https://www.cssdesignawards.com/",
-  },
-];
-
-const colophon = [
-  {
-    thumbnail: "/images/film-strip/pc.png",
-    to: "/colophon/1",
-  },
-  {
-    thumbnail: "/images/film-strip/desk.png",
-    to: "/colophon/2",
-  },
-  {
-    thumbnail: "/images/film-strip/subway.png",
-    href: "https://example.com/colophon/3",
-  },
-  {
-    thumbnail: "/images/film-strip/stairs.png",
-    href: "https://example.com/colophon/4",
-  },
-];
+import { useTranslation } from "react-i18next";
+import type { ServiceItem, AwardItem, ColophonItem } from "./About.types";
 
 const About = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { isMobile } = useBreakpoints();
+  const { theme } = useTheme();
+
+  const openUSDIcon =
+    theme === "dark" ? "/icons/openusd-white.png" : "/icons/openusd-black.png";
+
+  const images = t("about.images", { returnObjects: true }) as string[];
+  const services = t("about.services", {
+    returnObjects: true,
+  }) as ServiceItem[];
+
+  const clients = [
+    { name: "C++", icon: <SiCplusplus /> },
+    { name: "Python", icon: <SiPython /> },
+    { name: "OpenUSD", icon: openUSDIcon },
+    { name: "Maya", icon: <SiAutodeskmaya /> },
+    { name: "Houdini", icon: <SiHoudini /> },
+    { name: "Unreal Engine", icon: <SiUnrealengine /> },
+    { name: "React", icon: <SiReact /> },
+    { name: "Vue", icon: <SiVuedotjs /> },
+    { name: "TypeScript", icon: <SiTypescript /> },
+    { name: "Java", icon: <SiOpenjdk /> },
+    { name: "Docker", icon: <SiDocker /> },
+    { name: "Google Cloud", icon: <SiGooglecloud /> },
+  ];
+
+  const clientLinks = t("about.sections.0.clients", {
+    returnObjects: true,
+  }) as string[];
+
+  const awards = t("about.sections.1.awards", {
+    returnObjects: true,
+  }) as AwardItem[];
+
+  const colophon = t("about.sections.2.colophons", {
+    returnObjects: true,
+  }) as ColophonItem[];
 
   return (
     <main>
       <Container>
-        <HomeBanner>
-          FELIPE
+        <HomeBanner label={t("about.homeBanner.label")}>
+          {t("about.homeBanner.title1")}
           <br />
-          HIDALGO
+          {t("about.homeBanner.title2")}
         </HomeBanner>
       </Container>
-
       <AboutMedia
-        src="/images/cards/man.png"
-        alt="About Felipe"
-        leftText="THE BEST WAY TO PREDICT THE FUTURE IS TO CREATE IT."
-        rightText="STAND HIGH LONG ENOUGH AND YOUR LIGHTNING WILL COME."
+        src={t("about.aboutMedia.image")}
+        alt={t("about.aboutMedia.imageAlt")}
+        leftText={t("about.aboutMedia.leftText")}
+        rightText={t("about.aboutMedia.rightText")}
         hasNoise
       />
-
       <Container className={styles["about__description"]}>
-        <Text variant="paragraph-large">
-          Meet Alice, a talented Digital Designer from the vibrant city of San
-          Francisco. With a keen eye for detail and an exceptional skill set,
-          Alice is a master of Photography, UI/UX, and No-Code Web Design. She
-          has a true passion for creating visually stunning designs that not
-          only look great but also provide an exceptional user experience.
-        </Text>
+        <Text variant="paragraph-large">{t("about.pitch")}</Text>
       </Container>
-
-      <FilmStrip
-        images={[
-          "/images/film-strip/subway.png",
-          "/images/film-strip/desk.png",
-          "/images/film-strip/stairs.png",
-          "/images/film-strip/deck.png",
-          "/images/film-strip/pc.png",
-        ]}
-        size="sm"
-      />
-
-      <Services
-        services={[
-          {
-            title: "3D DESIGN",
-            image: "/images/services/robot.png",
-            imagePosition: "left",
-          },
-          {
-            title: "PHOTOGRAPHY",
-            image: "/images/services/girl.png",
-            imagePosition: "right",
-          },
-          {
-            title: "UI+UX",
-            image: "/images/services/keyboard.png",
-            imagePosition: "left",
-          },
-          {
-            title: "WEB DESIGN",
-            image: "/images/services/laptop.png",
-            imagePosition: "right",
-          },
-        ]}
-      />
-
+      <FilmStrip images={images} size={isMobile ? "sm" : "md"} />
+      <Services services={services} />
       <StickySection
         sections={[
           {
-            title: "Select Clients",
+            title: t("about.sections.0.title"),
             children: (
               <CardGrid className={styles["about__clients"]}>
-                {clients.map(({ icon, href }) => (
-                  <div key={href} className={styles["about__client-card"]}>
-                    <Card variant="client" icon={icon} href={href} />
+                {clients.map((client, index) => (
+                  <div
+                    key={client.name}
+                    className={styles["about__client-card"]}
+                  >
+                    <Card
+                      variant="client"
+                      name={client.name}
+                      icon={client.icon}
+                      href={clientLinks[index]}
+                    />
                   </div>
                 ))}
               </CardGrid>
             ),
           },
           {
-            title: "Awards and Recognition",
+            title: t("about.sections.1.title"),
             children: (
               <div className={styles["about__awards"]}>
                 {awards.map((award) => (
-                  <div key={award.to} className={styles["about__award-card"]}>
+                  <div
+                    key={award.title}
+                    className={styles["about__award-card"]}
+                  >
                     <Card variant="award" {...award} />
                   </div>
                 ))}
@@ -163,19 +131,17 @@ const About = () => {
             ),
           },
           {
-            title: "Colophon",
+            title: t("about.sections.2.title"),
             children: (
               <CardGrid>
                 {colophon.map((item) => (
                   <div
-                    key={item.thumbnail}
+                    key={item.title}
                     className={styles["about__colophon-card"]}
                   >
                     <Card
                       variant="colophon"
-                      video="/videos/bunny.mp4"
-                      title="COLPHON"
-                      category="MOTION"
+                      category={item.label}
                       {...item}
                       hasNoise
                     />

@@ -23,7 +23,8 @@ export type TechStackCardProps = {
 
 export type ClientCardProps = {
   variant: "client";
-  icon: ReactNode;
+  icon: ReactNode | string;
+  name?: string;
   to?: string;
   href?: string;
   className?: string;
@@ -39,6 +40,7 @@ export type ColophonCardProps = {
   href?: string;
   hasNoise?: boolean;
   className?: string;
+  disableLink?: boolean;
 };
 
 export type AwardCardProps = {

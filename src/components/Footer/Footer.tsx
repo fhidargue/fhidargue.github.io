@@ -32,7 +32,6 @@ const Footer = () => {
   const socialLinks = t("footer.social", {
     returnObjects: true,
   }) as SocialLinks[];
-  console.log("socialLinks: ", socialLinks);
 
   return (
     <footer className={styles.footer}>

@@ -261,6 +261,10 @@
       width: utils.toRem(120px);
       height: utils.toRem(120px);
     }
+
+    &--png {
+      width: 80%;
+    }
   }
 
   &__title {
