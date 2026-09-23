@@ -216,5 +216,401 @@
         ]
       }
     ]
+  },
+  "techStack": {
+    "homeBanner": {
+      "label": "TECHNOLOGIES & TOOLS",
+      "title1": "TECH",
+      "title2": "STACK"
+    },
+    "sections": [
+      {
+        "title": "Software / Frontend",
+        "featuredCards": [
+          {
+            "title": "React",
+            "category": "FRONTEND FRAMEWORK",
+            "href": "https://react.dev/"
+          },
+          {
+            "title": "Vue",
+            "category": "FRONTEND FRAMEWORK",
+            "href": "https://vuejs.org/"
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "TypeScript",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://www.typescriptlang.org/"
+          },
+          {
+            "title": "JavaScript",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://ecma-international.org/publications-and-standards/standards/ecma-262"
+          },
+          {
+            "title": "Next.js",
+            "category": "WEB FRAMEWORK",
+            "href": "https://nextjs.org/"
+          },
+          {
+            "title": "Vite",
+            "category": "BUILD TOOL",
+            "href": "https://vite.dev/"
+          },
+          {
+            "title": "Sass",
+            "category": "STYLING",
+            "href": "https://sass-lang.com/"
+          },
+          {
+            "title": "HTML",
+            "category": "MARKUP",
+            "href": "https://html.spec.whatwg.org/"
+          },
+          {
+            "title": "CSS",
+            "category": "STYLING",
+            "href": "https://www.w3.org/Style/CSS/Overview.en.html"
+          },
+          {
+            "title": "Storybook",
+            "category": "UI DEVELOPMENT",
+            "href": "https://storybook.js.org/"
+          }
+        ]
+      },
+      {
+        "title": "Software / Backend",
+        "featuredCards": [
+          {
+            "title": "C++",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://isocpp.org/"
+          },
+          {
+            "title": "Python",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://www.python.org/"
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Java",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://www.oracle.com/uk/java/"
+          },
+          {
+            "title": "C#",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://www.c-sharpcorner.com/"
+          },
+          {
+            "title": "Go",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": "https://go.dev/"
+          },
+          {
+            "title": ".NET",
+            "category": "APPLICATION FRAMEWORK",
+            "href": "https://dotnet.microsoft.com/en-us/"
+          },
+          {
+            "title": "Node.js",
+            "category": "RUNTIME",
+            "href": "https://nodejs.org/en"
+          },
+          {
+            "title": "Spring Boot",
+            "category": "BACKEND FRAMEWORK",
+            "href": "https://spring.io/projects/spring-boot"
+          },
+          {
+            "title": "MySQL",
+            "category": "DATABASE",
+            "href": "https://www.mysql.com/"
+          },
+          {
+            "title": "PostgreSQL",
+            "category": "DATABASE",
+            "href": "https://www.postgresql.org/"
+          },
+          {
+            "title": "MongoDB",
+            "category": "DATABASE",
+            "href": "https://www.mongodb.com/"
+          },
+          {
+            "title": "SQLite",
+            "category": "DATABASE",
+            "href": "https://www.sqlite.org/"
+          },
+          {
+            "title": "GraphQL",
+            "category": "API QUERY LANGUAGE",
+            "href": "https://graphql.org/"
+          },
+          {
+            "title": "Elasticsearch",
+            "category": "SEARCH ENGINE",
+            "href": "https://www.elastic.co/elasticsearch"
+          },
+          {
+            "title": "REST APIs",
+            "category": "API ARCHITECTURE",
+            "disableLink": true
+          },
+          {
+            "title": "OAuth",
+            "category": "AUTHENTICATION",
+            "href": "https://auth0.com/"
+          },
+          {
+            "title": "JWT",
+            "category": "AUTHENTICATION",
+            "href": "https://www.jwt.io/"
+          },
+          {
+            "title": "Postman",
+            "category": "API PLATFORM",
+            "href": "https://www.postman.com/"
+          }
+        ]
+      },
+      {
+        "title": "Pipeline / DCC",
+        "featuredCards": [
+          {
+            "title": "Maya",
+            "category": "DCC",
+            "href": "https://www.autodesk.com/products/maya/overview"
+          },
+          {
+            "title": "Houdini",
+            "category": "DCC",
+            "href": "https://www.sidefx.com/"
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Unreal Engine 5",
+            "category": "DCC",
+            "href": "https://www.unrealengine.com/"
+          },
+          {
+            "title": "OpenUSD",
+            "category": "SCENE DESCRIPTION",
+            "href": "https://openusd.org/release/index.html"
+          },
+          {
+            "title": "MEL",
+            "category": "SCRIPTING LANGUAGE",
+            "href": "https://download.autodesk.com/global/docs/maya2014/en_us/index.html"
+          },
+          {
+            "title": "PySide6",
+            "category": "UI FRAMEWORK",
+            "href": "https://www.qt.io/development/qt-framework/python-bindings"
+          },
+          {
+            "title": "Qt",
+            "category": "UI FRAMEWORK",
+            "href": "https://www.qt.io/"
+          }
+        ]
+      },
+      {
+        "title": "Graphics / Rendering",
+        "featuredCards": [
+          {
+            "title": "OpenGL",
+            "category": "GRAPHICS API",
+            "href": "https://www.opengl.org/"
+          },
+          {
+            "title": "WebGL",
+            "category": "GRAPHICS API",
+            "href": "https://www.khronos.org/webgl"
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Three.js",
+            "category": "3D FRAMEWORK",
+            "href": "https://threejs.org/"
+          },
+          {
+            "title": "RenderMan",
+            "category": "RENDERER",
+            "href": "https://renderman.pixar.com/"
+          },
+          {
+            "title": "Arnold",
+            "category": "RENDERER",
+            "href": "https://help.autodesk.com/view/ARNOL/ENU/?guid=arnold_user_guide_ac_arnold_user_guide_html"
+          },
+          {
+            "title": "Karma",
+            "category": "RENDERER",
+            "href": "https://www.sidefx.com/products/karma/"
+          }
+        ]
+      },
+      {
+        "title": "Cloud / Devops",
+        "featuredCards": [
+          {
+            "title": "Azure",
+            "category": "CLOUD PLATFORM",
+            "href": "https://azure.microsoft.com/en-gb"
+          },
+          {
+            "title": "Google Cloud",
+            "category": "CLOUD PLATFORM",
+            "href": "https://cloud.google.com/"
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "AWS",
+            "category": "CLOUD PLATFORM",
+            "href": "https://aws.amazon.com/"
+          },
+          {
+            "title": "Terraform",
+            "category": "INFRASTRUCTURE AS CODE",
+            "href": "https://www.hashicorp.com/en/solutions/accelerate-innovation"
+          },
+          {
+            "title": "Docker",
+            "category": "CONTAINERIZATION",
+            "href": "https://www.docker.com/"
+          },
+          {
+            "title": "Podman",
+            "category": "CONTAINERIZATION",
+            "href": "https://podman.io/"
+          },
+          {
+            "title": "Linux",
+            "category": "OPERATING SYSTEM",
+            "href": "https://www.linux.org/"
+          },
+          {
+            "title": "Windows",
+            "category": "OPERATING SYSTEM",
+            "href": "https://developer.microsoft.com/en-us/windows"
+          },
+          {
+            "title": "MacOS",
+            "category": "OPERATING SYSTEM",
+            "href": "https://www.apple.com/uk/os/macos/"
+          },
+          {
+            "title": "Git",
+            "category": "VERSION CONTROL",
+            "href": "https://git-scm.com/"
+          },
+          {
+            "title": "Perforce",
+            "category": "VERSION CONTROL",
+            "href": "https://www.perforce.com/"
+          },
+          {
+            "title": "GitHub",
+            "category": "CODE HOSTING",
+            "href": "https://github.com/"
+          },
+          {
+            "title": "GitLab",
+            "category": "CODE HOSTING",
+            "href": "https://gitlab.com/"
+          },
+          {
+            "title": "CI/CD",
+            "category": "AUTOMATION",
+            "disableLink": true
+          },
+          {
+            "title": "Jira",
+            "category": "PROJECT MANAGEMENT",
+            "href": "https://www.atlassian.com/software/jira"
+          }
+        ]
+      },
+      {
+        "title": "Enterprise",
+        "featuredCards": [
+          {
+            "title": "Adobe Experience Manager",
+            "category": "CMS",
+            "href": "https://www.aem.live/"
+          },
+          {
+            "title": "Magento",
+            "category": "E-COMMERCE",
+            "href": "https://www.magento-opensource.com/"
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Adobe Campaign Standard",
+            "category": "MARKETING PLATFORM",
+            "href": "https://experienceleague.adobe.com/en/browse/campaign/campaign-standard"
+          },
+          {
+            "title": "Adobe Analytics",
+            "category": "ANALYTICS",
+            "href": "https://experienceleague.adobe.com/en/browse/analytics"
+          },
+          {
+            "title": "Google Analytics 4",
+            "category": "ANALYTICS",
+            "href": "https://developers.google.com/analytics"
+          },
+          {
+            "title": "Stripe",
+            "category": "PAYMENTS",
+            "href": "https://docs.stripe.com/apis?locale=en-GB"
+          },
+          {
+            "title": "FedEx",
+            "category": "SHIPPING API",
+            "href": "https://developer.fedex.com/wirc/browser/#/en-us/home"
+          },
+          {
+            "title": "Selenium",
+            "category": "AUTOMATION TESTING",
+            "href": "https://www.selenium.dev/"
+          },
+          {
+            "title": "JUnit",
+            "category": "TESTING FRAMEWORK",
+            "href": "https://junit.org/"
+          },
+          {
+            "title": "Jest",
+            "category": "TESTING FRAMEWORK",
+            "href": "https://jestjs.io/"
+          },
+          {
+            "title": "Pytest",
+            "category": "TESTING FRAMEWORK",
+            "href": "https://docs.pytest.org/en/stable/"
+          },
+          {
+            "title": "Figma",
+            "category": "DESIGN TOOL",
+            "href": "https://www.figma.com/"
+          },
+          {
+            "title": "Framer",
+            "category": "WEB DESIGN",
+            "href": "https://framer.com/"
+          }
+        ]
+      }
+    ]
   }
 }

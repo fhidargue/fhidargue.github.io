@@ -10,6 +10,7 @@ export type ProjectCardProps = {
   poster?: string;
   hasNoise?: boolean;
   className?: string;
+  disableLink?: boolean;
 };
 
 export type TechStackCardProps = {
@@ -17,8 +18,10 @@ export type TechStackCardProps = {
   icon: ReactNode;
   title: string;
   category: string;
-  to: string;
+  to?: string;
+  href?: string;
   className?: string;
+  disableLink?: boolean;
 };
 
 export type ClientCardProps = {
@@ -28,6 +31,7 @@ export type ClientCardProps = {
   to?: string;
   href?: string;
   className?: string;
+  disableLink?: boolean;
 };
 
 export type ColophonCardProps = {
@@ -51,6 +55,7 @@ export type AwardCardProps = {
   to?: string;
   href?: string;
   className?: string;
+  disableLink?: boolean;
 };
 
 export type PlaygroundCardProps = {
@@ -64,6 +69,7 @@ export type PlaygroundCardProps = {
   hasNoise?: boolean;
   className?: string;
   autoPlay?: boolean;
+  disableLink?: boolean;
 };
 
 export type CardProps =

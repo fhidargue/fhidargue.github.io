@@ -6,6 +6,10 @@
   flex-direction: column;
   gap: utils.toRem(12px);
 
+  &__title {
+    margin-bottom: utils.toRem(16px);
+  }
+
   &__featured,
   &__items {
     display: grid;
@@ -17,32 +21,12 @@
     > * {
       aspect-ratio: 1 / 1;
     }
-  }
 
-  &__items {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-
-    > * {
-      aspect-ratio: 1 / 1;
-    }
-  }
-
-  @media #{variables.$screen-md} {
-    &__featured {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-
-      > * {
-        aspect-ratio: 1 / 1;
-      }
-    }
-
-    &__items {
+    @media #{variables.$screen-md} {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
 
-  @media #{variables.$screen-lg} {
-    &__featured {
+    @media #{variables.$screen-lg} {
       min-height: utils.toRem(384px);
 
       > * {
@@ -50,14 +34,22 @@
       }
     }
 
-    &__items {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    @media #{variables.$screen-xl} {
+      min-height: utils.toRem(444px);
     }
   }
 
-  @media #{variables.$screen-xl} {
-    &__featured {
-      min-height: utils.toRem(444px);
+  &__items {
+    > * {
+      aspect-ratio: 1 / 1;
+    }
+
+    @media #{variables.$screen-md} {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media #{variables.$screen-lg} {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 }
