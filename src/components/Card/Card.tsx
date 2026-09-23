@@ -181,7 +181,7 @@ const Card = (props: CardProps) => {
               <div className={styles["card__icon"]}>{props.icon}</div>
             )}
             <CardTitle variant="paragraph-large">{props.title}</CardTitle>
-            <CardLink label={`View ${props.title}`} />
+            {!props.disableLink && <CardLink label={`View ${props.title}`} />}
           </>
         );
 
@@ -267,7 +267,7 @@ const Card = (props: CardProps) => {
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       role="link"
-      tabIndex={0}
+      tabIndex={props.disableLink ? -1 : 0}
     >
       {renderContent()}
     </article>

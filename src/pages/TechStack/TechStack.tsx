@@ -68,6 +68,7 @@ import {
   SiPytest,
   SiFigma,
   SiFramer,
+  SiJira,
 } from "@icons-pack/react-simple-icons";
 
 export interface TechStackTranslationCard {
@@ -166,6 +167,7 @@ const TechStack = () => {
         <SiGithub />,
         <SiGitlab />,
         <SiInfinityfree />,
+        <SiJira />,
       ],
     },
     {
