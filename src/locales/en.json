@@ -612,5 +612,39 @@
         ]
       }
     ]
+  },
+  "contact": {
+    "form": {
+      "title": "Contact",
+      "description": "I'm always open to new projects and challenges. Email me for inquiries.",
+      "successTitle": "Message sent",
+      "successDescription": "Thanks for getting in touch. I'll get back to you soon.",
+      "label": "INQUIRY FORM",
+      "button": {
+        "text": "SEND EMAIL",
+        "loading": "SENDING..."
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "NAME",
+        "required": "Name is required.",
+        "minLength": "Name must be more than {{length}} letters."
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "EMAIL",
+        "required": "Email is required.",
+        "valid": "Please enter a valid email."
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "MESSAGE",
+        "required": "Message is required.",
+        "minLength": "Name must be more than {{length}} characters.",
+        "maxLength": "Name must be less than {{length}} characters.",
+        "scripting": "HTML or scripts are not allowed.",
+        "error": "Something went wrong. Please try again."
+      }
+    }
   }
 }
