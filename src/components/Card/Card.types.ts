@@ -17,7 +17,8 @@ export type TechStackCardProps = {
   icon: ReactNode;
   title: string;
   category: string;
-  to: string;
+  to?: string;
+  href?: string;
   className?: string;
 };
 

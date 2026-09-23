@@ -216,5 +216,396 @@
         ]
       }
     ]
+  },
+  "techStack": {
+    "homeBanner": {
+      "label": "TECHNOLOGIES & TOOLS",
+      "title1": "TECH",
+      "title2": "STACK"
+    },
+    "sections": [
+      {
+        "title": "Software / Frontend",
+        "featuredCards": [
+          {
+            "title": "React",
+            "category": "FRONTEND FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Vue",
+            "category": "FRONTEND FRAMEWORK",
+            "href": ""
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "TypeScript",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "JavaScript",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "Next.js",
+            "category": "WEB FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Vite",
+            "category": "BUILD TOOL",
+            "href": ""
+          },
+          {
+            "title": "Sass",
+            "category": "STYLING",
+            "href": ""
+          },
+          {
+            "title": "HTML",
+            "category": "MARKUP",
+            "href": ""
+          },
+          {
+            "title": "CSS",
+            "category": "STYLING",
+            "href": ""
+          },
+          {
+            "title": "Storybook",
+            "category": "UI DEVELOPMENT",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "title": "Software / Backend",
+        "featuredCards": [
+          {
+            "title": "C++",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "Python",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Java",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "C#",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "Go",
+            "category": "PROGRAMMING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": ".NET",
+            "category": "APPLICATION FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Node.js",
+            "category": "RUNTIME",
+            "href": ""
+          },
+          {
+            "title": "Spring Boot",
+            "category": "BACKEND FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "MySQL",
+            "category": "DATABASE",
+            "href": ""
+          },
+          {
+            "title": "PostgreSQL",
+            "category": "DATABASE",
+            "href": ""
+          },
+          {
+            "title": "MongoDB",
+            "category": "DATABASE",
+            "href": ""
+          },
+          {
+            "title": "SQLite",
+            "category": "DATABASE",
+            "href": ""
+          },
+          {
+            "title": "GraphQL",
+            "category": "API QUERY LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "Elasticsearch",
+            "category": "SEARCH ENGINE",
+            "href": ""
+          },
+          {
+            "title": "REST APIs",
+            "category": "API ARCHITECTURE",
+            "href": ""
+          },
+          {
+            "title": "OAuth",
+            "category": "AUTHENTICATION",
+            "href": ""
+          },
+          {
+            "title": "JWT",
+            "category": "AUTHENTICATION",
+            "href": ""
+          },
+          {
+            "title": "Postman",
+            "category": "API PLATFORM",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "title": "Pipeline / DCC",
+        "featuredCards": [
+          {
+            "title": "Maya",
+            "category": "DCC",
+            "href": ""
+          },
+          {
+            "title": "Houdini",
+            "category": "DCC",
+            "href": ""
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Unreal Engine 5",
+            "category": "DCC",
+            "href": ""
+          },
+          {
+            "title": "OpenUSD",
+            "category": "SCENE DESCRIPTION",
+            "href": ""
+          },
+          {
+            "title": "MEL",
+            "category": "SCRIPTING LANGUAGE",
+            "href": ""
+          },
+          {
+            "title": "PySide6",
+            "category": "UI FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Qt",
+            "category": "UI FRAMEWORK",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "title": "Graphics / Rendering",
+        "featuredCards": [
+          {
+            "title": "OpenGL",
+            "category": "GRAPHICS API",
+            "href": ""
+          },
+          {
+            "title": "WebGL",
+            "category": "GRAPHICS API",
+            "href": ""
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Three.js",
+            "category": "3D FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "RenderMan",
+            "category": "RENDERER",
+            "href": ""
+          },
+          {
+            "title": "Arnold",
+            "category": "RENDERER",
+            "href": ""
+          },
+          {
+            "title": "Karma",
+            "category": "RENDERER",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "title": "Cloud / Devops",
+        "featuredCards": [
+          {
+            "title": "Azure",
+            "category": "CLOUD PLATFORM",
+            "href": ""
+          },
+          {
+            "title": "Google Cloud",
+            "category": "CLOUD PLATFORM",
+            "href": ""
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "AWS",
+            "category": "CLOUD PLATFORM",
+            "href": ""
+          },
+          {
+            "title": "Terraform",
+            "category": "INFRASTRUCTURE AS CODE",
+            "href": ""
+          },
+          {
+            "title": "Docker",
+            "category": "CONTAINERIZATION",
+            "href": ""
+          },
+          {
+            "title": "Podman",
+            "category": "CONTAINERIZATION",
+            "href": ""
+          },
+          {
+            "title": "Linux",
+            "category": "OPERATING SYSTEM",
+            "href": ""
+          },
+          {
+            "title": "Windows",
+            "category": "OPERATING SYSTEM",
+            "href": ""
+          },
+          {
+            "title": "MacOS",
+            "category": "OPERATING SYSTEM",
+            "href": ""
+          },
+          {
+            "title": "Git",
+            "category": "VERSION CONTROL",
+            "href": ""
+          },
+          {
+            "title": "Perforce",
+            "category": "VERSION CONTROL",
+            "href": ""
+          },
+          {
+            "title": "GitHub",
+            "category": "CODE HOSTING",
+            "href": ""
+          },
+          {
+            "title": "GitLab",
+            "category": "CODE HOSTING",
+            "href": ""
+          },
+          {
+            "title": "CI/CD",
+            "category": "AUTOMATION",
+            "href": ""
+          }
+        ]
+      },
+      {
+        "title": "Enterprise",
+        "featuredCards": [
+          {
+            "title": "Adobe Experience Manager",
+            "category": "CMS",
+            "href": ""
+          },
+          {
+            "title": "Magento",
+            "category": "E-COMMERCE",
+            "href": ""
+          }
+        ],
+        "techStackCards": [
+          {
+            "title": "Adobe Campaign Standard",
+            "category": "MARKETING PLATFORM",
+            "href": ""
+          },
+          {
+            "title": "Adobe Analytics",
+            "category": "ANALYTICS",
+            "href": ""
+          },
+          {
+            "title": "Google Analytics 4",
+            "category": "ANALYTICS",
+            "href": ""
+          },
+          {
+            "title": "Stripe",
+            "category": "PAYMENTS",
+            "href": ""
+          },
+          {
+            "title": "FedEx",
+            "category": "SHIPPING API",
+            "href": ""
+          },
+          {
+            "title": "Selenium",
+            "category": "AUTOMATION TESTING",
+            "href": ""
+          },
+          {
+            "title": "JUnit",
+            "category": "TESTING FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Jest",
+            "category": "TESTING FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Pytest",
+            "category": "TESTING FRAMEWORK",
+            "href": ""
+          },
+          {
+            "title": "Figma",
+            "category": "DESIGN TOOL",
+            "href": ""
+          },
+          {
+            "title": "Framer",
+            "category": "WEB DESIGN",
+            "href": ""
+          }
+        ]
+      }
+    ]
   }
 }

@@ -265,6 +265,25 @@
     &--png {
       width: 80%;
     }
+
+    &--tech {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      & img {
+        width: 37%;
+      }
+    }
+
+    &--lg img {
+      width: 60%;
+    }
+
+    &--sm img {
+      width: 22%;
+    }
   }
 
   &__title {

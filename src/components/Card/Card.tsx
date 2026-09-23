@@ -161,7 +161,25 @@ const Card = (props: CardProps) => {
             >
               {props.category}
             </CardCategory>
-            <div className={styles["card__icon"]}>{props.icon}</div>
+            {typeof props.icon === "string" ? (
+              <div
+                className={cx(
+                  styles["card__icon--tech"],
+                  styles["card__icon--png"],
+                  {
+                    [styles["card__icon--lg"]]: props.icon.includes("openusd"),
+                    [styles["card__icon--sm"]]:
+                      props.icon.includes("azure") ||
+                      props.icon.includes("aem") ||
+                      props.icon.includes("magento"),
+                  },
+                )}
+              >
+                <img src={props.icon} alt="" title={props.title} />
+              </div>
+            ) : (
+              <div className={styles["card__icon"]}>{props.icon}</div>
+            )}
             <CardTitle variant="paragraph-large">{props.title}</CardTitle>
             <CardLink label={`View ${props.title}`} />
           </>
