@@ -1,4 +1,6 @@
 import { useRef, useState, type SubmitEvent } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { useForm, ValidationError } from "@formspree/react";
 import { CheckIcon } from "@phosphor-icons/react";
 import cx from "classnames";
 
@@ -8,6 +10,9 @@ import Text from "@components/Text/Text";
 import styles from "./ContactForm.module.scss";
 import { useTranslation } from "react-i18next";
 import type { ContactFormProps } from "./ContactForm.types";
+
+const FORM_ID = import.meta.env.VITE_FORMSPREE_ID;
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 const MIN_NAME_LENGTH = 4;
 const MIN_MESSAGE_LENGTH = 4;
@@ -21,19 +26,18 @@ const ContactForm = ({
   className,
 }: ContactFormProps) => {
   const { t } = useTranslation();
+  const [formState, handleFormspreeSubmit] = useForm(FORM_ID);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     message: "",
   });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -91,30 +95,14 @@ const ContactForm = ({
     return !nextErrors.name && !nextErrors.email && !nextErrors.message;
   };
 
-  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!validateForm()) {
+    if (!validateForm() || !turnstileToken) {
       return;
     }
 
-    setIsSubmitting(true);
-
-    try {
-      // Replace this with the actual form submission.
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1500);
-      });
-
-      setIsSuccess(true);
-    } catch {
-      setErrors((current) => ({
-        ...current,
-        message: t("contact.form.message.error"),
-      }));
-    } finally {
-      setIsSubmitting(false);
-    }
+    handleFormspreeSubmit(event);
   };
 
   const handleNameChange = (value: string) => {
@@ -155,7 +143,7 @@ const ContactForm = ({
           {description}
         </Text>
       </div>
-      {isSuccess ? (
+      {formState.succeeded ? (
         <div
           className={styles["contact-form__success"]}
           role="status"
@@ -213,7 +201,7 @@ const ContactForm = ({
                   aria-describedby={errors.name ? "name-error" : undefined}
                   value={name}
                   onChange={(event) => handleNameChange(event.target.value)}
-                  disabled={isSubmitting}
+                  disabled={formState.submitting}
                 />
               </div>
               {errors.name && (
@@ -227,6 +215,12 @@ const ContactForm = ({
                   {errors.name}
                 </Text>
               )}
+              <ValidationError
+                prefix="Name"
+                field="name"
+                errors={formState.errors}
+                className={styles["contact-form__error"]}
+              />
             </div>
             <div
               className={cx(
@@ -248,7 +242,7 @@ const ContactForm = ({
                   aria-describedby={errors.email ? "email-error" : undefined}
                   value={email}
                   onChange={(event) => handleEmailChange(event.target.value)}
-                  disabled={isSubmitting}
+                  disabled={formState.submitting}
                 />
               </div>
               {errors.email && (
@@ -262,6 +256,12 @@ const ContactForm = ({
                   {errors.email}
                 </Text>
               )}
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={formState.errors}
+                className={styles["contact-form__error"]}
+              />
             </div>
           </div>
           <div
@@ -281,7 +281,7 @@ const ContactForm = ({
                 aria-describedby={errors.message ? "message-error" : undefined}
                 value={message}
                 onChange={(event) => handleMessageChange(event.target.value)}
-                disabled={isSubmitting}
+                disabled={formState.submitting}
               />
             </div>
             <div className={styles["contact-form__message-footer"]}>
@@ -305,15 +305,35 @@ const ContactForm = ({
                 {message.length}/{MAX_MESSAGE_LENGTH}
               </Text>
             </div>
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={formState.errors}
+              className={styles["contact-form__error"]}
+            />
           </div>
+          <ValidationError
+            errors={formState.errors}
+            className={styles["contact-form__error"]}
+          />
+          <Turnstile
+            siteKey={TURNSTILE_SITE_KEY}
+            options={{
+              theme: "auto",
+              appearance: "interaction-only",
+            }}
+            onSuccess={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken("")}
+            onError={() => setTurnstileToken("")}
+          />
           <Button
             className={styles["contact-form__submit"]}
             type="submit"
-            variant={isSubmitting ? "alpha" : "primary"}
-            disabled={isSubmitting}
+            variant={formState.submitting ? "alpha" : "primary"}
+            disabled={formState.submitting}
           >
             <Text as="span" variant="roboto-small" inheritColor>
-              {isSubmitting
+              {formState.submitting
                 ? t("contact.form.button.loading")
                 : t("contact.form.button.text")}
             </Text>
