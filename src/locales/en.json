@@ -21,6 +21,9 @@
       "changed": "[ CL0S3 ]"
     }
   },
+  "overlayMenu": {
+    "items": ["ABOUT", "WORK", "STACK", "CONTACT"]
+  },
   "footer": {
     "information": [
       {
@@ -645,6 +648,12 @@
         "scripting": "HTML or scripts are not allowed.",
         "error": "Something went wrong. Please try again."
       }
+    },
+    "banner": {
+      "label": "CONTACT",
+      "buttonText": "Let's Talk",
+      "title1": "HAVE A COOL",
+      "title2": "PROJECT?"
     }
   }
 }

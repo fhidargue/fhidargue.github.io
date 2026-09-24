@@ -15,7 +15,7 @@ interface InformationLink {
   isExternal: false;
 }
 
-interface SocialLinks {
+export interface SocialLinks {
   label: string;
   changed: string;
   href: string;

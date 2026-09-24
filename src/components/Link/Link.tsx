@@ -191,6 +191,7 @@ const Link = (props: LinkProps) => {
 
   if (props.as === "button") {
     const {
+      ref,
       onMouseEnter,
       onMouseLeave,
       type = "button",
@@ -200,6 +201,7 @@ const Link = (props: LinkProps) => {
     return (
       <button
         {...buttonProps}
+        ref={ref}
         type={type}
         className={`${styles.link} ${className}`}
         onMouseEnter={(event) => handleMouseEnter(event, onMouseEnter)}
@@ -211,12 +213,20 @@ const Link = (props: LinkProps) => {
   }
 
   if (props.isExternal) {
-    const { href, target, rel, onMouseEnter, onMouseLeave, ...anchorProps } =
-      props;
+    const {
+      ref,
+      href,
+      target,
+      rel,
+      onMouseEnter,
+      onMouseLeave,
+      ...anchorProps
+    } = props;
 
     return (
       <a
         {...anchorProps}
+        ref={ref}
         href={href}
         className={`${styles.link} ${className}`}
         target={target ?? "_blank"}
@@ -229,10 +239,11 @@ const Link = (props: LinkProps) => {
     );
   }
 
-  const { to, onClick, onMouseEnter, onMouseLeave } = props;
+  const { ref, to, onClick, onMouseEnter, onMouseLeave } = props;
 
   return (
     <RouterLink
+      ref={ref}
       to={to}
       className={`${styles.link} ${className}`}
       onMouseEnter={(event) => handleMouseEnter(event, onMouseEnter)}

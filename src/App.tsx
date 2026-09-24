@@ -5,9 +5,9 @@ import Footer from "@components/Footer/Footer";
 import TopBar from "@components/TopBar/TopBar";
 
 import Home from "@pages/Home/Home";
-import Work from "@pages/Work/Work";
+import Project from "@pages/Project/Project";
 import About from "@pages/About/About";
-import Playground from "@pages/Playground/Playground";
+import Work from "@pages/Work/Work";
 import TechStack from "@pages/TechStack/TechStack";
 import Contact from "@pages/Contact/Contact";
 import NotFound from "@pages/NotFound/NotFound";
@@ -77,7 +77,7 @@ const App = () => {
             <Route path={ROUTES.HOME} element={<Home />} />
             <Route path={ROUTES.WORK} element={<Work />} />
             <Route path={ROUTES.ABOUT} element={<About />} />
-            <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
+            <Route path={ROUTES.PROJECT} element={<Project />} />
             <Route path={ROUTES.STACK} element={<TechStack />} />
             <Route path={ROUTES.CONTACT} element={<Contact />} />
             <Route path="*" element={<NotFound />} />

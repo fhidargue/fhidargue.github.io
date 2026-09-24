@@ -43,7 +43,7 @@
       width: utils.toRem(24px);
       height: utils.toRem(24px);
       border-radius: 50%;
-      background-color: var(--color-dot-background);
+      background-color: var(--color-accent);
       transform: translate(-50%, -50%) scale(0.333);
       transform-origin: center;
       animation: status-indicator-breathe 2.2s cubic-bezier(0.45, 0, 0.55, 1)
@@ -60,7 +60,7 @@
   }
 
   50% {
-    opacity: 1;
+    opacity: 0.6;
     transform: translate(-50%, -50%) scale(1);
   }
 }
