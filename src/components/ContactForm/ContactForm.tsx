@@ -1,4 +1,6 @@
 import { useRef, useState, type SubmitEvent } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { useForm, ValidationError } from "@formspree/react";
 import { CheckIcon } from "@phosphor-icons/react";
 import cx from "classnames";
 
@@ -6,7 +8,11 @@ import Button from "@components/Button/Button";
 import Text from "@components/Text/Text";
 
 import styles from "./ContactForm.module.scss";
+import { useTranslation } from "react-i18next";
 import type { ContactFormProps } from "./ContactForm.types";
+
+const FORM_ID = import.meta.env.VITE_FORMSPREE_ID;
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 
 const MIN_NAME_LENGTH = 4;
 const MIN_MESSAGE_LENGTH = 4;
@@ -19,18 +25,19 @@ const ContactForm = ({
   successDescription = "Thanks for getting in touch. I'll get back to you soon.",
   className,
 }: ContactFormProps) => {
+  const { t } = useTranslation();
+  const [formState, handleFormspreeSubmit] = useForm(FORM_ID);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     message: "",
   });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
 
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -48,25 +55,31 @@ const ContactForm = ({
     };
 
     if (!name.trim()) {
-      nextErrors.name = "Name is required.";
+      nextErrors.name = t("contact.form.name.required");
     } else if (name.trim().length < MIN_NAME_LENGTH) {
-      nextErrors.name = `Name must be more than ${MIN_NAME_LENGTH - 1} letters.`;
+      nextErrors.name = t("contact.form.name.minLength", {
+        length: MIN_NAME_LENGTH - 1,
+      });
     }
 
     if (!email.trim()) {
-      nextErrors.email = "Email is required.";
+      nextErrors.email = t("contact.form.email.required");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      nextErrors.email = "Please enter a valid email.";
+      nextErrors.email = t("contact.form.email.valid");
     }
 
     if (!message.trim()) {
-      nextErrors.message = "Message is required.";
+      nextErrors.message = t("contact.form.message.required");
     } else if (message.trim().length < MIN_MESSAGE_LENGTH) {
-      nextErrors.message = `Message must be more than ${MIN_MESSAGE_LENGTH - 1} characters.`;
+      nextErrors.message = t("contact.form.message.minLength", {
+        length: MIN_MESSAGE_LENGTH - 1,
+      });
     } else if (message.length > MAX_MESSAGE_LENGTH) {
-      nextErrors.message = `Message must be less than ${MAX_MESSAGE_LENGTH + 1} characters.`;
+      nextErrors.message = t("contact.form.message.maxLength", {
+        length: MAX_MESSAGE_LENGTH + 1,
+      });
     } else if (containsHtml(message)) {
-      nextErrors.message = "HTML or scripts are not allowed.";
+      nextErrors.message = t("contact.form.message.scripting");
     }
 
     setErrors(nextErrors);
@@ -82,30 +95,14 @@ const ContactForm = ({
     return !nextErrors.name && !nextErrors.email && !nextErrors.message;
   };
 
-  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!validateForm()) {
+    if (!validateForm() || !turnstileToken) {
       return;
     }
 
-    setIsSubmitting(true);
-
-    try {
-      // Replace this with the actual form submission.
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1500);
-      });
-
-      setIsSuccess(true);
-    } catch {
-      setErrors((current) => ({
-        ...current,
-        message: "Something went wrong. Please try again.",
-      }));
-    } finally {
-      setIsSubmitting(false);
-    }
+    handleFormspreeSubmit(event);
   };
 
   const handleNameChange = (value: string) => {
@@ -146,7 +143,7 @@ const ContactForm = ({
           {description}
         </Text>
       </div>
-      {isSuccess ? (
+      {formState.succeeded ? (
         <div
           className={styles["contact-form__success"]}
           role="status"
@@ -181,7 +178,7 @@ const ContactForm = ({
             variant="roboto-small"
             className={styles["contact-form__label"]}
           >
-            INQUIRY FORM
+            {t("contact.form.label")}
           </Text>
           <div className={styles["contact-form__fields"]}>
             <div
@@ -198,13 +195,13 @@ const ContactForm = ({
                   })}
                   type="text"
                   name="name"
-                  placeholder="NAME"
-                  aria-label="Name"
+                  placeholder={t("contact.form.name.placeholder")}
+                  aria-label={t("contact.form.name.label")}
                   aria-invalid={Boolean(errors.name)}
                   aria-describedby={errors.name ? "name-error" : undefined}
                   value={name}
                   onChange={(event) => handleNameChange(event.target.value)}
-                  disabled={isSubmitting}
+                  disabled={formState.submitting}
                 />
               </div>
               {errors.name && (
@@ -218,6 +215,12 @@ const ContactForm = ({
                   {errors.name}
                 </Text>
               )}
+              <ValidationError
+                prefix="Name"
+                field="name"
+                errors={formState.errors}
+                className={styles["contact-form__error"]}
+              />
             </div>
             <div
               className={cx(
@@ -233,13 +236,13 @@ const ContactForm = ({
                   })}
                   type="email"
                   name="email"
-                  placeholder="EMAIL"
-                  aria-label="Email"
+                  placeholder={t("contact.form.email.placeholder")}
+                  aria-label={t("contact.form.email.label")}
                   aria-invalid={Boolean(errors.email)}
                   aria-describedby={errors.email ? "email-error" : undefined}
                   value={email}
                   onChange={(event) => handleEmailChange(event.target.value)}
-                  disabled={isSubmitting}
+                  disabled={formState.submitting}
                 />
               </div>
               {errors.email && (
@@ -253,6 +256,12 @@ const ContactForm = ({
                   {errors.email}
                 </Text>
               )}
+              <ValidationError
+                prefix="Email"
+                field="email"
+                errors={formState.errors}
+                className={styles["contact-form__error"]}
+              />
             </div>
           </div>
           <div
@@ -266,13 +275,13 @@ const ContactForm = ({
                 ref={messageRef}
                 className={styles["contact-form__textarea"]}
                 name="message"
-                placeholder="MESSAGE"
-                aria-label="Message"
+                placeholder={t("contact.form.message.placeholder")}
+                aria-label={t("contact.form.message.label")}
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={errors.message ? "message-error" : undefined}
                 value={message}
                 onChange={(event) => handleMessageChange(event.target.value)}
-                disabled={isSubmitting}
+                disabled={formState.submitting}
               />
             </div>
             <div className={styles["contact-form__message-footer"]}>
@@ -296,15 +305,37 @@ const ContactForm = ({
                 {message.length}/{MAX_MESSAGE_LENGTH}
               </Text>
             </div>
+            <ValidationError
+              prefix="Message"
+              field="message"
+              errors={formState.errors}
+              className={styles["contact-form__error"]}
+            />
           </div>
+          <ValidationError
+            errors={formState.errors}
+            className={styles["contact-form__error"]}
+          />
+          <Turnstile
+            siteKey={TURNSTILE_SITE_KEY}
+            options={{
+              theme: "auto",
+              appearance: "interaction-only",
+            }}
+            onSuccess={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken("")}
+            onError={() => setTurnstileToken("")}
+          />
           <Button
             className={styles["contact-form__submit"]}
             type="submit"
-            variant={isSubmitting ? "alpha" : "primary"}
-            disabled={isSubmitting}
+            variant={formState.submitting ? "alpha" : "primary"}
+            disabled={formState.submitting}
           >
             <Text as="span" variant="roboto-small" inheritColor>
-              {isSubmitting ? "SENDING..." : "SEND EMAIL"}
+              {formState.submitting
+                ? t("contact.form.button.loading")
+                : t("contact.form.button.text")}
             </Text>
           </Button>
         </form>
