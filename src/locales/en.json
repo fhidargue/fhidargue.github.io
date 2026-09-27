@@ -655,5 +655,87 @@
       "title1": "HAVE A COOL",
       "title2": "PROJECT?"
     }
+  },
+  "work": {
+    "banner": {
+      "title1": "EXPLORE THE",
+      "title2": "WORK",
+      "label": "SOFTWARE, TOOLS, GRAPHICS, WEB, AND R&D. A COLLECTION OF THINGS I’VE WORKED, BUILT AND EXPERIMENTED WITH.",
+      "media": "/videos/bunny.mp4",
+      "mediaAlt": "Playground video"
+    },
+    "video": {
+      "src": "https://www.youtube.com/watch?v=_JaxgaLM55I",
+      "poster": "/images/work/showreel.png",
+      "category": "VIDEO REEL",
+      "title": "Selected Work / 2026"
+    },
+    "topCards": [
+      {
+        "media": "/videos/work/mocap.mp4",
+        "type": "video",
+        "poster": "/images/home/dancer.png",
+        "title": "Motion Capture Retargeting",
+        "category": "MOCAP / PIPELINE",
+        "to": "/work/mocap-retarget",
+        "hasNoise": false
+      },
+      {
+        "media": "/videos/work/rendering.mp4",
+        "type": "video",
+        "poster": "/images/home/dragons.png",
+        "title": "Wavefront Path Tracer",
+        "category": "RENDERING",
+        "to": "/work/wavefront-render",
+        "hasNoise": false
+      }
+    ],
+    "threeColumnCards": [
+      {
+        "media": "/videos/work/snowball.mp4",
+        "type": "video",
+        "poster": "/images/work/snowball.png",
+        "title": "Snowball Simulation",
+        "category": "SIMULATION",
+        "to": "/work/snowball-simulation",
+        "hasNoise": false
+      },
+      {
+        "media": "/videos/work/hair.mp4",
+        "type": "video",
+        "poster": "/images/home/hair-sim.png",
+        "title": "Hair Simulation",
+        "category": "SIMULATION",
+        "to": "/work/hair-simulation",
+        "hasNoise": false
+      },
+      {
+        "media": "/images/work/salt-shaker.png",
+        "type": "image",
+        "title": "RenderMan Salt Shaker",
+        "category": "RENDERING",
+        "to": "/work/renderman-rendering"
+      }
+    ],
+    "bottomCards": [
+      {
+        "media": "/videos/work/mocap.mp4",
+        "type": "video",
+        "poster": "/images/home/kitchen.png",
+        "title": "DCC Translation Pipeline",
+        "category": "PIPELINE",
+        "to": "/work/mocap-retarget",
+        "hasNoise": false
+      },
+      {
+        "media": "/videos/work/stairs.mp4",
+        "type": "video",
+        "poster": "/images/work/stairs.png",
+        "title": "Impossible Staircase",
+        "category": "ANIMATION",
+        "to": "/work/wavefront-render",
+        "hasNoise": false
+      }
+    ]
   }
 }
