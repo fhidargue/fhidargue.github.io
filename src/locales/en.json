@@ -661,7 +661,7 @@
       "title1": "EXPLORE THE",
       "title2": "WORK",
       "label": "SOFTWARE, TOOLS, GRAPHICS, WEB, AND R&D. A COLLECTION OF THINGS I’VE WORKED, BUILT AND EXPERIMENTED WITH.",
-      "media": "/videos/bunny.mp4",
+      "media": "/videos/work/wavy-lines.mp4",
       "mediaAlt": "Playground video"
     },
     "video": {
@@ -672,11 +672,11 @@
     },
     "topCards": [
       {
-        "media": "/videos/work/mocap.mp4",
+        "media": "/videos/work/dcc-translation.mp4",
         "type": "video",
-        "poster": "/images/home/dancer.png",
-        "title": "Motion Capture Retargeting",
-        "category": "MOCAP / PIPELINE",
+        "poster": "/images/home/kitchen.png",
+        "title": "DCC Translation Pipeline",
+        "category": "PIPELINE",
         "to": "/work/mocap-retarget",
         "hasNoise": false
       },
@@ -715,15 +715,24 @@
         "title": "RenderMan Salt Shaker",
         "category": "RENDERING",
         "to": "/work/renderman-rendering"
+      },
+      {
+        "media": "/videos/work/hda-garden.mp4",
+        "type": "video",
+        "poster": "/images/work/hda-garden.png",
+        "title": "HDA Garden Generator",
+        "category": "HOUDINI DIGITAL ASSET",
+        "to": "/work/hda-garden",
+        "hasNoise": false
       }
     ],
     "bottomCards": [
       {
         "media": "/videos/work/mocap.mp4",
         "type": "video",
-        "poster": "/images/home/kitchen.png",
-        "title": "DCC Translation Pipeline",
-        "category": "PIPELINE",
+        "poster": "/images/home/dancer.png",
+        "title": "Motion Capture Retargeting",
+        "category": "MOCAP / PIPELINE",
         "to": "/work/mocap-retarget",
         "hasNoise": false
       },
