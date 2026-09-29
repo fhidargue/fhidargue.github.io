@@ -1369,6 +1369,15 @@
               "text": "The results show that execution coherence alone was not sufficient to obtain the best rendering performance. Material scheduling achieved similarly high coherence, but Cost-Benefit performed better by incorporating runtime execution cost into the scheduling decision."
             }
           ]
+        },
+        {
+          "title": "OUTCOME",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This project was completed as my MSc research project in Computer Animation and Visual Effects at Bournemouth University, achieving a Distinction with a final grade of 87. The result reflects the substantial research, engineering and evaluation required to take the project from an initial research question through to a complete working renderer."
+            }
+          ]
         }
       ],
       "linksTitle": "LINKS",
@@ -1383,6 +1392,12 @@
           "label": "VIDEO TUTORIAL",
           "changed": "V1DE0 TUT0RI4L",
           "href": "https://www.youtube.com/watch?v=F0Y361VYwQo",
+          "isExternal": true
+        },
+        {
+          "label": "MSC PROJECT",
+          "changed": "MSC PR0J4CT",
+          "href": "https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc26/04/index.html",
           "isExternal": true
         }
       ],
