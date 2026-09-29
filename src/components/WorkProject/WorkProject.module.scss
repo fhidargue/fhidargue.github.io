@@ -71,7 +71,7 @@
   &__about {
     display: flex;
     flex-direction: column;
-    gap: utils.toRem(12px);
+    gap: utils.toRem(32px);
   }
 
   &__media {
@@ -85,16 +85,15 @@
       height: auto;
       aspect-ratio: 1 / 1;
 
-      & img {
+      & img,
+      & video {
         width: 100%;
         height: 100%;
         object-fit: fill;
       }
 
-      &:hover {
-        [class*="media__content"] {
-          transform: scale(1);
-        }
+      :global([class*="media__content"]) {
+        transform: scale(1);
       }
     }
   }

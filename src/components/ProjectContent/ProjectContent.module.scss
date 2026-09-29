@@ -1,0 +1,26 @@
+@use "@styles/abstracts/utils";
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: utils.toRem(32px);
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(12px);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(8px);
+
+    margin: 0;
+    padding-left: utils.toRem(24px);
+
+    li {
+      padding-left: utils.toRem(4px);
+    }
+  }
+}

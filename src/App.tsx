@@ -13,6 +13,7 @@ import NotFound from "@pages/NotFound/NotFound";
 
 import Project from "@pages/Project/Project";
 import DccTranslation from "@pages/Projects/DccTranslation/DccTranslation";
+import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPathtracer";
 
 import useLocale from "@hooks/useLocale";
 
@@ -76,7 +77,7 @@ const App = () => {
     },
     {
       path: ROUTES.PROJECTS.WAVEFRONT_PATHTRACER,
-      element: <Project />,
+      element: <WavefrontPathtracer />,
     },
     {
       path: ROUTES.PROJECTS.MOCAP_RETARGET,

@@ -14,6 +14,7 @@ export interface WorkProjectMedia {
   hasNoise: boolean;
   isHovered: boolean;
   isFilled: boolean;
+  hasBorder: boolean;
 }
 
 export interface WorkProjectProps {

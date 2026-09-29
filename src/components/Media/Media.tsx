@@ -14,6 +14,7 @@ const Media = ({
   scale = 1.25,
   hasParallax = false,
   hasNoise = false,
+  hasBorder = false,
   noiseOpacity = 0.15,
   noiseDensity = 0.7,
   noiseSpeed = 120,
@@ -66,6 +67,7 @@ const Media = ({
         [styles["media--parallax"]]: hasParallax,
         [styles["media--autoplay"]]: autoPlay,
         [styles["media--filled"]]: isFilled,
+        [styles["media--border"]]: hasBorder,
       })}
       style={
         {

@@ -16,4 +16,11 @@ export const ROUTES = {
   },
 } as const;
 
-export const ROUTE_PATHS = Object.values(ROUTES);
+export const ROUTE_PATHS = [
+  ROUTES.HOME,
+  ROUTES.WORK,
+  ROUTES.ABOUT,
+  ROUTES.STACK,
+  ROUTES.CONTACT,
+  ...Object.values(ROUTES.PROJECTS),
+] as const;

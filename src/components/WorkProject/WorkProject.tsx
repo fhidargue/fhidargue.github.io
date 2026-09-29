@@ -58,6 +58,7 @@ const WorkProject = ({
               hasNoise={item.hasNoise}
               isHovered={item.isHovered}
               isFilled={item.isFilled}
+              hasBorder={item.hasBorder}
               borderRadius={32}
             />
           ))}

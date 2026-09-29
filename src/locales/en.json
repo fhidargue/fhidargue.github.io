@@ -973,11 +973,428 @@
           ]
         }
       ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/dcc-translation",
+          "isExternal": true
+        }
+      ],
       "video": {
         "src": "https://www.youtube.com/watch?v=HBnfSlUyQT8",
         "poster": "/images/projects/dcc-translation/dcc-translation-thumbnail.png",
         "category": "PIPELINE DEVELOPMENT",
         "title": "Detailed Video Explanation"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "wavefront": {
+      "title": "Adaptive Wavefront Path Tracer",
+      "description": "C++17 CPU wavefront path tracer investigating adaptive scheduling for coherent rendering.",
+      "tags": [
+        {
+          "label": "C++17",
+          "variant": "primary"
+        },
+        {
+          "label": "OpenUSD",
+          "variant": "primary"
+        },
+        {
+          "label": "Embree",
+          "variant": "primary"
+        },
+        {
+          "label": "oneTBB",
+          "variant": "primary"
+        },
+        {
+          "label": "Path Tracing",
+          "variant": "secondary"
+        },
+        {
+          "label": "Wavefront Rendering",
+          "variant": "secondary"
+        },
+        {
+          "label": "Adaptive Scheduling",
+          "variant": "secondary"
+        },
+        {
+          "label": "PySide6",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/images/projects/wavefront/material-variants.png",
+          "type": "image",
+          "alt": "Wavefront Material Variants",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/videos/work/projects/wavefront-render.mp4",
+          "type": "video",
+          "poster": "/images/projects/wavefront/wavefront-cli.png",
+          "alt": "Wavefront Rendering rendering",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/wavefront-cli.mp4",
+          "type": "video",
+          "poster": "/images/projects/wavefront/wavefront-cli.png",
+          "alt": "Wavefront Rendering command line interface",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/wavefront/cornell-box.png",
+          "type": "image",
+          "alt": "Cornell Box USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/cornell-dragon.png",
+          "type": "image",
+          "alt": "Cornell Dragon USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/mixed-scene.png",
+          "type": "image",
+          "alt": "Mixed Scene USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/dragon-scene.png",
+          "type": "image",
+          "alt": "XYZRGB Dragon Scene USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/pipeline-breakdown.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Pipeline breakdown",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/shade-time.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Shading Times",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/cache-homogeneity.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Cache Homogeneity",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/run-length.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Run Length",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/wavefront-comparison.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Heatmap Comparison",
+          "hasNoise": false,
+          "isHovered": false
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A CPU-based wavefront path tracer developed for an MSc research project investigating whether adaptive workload scheduling can improve execution coherence and rendering performance. The renderer uses C++17, OpenUSD and Embree, with a modular scheduling framework that allows different workload ordering strategies to be evaluated within the same rendering pipeline."
+            },
+            {
+              "type": "paragraph",
+              "text": "The research focuses on the shading stage, where rays can diverge across materials, textures and shader operations. The project investigates whether runtime information can be used to make better scheduling decisions than static material or texture sorting."
+            }
+          ]
+        },
+        {
+          "title": "RENDERING PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The renderer separates path tracing into independent stages connected by work queues:"
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Scene Loading",
+                  "text": "OpenUSD scenes are loaded into internal geometry, material, texture and camera representations."
+                },
+                {
+                  "title": "Ray Generation",
+                  "text": "Primary camera rays are generated and stored in the RayQueue."
+                },
+                {
+                  "title": "Traversal",
+                  "text": "Embree performs BVH intersection and produces shading records for rays that hit the scene."
+                },
+                {
+                  "title": "Scheduling",
+                  "text": "The ShadingQueue can be reordered using the selected scheduling policy."
+                },
+                {
+                  "title": "Shading",
+                  "text": "BSDF evaluation, direct lighting and secondary ray generation are performed on the reordered workload."
+                },
+                {
+                  "title": "Iteration",
+                  "text": "Secondary rays are returned to the RayQueue and the process continues until paths terminate or reach the maximum depth."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "WAVEFRONT ARCHITECTURE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The renderer uses separate RayQueue and ShadingQueue structures implemented using a Structure of Arrays layout. This separates traversal data from shading data and provides explicit points where workloads can be reorganised before execution."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "RayQueue",
+                  "text": "Stores ray origins, directions, throughput, pixel coordinates and path depth."
+                },
+                {
+                  "title": "ShadingQueue",
+                  "text": "Stores hit positions, normals, material and texture IDs, and path information required for shading."
+                },
+                {
+                  "title": "Scheduling",
+                  "text": "Policies generate a sorted index order before the queue is materialised for shading."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Keeping scheduling separate from the queue implementation allows different scheduling strategies to be evaluated without changing the rest of the renderer."
+            }
+          ]
+        },
+        {
+          "title": "PATH TRACING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The renderer implements a physically based path tracing pipeline with direct and indirect lighting, supporting diffuse, metallic, dielectric and emissive materials."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Next Event Estimation",
+                  "text": "Explicitly samples light sources to estimate direct illumination."
+                },
+                {
+                  "title": "Multiple Importance Sampling",
+                  "text": "Combines light sampling and BSDF sampling using the power heuristic."
+                },
+                {
+                  "title": "Adaptive Sampling",
+                  "text": "Uses Welford's online algorithm to estimate per-pixel convergence and stop sampling pixels once their estimated error falls below the threshold."
+                },
+                {
+                  "title": "Russian Roulette",
+                  "text": "Terminates low-contribution paths while maintaining an unbiased estimator."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ADAPTIVE SCHEDULING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Four scheduling policies were implemented to compare static and runtime-aware workload organisation:"
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "None",
+                  "text": "Preserves the original traversal order and provides the baseline."
+                },
+                {
+                  "title": "Material",
+                  "text": "Groups shading records by material to improve shader and material-data locality."
+                },
+                {
+                  "title": "Texture",
+                  "text": "Groups records according to texture access to target texture cache locality."
+                },
+                {
+                  "title": "Cost-Benefit",
+                  "text": "Combines material grouping, spatial ordering and runtime shading-cost estimates to prioritise work according to expected contribution relative to execution cost."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "COST-BENEFIT SCHEDULING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Cost-Benefit scheduler is the main research contribution. Runtime measurements are collected while rendering and used to estimate the cost of shading different materials and textures."
+            },
+            {
+              "type": "paragraph",
+              "text": "A per-material cost estimate is updated using an exponential moving average. The scheduler combines these estimates with accumulated ray throughput to calculate the expected contribution of shading work relative to its execution cost."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Runtime cost tracking",
+                  "text": "Measures shading cost during rendering and updates the estimates for subsequent scheduling passes."
+                },
+                {
+                  "title": "Work prioritisation",
+                  "text": "Higher contribution relative to estimated cost receives higher scheduling priority."
+                },
+                {
+                  "title": "Spatial ordering",
+                  "text": "Morton ordering is used within material groups to retain spatial locality."
+                },
+                {
+                  "title": "Cost-aware termination",
+                  "text": "Russian Roulette incorporates estimated material cost into path termination decisions."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "EVALUATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The scheduling policies were evaluated using two procedural OpenUSD benchmark scenes under identical rendering configurations. The Mixed Scene combines different geometry, materials and textures, while the Dragon Scene uses a higher triangle count with a more consistent distribution of geometry and materials."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Sample counts",
+                  "text": "256, 1024, 2048 and 4096 samples per pixel."
+                },
+                {
+                  "title": "Resolutions",
+                  "text": "600×600 through 1080×1080."
+                },
+                {
+                  "title": "Scheduling policies",
+                  "text": "None, Material, Texture and Cost-Benefit."
+                },
+                {
+                  "title": "Measurements",
+                  "text": "Shading time, pipeline time, scheduling overhead, execution coherence, cache-line homogeneity and image difference."
+                },
+                {
+                  "title": "Repetitions",
+                  "text": "Three independent runs were performed for each configuration."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Cost-Benefit produced the lowest shading time across both benchmark scenes and consistently improved on the unscheduled baseline. The improvement increased with rendering workload, reaching its largest reduction at the highest sample count."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "8–10% lower shading time at 4096 samples",
+                  "text": "At 4096 samples and 1080×1080 resolution, Cost-Benefit reduced shading time by 7.7% in the Mixed Scene and 9.6% in the Dragon Scene compared with the unscheduled baseline."
+                },
+                {
+                  "title": "Improved execution coherence",
+                  "text": "At 4096 samples, Cost-Benefit produced average material run lengths of 1474.5 records in the Mixed Scene and 1560.7 in the Dragon Scene, compared with 2.9 and 2.8 for the baseline."
+                },
+                {
+                  "title": "98.9% material cache-line homogeneity",
+                  "text": "Cost-Benefit achieved material cache-line homogeneity of 98.9% in the Mixed Scene and 98.8% in the Dragon Scene, compared with 21.9% and 19.0% for the baseline."
+                },
+                {
+                  "title": "Lowest total pipeline time",
+                  "text": "Cost-Benefit achieved the lowest total pipeline time across the evaluated experiments. The largest reduction occurred in shading, while smaller improvements were also observed in traversal. Scheduling introduced additional cost for runtime analysis, but this remained small relative to the time saved."
+                },
+                {
+                  "title": "Minimal image differences",
+                  "text": "Comparison with the baseline produced mean luminance differences of 0.0088 in the Mixed Scene and 0.0100 in the Dragon Scene. Most differences were concentrated around the ceiling light and did not change the final rendered result."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The results show that execution coherence alone was not sufficient to obtain the best rendering performance. Material scheduling achieved similarly high coherence, but Cost-Benefit performed better by incorporating runtime execution cost into the scheduling decision."
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/wavefront-renderer",
+          "isExternal": true
+        },
+        {
+          "label": "VIDEO TUTORIAL",
+          "changed": "V1DE0 TUT0RI4L",
+          "href": "https://www.youtube.com/watch?v=F0Y361VYwQo",
+          "isExternal": true
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=sGyd81FOl10",
+        "poster": "/images/projects/wavefront/wavefront-thumbnail.png",
+        "category": "RENDERING RESEARCH",
+        "title": "Detailed Video Explanation"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
       }
     }
   }
