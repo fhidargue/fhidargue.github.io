@@ -846,6 +846,133 @@
           "isHovered": false
         }
       ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A validation-driven Maya to OpenUSD pipeline for standardising scene publishing between Maya and Unreal Engine. Maya scene data is extracted into a lightweight, DCC-independent SceneGraph, validated against configurable rules, converted to USD, and published with structured metadata."
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The pipeline separates each stage of the publishing process:"
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Scene Extraction",
+                  "text": "Maya DAG hierarchy, transforms, geometry and metadata are converted into a SceneGraph."
+                },
+                {
+                  "title": "Validation",
+                  "text": "YAML rule profiles check the scene before publishing."
+                },
+                {
+                  "title": "USD Export",
+                  "text": "The validated SceneGraph is translated into a structured OpenUSD stage."
+                },
+                {
+                  "title": "Publishing",
+                  "text": "Publish metadata is generated and translation activity is recorded."
+                },
+                {
+                  "title": "Unreal Engine",
+                  "text": "The resulting USD stage can be imported while preserving scene hierarchy and per-object separation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SCENEGRAPH",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The SceneGraph acts as the intermediate representation between Maya and OpenUSD. It stores the essential structural data required for cross-DCC translation and USD stage construction, keeping the core publishing system independent from Maya."
+            }
+          ]
+        },
+        {
+          "title": "VALIDATION & PUBLISHING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Scenes are validated using configurable YAML profiles covering:"
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "text": "Naming and hierarchy"
+                },
+                {
+                  "text": "Supported node types"
+                },
+                {
+                  "text": "Transforms and geometry"
+                },
+                {
+                  "text": "Scene scale"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The Maya plugin provides the artist-facing validation and publishing workflow, while a CLI exposes the same functionality for command-line workflows."
+            }
+          ]
+        },
+        {
+          "title": "INFRASTRUCTURE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Publishing generates structured metadata and records translation activity through interchangeable registry backends. SQLite supports local workflows, while MongoDB provides a database-backed option. The project also includes automated testing with Nox and mayapy and a drag-and-drop Maya installation workflow."
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The completed pipeline provides a standardised path from Maya scene data to Unreal Engine through OpenUSD, with validation and publishing handled as separate stages."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Validated publishing",
+                  "text": "Invalid scenes can be identified before USD export."
+                },
+                {
+                  "title": "DCC-independent translation",
+                  "text": "The SceneGraph separates Maya extraction from USD publishing."
+                },
+                {
+                  "title": "Structured USD output",
+                  "text": "Scene hierarchy and per-object separation are preserved for Unreal Engine."
+                },
+                {
+                  "title": "Tracked publishing",
+                  "text": "Publish metadata and translation activity are recorded through SQLite or MongoDB."
+                },
+                {
+                  "title": "Multiple workflows",
+                  "text": "The system is accessible through the Maya plugin and CLI."
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "video": {
         "src": "https://www.youtube.com/watch?v=HBnfSlUyQT8",
         "poster": "/images/projects/dcc-translation/dcc-translation-thumbnail.png",

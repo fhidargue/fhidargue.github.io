@@ -9,11 +9,11 @@ import type {
   WorkProjectMedia,
   WorkProjectTag,
 } from "@components/WorkProject/WorkProject.types";
+import { useTranslation } from "react-i18next";
+import type { ProjectContentSection } from "./DccTranslation.types";
+import { ROUTES } from "@constants/routes";
 
 import styles from "./DccTranslation.module.scss";
-
-import { useTranslation } from "react-i18next";
-import { ROUTES } from "@constants/routes";
 
 const DccTranslation = () => {
   const { t } = useTranslation();
@@ -39,6 +39,10 @@ const DccTranslation = () => {
     },
   ];
 
+  const content = t("projects.dccTranslation.content", {
+    returnObjects: true,
+  }) as ProjectContentSection[];
+
   return (
     <main className={styles["dcc-translation"]}>
       <WorkProject
@@ -56,136 +60,57 @@ const DccTranslation = () => {
         }
       >
         <div className={styles["dcc-translation__content"]}>
-          <Text variant="roboto-large">ABOUT</Text>
-          <Text variant="roboto-small" colorType="secondary">
-            A validation-driven Maya to OpenUSD pipeline for standardising scene
-            publishing between Maya and Unreal Engine. Maya scene data is
-            extracted into a lightweight, DCC-independent SceneGraph, validated
-            against configurable rules, converted to USD, and published with
-            structured metadata.
-          </Text>
-          <Text variant="roboto-large">PIPELINE</Text>
-          <Text variant="roboto-small" colorType="secondary">
-            The pipeline separates each stage of the publishing process:
-          </Text>
-          <ol className={styles["dcc-translation__list"]}>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Scene Extraction</strong>: Maya DAG hierarchy,
-                transforms, geometry and metadata are converted into a
-                SceneGraph.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Validation</strong>: YAML rule profiles check the scene
-                before publishing.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>USD Export</strong>: the validated SceneGraph is
-                translated into a structured OpenUSD stage.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Publishing</strong>: publish metadata is generated and
-                translation activity is recorded.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Unreal Engine</strong>: the resulting USD stage can be
-                imported while preserving scene hierarchy and per-object
-                separation.
-              </Text>
-            </li>
-          </ol>
-          <Text variant="roboto-large">SCENEGRAPH</Text>
-          <Text variant="roboto-small" colorType="secondary">
-            The SceneGraph acts as the intermediate representation between Maya
-            and OpenUSD. It stores the essential structural data required for
-            cross-DCC translation and USD stage construction, keeping the core
-            publishing system independent from Maya.
-          </Text>
-          <Text variant="roboto-large">VALIDATION & PUBLISHING</Text>
-          <Text variant="roboto-small" colorType="secondary">
-            Scenes are validated using configurable YAML profiles covering:
-          </Text>
-          <ul className={styles["dcc-translation__list"]}>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                Naming and hierarchy
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                Supported node types
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                Transforms and geometry
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                Scene scale
-              </Text>
-            </li>
-          </ul>
-          <Text variant="roboto-small" colorType="secondary">
-            The Maya plugin provides the artist-facing validation and publishing
-            workflow, while a CLI exposes the same functionality for
-            command-line workflows.
-          </Text>
-          <Text variant="roboto-large">INFRASTRUCTURE</Text>
-          <Text variant="roboto-small" colorType="secondary">
-            Publishing generates structured metadata and records translation
-            activity through interchangeable registry backends. SQLite supports
-            local workflows, while MongoDB provides a database-backed option.
-            The project also includes automated testing with Nox and mayapy and
-            a drag-and-drop Maya installation workflow.
-          </Text>
-          <Text variant="roboto-large">RESULTS</Text>
-          <Text variant="roboto-small" colorType="secondary">
-            The completed pipeline provides a standardised path from Maya scene
-            data to Unreal Engine through OpenUSD, with validation and
-            publishing handled as separate stages.
-          </Text>
-          <ul className={styles["dcc-translation__list"]}>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Validated publishing</strong>: invalid scenes can be
-                identified before USD export.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>DCC-independent translation</strong>: the SceneGraph
-                separates Maya extraction from USD publishing.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Structured USD output</strong>: scene hierarchy and
-                per-object separation are preserved for Unreal Engine.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Tracked publishing</strong>: publish metadata and
-                translation activity are recorded through SQLite or MongoDB.
-              </Text>
-            </li>
-            <li>
-              <Text as="span" variant="roboto-small" colorType="secondary">
-                <strong>Multiple workflows</strong>: the system is accessible
-                through the Maya plugin and CLI.
-              </Text>
-            </li>
-          </ul>
+          {content.map((section) => (
+            <section
+              key={section.title}
+              className={styles["dcc-translation__section"]}
+            >
+              <Text variant="roboto-large">{section.title}</Text>
+              {section.blocks.map((block, index) => {
+                if (block.type === "paragraph") {
+                  return (
+                    <Text
+                      key={index}
+                      variant="roboto-small"
+                      colorType="secondary"
+                    >
+                      {block.text}
+                    </Text>
+                  );
+                }
+
+                if (
+                  block.type === "ordered-list" ||
+                  block.type === "unordered-list"
+                ) {
+                  const List = block.type === "ordered-list" ? "ol" : "ul";
+
+                  return (
+                    <List
+                      key={index}
+                      className={styles["dcc-translation__list"]}
+                    >
+                      {block.items.map((item, itemIndex) => (
+                        <li key={itemIndex}>
+                          <Text
+                            as="span"
+                            variant="roboto-small"
+                            colorType="secondary"
+                          >
+                            {item.title && <strong>{item.title}</strong>}
+                            {item.title && ": "}
+                            {item.text}
+                          </Text>
+                        </li>
+                      ))}
+                    </List>
+                  );
+                }
+
+                return null;
+              })}
+            </section>
+          ))}
         </div>
       </WorkProject>
       <Container className={styles["dcc-translation__video-container"]}>

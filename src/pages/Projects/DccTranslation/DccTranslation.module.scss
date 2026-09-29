@@ -30,10 +30,8 @@
     display: flex;
     flex-direction: column;
     gap: utils.toRem(8px);
-
     margin: 0;
     padding-left: utils.toRem(24px);
-
     color: var(--color-text);
 
     li {
@@ -48,14 +46,19 @@
   &__content {
     display: flex;
     flex-direction: column;
-
-    gap: utils.toRem(12px);
+    gap: utils.toRem(32px);
 
     > :global([class*="roboto-large"]) {
       &:not(:first-child) {
         margin-top: utils.toRem(16px);
       }
     }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(12px);
   }
 
   &__video-container {
