@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
 
 export type TextVariant =
   | "section-title-large"
@@ -8,14 +8,15 @@ export type TextVariant =
   | "roboto-large"
   | "roboto-small";
 
-export type TextElement = "p" | "span" | "div";
-
-export interface TextProps {
+export type TextProps<T extends ElementType = "p"> = {
   children: ReactNode;
   variant?: TextVariant;
-  as?: TextElement;
+  as?: T;
   className?: string;
   inheritColor?: boolean;
-  id?: string;
   colorType?: string;
-}
+  id?: string;
+} & Omit<
+  React.ComponentPropsWithoutRef<T>,
+  "children" | "className" | "color" | "id"
+>;

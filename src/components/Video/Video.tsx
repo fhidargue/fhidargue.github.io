@@ -47,6 +47,7 @@ const Video = ({
   category,
   alt = title,
   className,
+  hasBorder = false,
 }: VideoProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -54,7 +55,11 @@ const Video = ({
 
   return (
     <article className={cx(styles.video, className)}>
-      <div className={styles["video__media"]}>
+      <div
+        className={cx(styles["video__media"], {
+          [styles["video__media--border"]]: hasBorder,
+        })}
+      >
         {isPlaying ? (
           <iframe
             className={styles["video__embed"]}
@@ -78,7 +83,12 @@ const Video = ({
               speed={120}
               pixelSize={1}
             />
-            <span className={styles["video__play"]} aria-hidden="true">
+            <span
+              className={cx(styles["video__play"], {
+                [styles["video__play--border"]]: hasBorder,
+              })}
+              aria-hidden="true"
+            >
               <PlayIcon size={32} weight="fill" />
             </span>
           </button>

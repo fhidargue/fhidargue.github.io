@@ -66,4 +66,10 @@
       opacity: 0;
     }
   }
+
+  &--filled {
+    & img {
+      object-fit: fill;
+    }
+  }
 }

@@ -3,15 +3,16 @@ import cx from "classnames";
 import styles from "./Text.module.scss";
 import type { TextProps } from "./Text.types";
 
-const Text = ({
+const Text = <T extends React.ElementType = "p">({
   children,
   variant = "paragraph-small",
-  as: Tag = "p",
+  as: Tag = "p" as T,
   className = "",
   inheritColor = false,
   colorType,
   id,
-}: TextProps) => {
+  ...props
+}: TextProps<T>) => {
   return (
     <Tag
       className={cx(
@@ -24,6 +25,7 @@ const Text = ({
         },
       )}
       id={id}
+      {...props}
     >
       {children}
     </Tag>

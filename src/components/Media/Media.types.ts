@@ -16,4 +16,5 @@ export interface MediaProps {
   autoPlay?: boolean;
   className?: string;
   hasParallax?: boolean;
+  isFilled?: boolean;
 }

@@ -74,25 +74,25 @@
         "image": "/images/home/dragons.png",
         "title": "Wavefront Path Tracer",
         "category": "RENDERING",
-        "to": "/work/project-1"
+        "to": "/work/wavefront-pathtracer"
       },
       {
         "image": "/images/home/kitchen.png",
         "title": "DCC Translation Pipeline",
         "category": "PIPELINE",
-        "to": "/work/project-2"
+        "to": "/work/dcc-translation"
       },
       {
         "image": "/images/home/dancer.png",
         "title": "Motion Capture Retargeting",
         "category": "MOCAP / PIPELINE",
-        "to": "/work/project-3"
+        "to": "/work/mocap-retargeting"
       },
       {
         "image": "/images/home/hair-sim.png",
         "title": "Hair Simulation",
         "category": "SIMULATION",
-        "to": "/work/project-4"
+        "to": "/work/hair-simulation"
       }
     ]
   },
@@ -677,7 +677,7 @@
         "poster": "/images/home/kitchen.png",
         "title": "DCC Translation Pipeline",
         "category": "PIPELINE",
-        "to": "/work/mocap-retarget",
+        "to": "/work/dcc-translation",
         "hasNoise": false
       },
       {
@@ -686,7 +686,7 @@
         "poster": "/images/home/dragons.png",
         "title": "Wavefront Path Tracer",
         "category": "RENDERING",
-        "to": "/work/wavefront-render",
+        "to": "/work/wavefront-pathtracer",
         "hasNoise": false
       }
     ],
@@ -714,7 +714,7 @@
         "type": "image",
         "title": "RenderMan Salt Shaker",
         "category": "RENDERING",
-        "to": "/work/renderman-rendering"
+        "to": "/work/renderman-api"
       },
       {
         "media": "/videos/work/hda-garden.mp4",
@@ -722,7 +722,7 @@
         "poster": "/images/work/hda-garden.png",
         "title": "HDA Garden Generator",
         "category": "HOUDINI DIGITAL ASSET",
-        "to": "/work/hda-garden",
+        "to": "/work/hda-garden-generator",
         "hasNoise": false
       }
     ],
@@ -733,7 +733,7 @@
         "poster": "/images/home/dancer.png",
         "title": "Motion Capture Retargeting",
         "category": "MOCAP / PIPELINE",
-        "to": "/work/mocap-retarget",
+        "to": "/work/mocap-retargeting",
         "hasNoise": false
       },
       {
@@ -742,9 +742,116 @@
         "poster": "/images/work/stairs.png",
         "title": "Impossible Staircase",
         "category": "ANIMATION",
-        "to": "/work/wavefront-render",
+        "to": "/work/impossible-stairs",
         "hasNoise": false
       }
     ]
+  },
+  "projects": {
+    "dccTranslation": {
+      "title": "DCC Translation Pipeline",
+      "description": "Maya to Unreal Engine USD translation pipeline.",
+      "tags": [
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "OpenUSD",
+          "variant": "primary"
+        },
+        {
+          "label": "Maya",
+          "variant": "primary"
+        },
+        {
+          "label": "Unreal Engine 5",
+          "variant": "primary"
+        },
+        {
+          "label": "Pyside6",
+          "variant": "primary"
+        },
+        {
+          "label": "SceneGraph",
+          "variant": "secondary"
+        },
+        {
+          "label": "Pipeline",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-scene.png",
+          "type": "image",
+          "alt": "Maya Kitchen set scene",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-ui.png",
+          "type": "image",
+          "alt": "Dcc translation tool user interface",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-validation.png",
+          "type": "image",
+          "alt": "Dcc translation validation",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-error.png",
+          "type": "image",
+          "alt": "Dcc translation validation error",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-success.png",
+          "type": "image",
+          "alt": "Dcc translation validation success",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-items.png",
+          "type": "image",
+          "alt": "Dcc translation Unreal Engine 5 imported items",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-ue.png",
+          "type": "image",
+          "alt": "Dcc translation Unreal Engine 5 imported scene",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-database.png",
+          "type": "image",
+          "alt": "Dcc translation Database registry",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-test.png",
+          "type": "image",
+          "alt": "Dcc translation testing",
+          "hasNoise": false,
+          "isHovered": false
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=HBnfSlUyQT8",
+        "poster": "/images/projects/dcc-translation/dcc-translation-thumbnail.png",
+        "category": "PIPELINE DEVELOPMENT",
+        "title": "Detailed Video Explanation"
+      }
+    }
   }
 }

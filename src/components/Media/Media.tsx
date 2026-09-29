@@ -22,6 +22,7 @@ const Media = ({
   isHovered,
   autoPlay = false,
   className,
+  isFilled = false,
 }: MediaProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -60,13 +61,12 @@ const Media = ({
 
   return (
     <div
-      className={cx(
-        styles.media,
-        isHovered && styles["media--hovered"],
-        hasParallax && styles["media--parallax"],
-        autoPlay && styles["media--autoplay"],
-        className,
-      )}
+      className={cx(styles.media, className, {
+        [styles["media--hovered"]]: isHovered,
+        [styles["media--parallax"]]: hasParallax,
+        [styles["media--autoplay"]]: autoPlay,
+        [styles["media--filled"]]: isFilled,
+      })}
       style={
         {
           borderRadius,
