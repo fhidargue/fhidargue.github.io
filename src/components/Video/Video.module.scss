@@ -22,7 +22,7 @@
         z-index: 10;
         pointer-events: none;
         content: "";
-        border: utils.toRem(1px) solid var(--color-text);
+        border: utils.toRem(1px) solid var(--color-tag-border);
         border-radius: inherit;
       }
     }

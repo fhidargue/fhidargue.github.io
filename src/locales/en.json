@@ -1467,7 +1467,8 @@
           "poster": "/images/home/dancer.png",
           "alt": "Mocap Retarget Ballet dance",
           "hasNoise": false,
-          "isHovered": true
+          "isHovered": true,
+          "hasBorder": true
         },
         {
           "src": "/images/projects/mocap/mocap-ik-rig1.png",
