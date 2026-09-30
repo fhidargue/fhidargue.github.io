@@ -7,6 +7,7 @@ export interface MediaProps {
   poster?: string;
   scale?: number;
   hasNoise?: boolean;
+  hasBorder?: boolean;
   noiseOpacity?: number;
   noiseDensity?: number;
   noiseSpeed?: number;
@@ -16,4 +17,5 @@ export interface MediaProps {
   autoPlay?: boolean;
   className?: string;
   hasParallax?: boolean;
+  isFilled?: boolean;
 }

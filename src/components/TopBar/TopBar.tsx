@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import cx from "classnames";
@@ -24,6 +24,9 @@ const TopBar = ({ className }: TopBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme } = useTheme();
   const { t } = useTranslation();
+
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const location = useLocation();
   const isNotFound = useIsNotFound();
@@ -53,7 +56,7 @@ const TopBar = ({ className }: TopBarProps) => {
 
   return (
     <>
-      <header className={cx(styles["top-bar"], className)}>
+      <header ref={headerRef} className={cx(styles["top-bar"], className)}>
         <Container className={styles["top-bar__container"]}>
           <div className={styles["top-bar__logo"]}>
             <Logo size={40} theme={theme} />
@@ -70,6 +73,7 @@ const TopBar = ({ className }: TopBarProps) => {
           </div>
           <nav className={styles["top-bar__navigation"]}>
             <Link
+              ref={menuButtonRef}
               as="button"
               type="button"
               changed={
@@ -89,8 +93,12 @@ const TopBar = ({ className }: TopBarProps) => {
           </nav>
         </Container>
       </header>
-
-      <OverlayMenu isOpen={isMenuOpen} onClose={closeMenu} />
+      <OverlayMenu
+        headerRef={headerRef}
+        menuButtonRef={menuButtonRef}
+        isOpen={isMenuOpen}
+        onClose={closeMenu}
+      />
     </>
   );
 };

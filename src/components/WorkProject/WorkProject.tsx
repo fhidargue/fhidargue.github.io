@@ -15,10 +15,15 @@ const WorkProject = ({
   media,
   children,
   className,
+  hasEvenSides = false,
 }: WorkProjectProps) => {
   return (
     <section className={cx(styles["work-project"], className)}>
-      <Container className={styles["work-project__container"]}>
+      <Container
+        className={cx(styles["work-project__container"], {
+          [styles["work-project__container--even"]]: hasEvenSides,
+        })}
+      >
         <div className={styles["work-project__content"]}>
           <div className={styles["work-project__heading"]}>
             <Text as="p" variant="section-title-large">
@@ -52,7 +57,12 @@ const WorkProject = ({
               type={item.type}
               hasNoise={item.hasNoise}
               isHovered={item.isHovered}
+              isFilled={item.isFilled}
+              hasBorder={item.hasBorder}
               borderRadius={32}
+              className={cx({
+                [styles["work-project__media--filled"]]: item.isFilled,
+              })}
             />
           ))}
         </div>

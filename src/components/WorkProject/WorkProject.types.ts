@@ -13,6 +13,8 @@ export interface WorkProjectMedia {
   type: "image" | "video";
   hasNoise: boolean;
   isHovered: boolean;
+  isFilled: boolean;
+  hasBorder: boolean;
 }
 
 export interface WorkProjectProps {
@@ -22,4 +24,5 @@ export interface WorkProjectProps {
   media: WorkProjectMedia[];
   children?: ReactNode;
   className?: string;
+  hasEvenSides?: boolean;
 }

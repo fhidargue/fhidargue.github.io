@@ -5,8 +5,8 @@
       "changed": "H0M3"
     },
     "back": {
-      "default": "[ GO BACK ]",
-      "changed": "[ G0 B4CK ]"
+      "default": "[ GO HOME ]",
+      "changed": "[ G0 H0M3 ]"
     },
     "notFound": {
       "default": "[ GO HOME ]",
@@ -20,6 +20,9 @@
       "default": "[ CLOSE ]",
       "changed": "[ CL0S3 ]"
     }
+  },
+  "overlayMenu": {
+    "items": ["ABOUT", "WORK", "STACK", "CONTACT"]
   },
   "footer": {
     "information": [
@@ -71,25 +74,25 @@
         "image": "/images/home/dragons.png",
         "title": "Wavefront Path Tracer",
         "category": "RENDERING",
-        "to": "/work/project-1"
+        "to": "/work/wavefront-pathtracer"
       },
       {
         "image": "/images/home/kitchen.png",
         "title": "DCC Translation Pipeline",
         "category": "PIPELINE",
-        "to": "/work/project-2"
+        "to": "/work/dcc-translation"
       },
       {
         "image": "/images/home/dancer.png",
         "title": "Motion Capture Retargeting",
         "category": "MOCAP / PIPELINE",
-        "to": "/work/project-3"
+        "to": "/work/mocap-retargeting"
       },
       {
         "image": "/images/home/hair-sim.png",
         "title": "Hair Simulation",
         "category": "SIMULATION",
-        "to": "/work/project-4"
+        "to": "/work/hair-simulation"
       }
     ]
   },
@@ -644,6 +647,2810 @@
         "maxLength": "Name must be less than {{length}} characters.",
         "scripting": "HTML or scripts are not allowed.",
         "error": "Something went wrong. Please try again."
+      }
+    },
+    "banner": {
+      "label": "CONTACT",
+      "buttonText": "Let's Talk",
+      "title1": "HAVE A COOL",
+      "title2": "PROJECT?"
+    }
+  },
+  "work": {
+    "banner": {
+      "title1": "EXPLORE THE",
+      "title2": "WORK",
+      "label": "SOFTWARE, TOOLS, GRAPHICS, WEB, AND R&D. A COLLECTION OF THINGS I’VE WORKED, BUILT AND EXPERIMENTED WITH.",
+      "media": "/videos/work/wavy-lines.mp4",
+      "mediaAlt": "Playground video"
+    },
+    "video": {
+      "src": "https://www.youtube.com/watch?v=_JaxgaLM55I",
+      "poster": "/images/work/showreel.png",
+      "category": "VIDEO REEL",
+      "title": "Selected Work / 2026"
+    },
+    "topCards": [
+      {
+        "media": "/videos/work/dcc-translation.mp4",
+        "type": "video",
+        "poster": "/images/home/kitchen.png",
+        "title": "DCC Translation Pipeline",
+        "category": "PIPELINE",
+        "to": "/work/dcc-translation",
+        "hasNoise": false
+      },
+      {
+        "media": "/videos/work/rendering.mp4",
+        "type": "video",
+        "poster": "/images/home/dragons.png",
+        "title": "Wavefront Path Tracer",
+        "category": "RENDERING",
+        "to": "/work/wavefront-pathtracer",
+        "hasNoise": false
+      }
+    ],
+    "threeColumnCards": [
+      {
+        "media": "/videos/work/snowglobe.mp4",
+        "type": "video",
+        "poster": "/images/work/snowglobe.png",
+        "title": "Snow Globe Simulation",
+        "category": "SIMULATION",
+        "to": "/work/snowglobe-simulation",
+        "hasNoise": false
+      },
+      {
+        "media": "/videos/work/hair.mp4",
+        "type": "video",
+        "poster": "/images/home/hair-sim.png",
+        "title": "Hair Simulation",
+        "category": "SIMULATION",
+        "to": "/work/hair-simulation",
+        "hasNoise": false
+      },
+      {
+        "media": "/images/work/salt-shaker.png",
+        "type": "image",
+        "title": "RenderMan Salt Shaker",
+        "category": "RENDERING",
+        "to": "/work/renderman-api"
+      },
+      {
+        "media": "/videos/work/hda-garden.mp4",
+        "type": "video",
+        "poster": "/images/work/hda-garden.png",
+        "title": "HDA Garden Generator",
+        "category": "HOUDINI DIGITAL ASSET",
+        "to": "/work/hda-garden-generator",
+        "hasNoise": false
+      }
+    ],
+    "bottomCards": [
+      {
+        "media": "/videos/work/mocap.mp4",
+        "type": "video",
+        "poster": "/images/home/dancer.png",
+        "title": "Motion Capture Retargeting",
+        "category": "MOCAP / PIPELINE",
+        "to": "/work/mocap-retargeting",
+        "hasNoise": false
+      },
+      {
+        "media": "/videos/work/stairs.mp4",
+        "type": "video",
+        "poster": "/images/work/stairs.png",
+        "title": "Impossible Staircase",
+        "category": "ANIMATION",
+        "to": "/work/impossible-stairs",
+        "hasNoise": false
+      }
+    ]
+  },
+  "projects": {
+    "dccTranslation": {
+      "title": "DCC Translation Pipeline",
+      "description": "Maya to Unreal Engine USD translation pipeline.",
+      "tags": [
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "OpenUSD",
+          "variant": "primary"
+        },
+        {
+          "label": "Maya",
+          "variant": "primary"
+        },
+        {
+          "label": "Unreal Engine 5",
+          "variant": "primary"
+        },
+        {
+          "label": "Pyside6",
+          "variant": "primary"
+        },
+        {
+          "label": "SceneGraph",
+          "variant": "secondary"
+        },
+        {
+          "label": "Pipeline",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-scene.png",
+          "type": "image",
+          "alt": "Maya Kitchen set scene",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-ui.png",
+          "type": "image",
+          "alt": "Dcc translation tool user interface",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-validation.png",
+          "type": "image",
+          "alt": "Dcc translation validation",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-error.png",
+          "type": "image",
+          "alt": "Dcc translation validation error",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-success.png",
+          "type": "image",
+          "alt": "Dcc translation validation success",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-items.png",
+          "type": "image",
+          "alt": "Dcc translation Unreal Engine 5 imported items",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-ue.png",
+          "type": "image",
+          "alt": "Dcc translation Unreal Engine 5 imported scene",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-database.png",
+          "type": "image",
+          "alt": "Dcc translation Database registry",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/dcc-translation/dcc-translation-test.png",
+          "type": "image",
+          "alt": "Dcc translation testing",
+          "hasNoise": false,
+          "isHovered": false
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A validation-driven Maya to OpenUSD pipeline for standardising scene publishing between Maya and Unreal Engine. Maya scene data is extracted into a lightweight, DCC-independent SceneGraph, validated against configurable rules, converted to USD, and published with structured metadata."
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The pipeline separates each stage of the publishing process:"
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Scene Extraction",
+                  "text": "Maya DAG hierarchy, transforms, geometry and metadata are converted into a SceneGraph."
+                },
+                {
+                  "title": "Validation",
+                  "text": "YAML rule profiles check the scene before publishing."
+                },
+                {
+                  "title": "USD Export",
+                  "text": "The validated SceneGraph is translated into a structured OpenUSD stage."
+                },
+                {
+                  "title": "Publishing",
+                  "text": "Publish metadata is generated and translation activity is recorded."
+                },
+                {
+                  "title": "Unreal Engine",
+                  "text": "The resulting USD stage can be imported while preserving scene hierarchy and per-object separation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SCENEGRAPH",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The SceneGraph acts as the intermediate representation between Maya and OpenUSD. It stores the essential structural data required for cross-DCC translation and USD stage construction, keeping the core publishing system independent from Maya."
+            }
+          ]
+        },
+        {
+          "title": "VALIDATION & PUBLISHING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Scenes are validated using configurable YAML profiles covering:"
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "text": "Naming and hierarchy"
+                },
+                {
+                  "text": "Supported node types"
+                },
+                {
+                  "text": "Transforms and geometry"
+                },
+                {
+                  "text": "Scene scale"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The Maya plugin provides the artist-facing validation and publishing workflow, while a CLI exposes the same functionality for command-line workflows."
+            }
+          ]
+        },
+        {
+          "title": "INFRASTRUCTURE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Publishing generates structured metadata and records translation activity through interchangeable registry backends. SQLite supports local workflows, while MongoDB provides a database-backed option. The project also includes automated testing with Nox and mayapy and a drag-and-drop Maya installation workflow."
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The completed pipeline provides a standardised path from Maya scene data to Unreal Engine through OpenUSD, with validation and publishing handled as separate stages."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Validated publishing",
+                  "text": "Invalid scenes can be identified before USD export."
+                },
+                {
+                  "title": "DCC-independent translation",
+                  "text": "The SceneGraph separates Maya extraction from USD publishing."
+                },
+                {
+                  "title": "Structured USD output",
+                  "text": "Scene hierarchy and per-object separation are preserved for Unreal Engine."
+                },
+                {
+                  "title": "Tracked publishing",
+                  "text": "Publish metadata and translation activity are recorded through SQLite or MongoDB."
+                },
+                {
+                  "title": "Multiple workflows",
+                  "text": "The system is accessible through the Maya plugin and CLI."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/dcc-translation",
+          "isExternal": true
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=HBnfSlUyQT8",
+        "poster": "/images/projects/dcc-translation/dcc-translation-thumbnail.png",
+        "category": "PIPELINE DEVELOPMENT",
+        "title": "Detailed Video Explanation"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "wavefront": {
+      "title": "Adaptive Wavefront Path Tracer",
+      "description": "C++17 CPU wavefront path tracer investigating adaptive scheduling for coherent rendering.",
+      "tags": [
+        {
+          "label": "C++17",
+          "variant": "primary"
+        },
+        {
+          "label": "OpenUSD",
+          "variant": "primary"
+        },
+        {
+          "label": "Embree",
+          "variant": "primary"
+        },
+        {
+          "label": "oneTBB",
+          "variant": "primary"
+        },
+        {
+          "label": "Path Tracing",
+          "variant": "secondary"
+        },
+        {
+          "label": "Wavefront Rendering",
+          "variant": "secondary"
+        },
+        {
+          "label": "Adaptive Scheduling",
+          "variant": "secondary"
+        },
+        {
+          "label": "PySide6",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/images/projects/wavefront/material-variants.png",
+          "type": "image",
+          "alt": "Wavefront Material Variants",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/videos/work/projects/wavefront-render.mp4",
+          "type": "video",
+          "poster": "/images/projects/wavefront/wavefront-cli.png",
+          "alt": "Wavefront Rendering rendering",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/wavefront-cli.mp4",
+          "type": "video",
+          "poster": "/images/projects/wavefront/wavefront-cli.png",
+          "alt": "Wavefront Rendering command line interface",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/wavefront/cornell-box.png",
+          "type": "image",
+          "alt": "Cornell Box USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/cornell-dragon.png",
+          "type": "image",
+          "alt": "Cornell Dragon USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/mixed-scene.png",
+          "type": "image",
+          "alt": "Mixed Scene USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/dragon-scene.png",
+          "type": "image",
+          "alt": "XYZRGB Dragon Scene USD scene render",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/pipeline-breakdown.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Pipeline breakdown",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/shade-time.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Shading Times",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/cache-homogeneity.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Cache Homogeneity",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/run-length.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Run Length",
+          "hasNoise": false,
+          "isHovered": false,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/wavefront/wavefront-comparison.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Heatmap Comparison",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/wavefront-test.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Google Tests",
+          "hasNoise": false,
+          "isHovered": false
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A CPU-based wavefront path tracer developed for an MSc research project investigating whether adaptive workload scheduling can improve execution coherence and rendering performance. The renderer uses C++17, OpenUSD and Embree, with a modular scheduling framework that allows different workload ordering strategies to be evaluated within the same rendering pipeline."
+            },
+            {
+              "type": "paragraph",
+              "text": "The research focuses on the shading stage, where rays can diverge across materials, textures and shader operations. The project investigates whether runtime information can be used to make better scheduling decisions than static material or texture sorting."
+            }
+          ]
+        },
+        {
+          "title": "RENDERING PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The renderer separates path tracing into independent stages connected by work queues:"
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Scene Loading",
+                  "text": "OpenUSD scenes are loaded into internal geometry, material, texture and camera representations."
+                },
+                {
+                  "title": "Ray Generation",
+                  "text": "Primary camera rays are generated and stored in the RayQueue."
+                },
+                {
+                  "title": "Traversal",
+                  "text": "Embree performs BVH intersection and produces shading records for rays that hit the scene."
+                },
+                {
+                  "title": "Scheduling",
+                  "text": "The ShadingQueue can be reordered using the selected scheduling policy."
+                },
+                {
+                  "title": "Shading",
+                  "text": "BSDF evaluation, direct lighting and secondary ray generation are performed on the reordered workload."
+                },
+                {
+                  "title": "Iteration",
+                  "text": "Secondary rays are returned to the RayQueue and the process continues until paths terminate or reach the maximum depth."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "WAVEFRONT ARCHITECTURE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The renderer uses separate RayQueue and ShadingQueue structures implemented using a Structure of Arrays layout. This separates traversal data from shading data and provides explicit points where workloads can be reorganised before execution."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "RayQueue",
+                  "text": "Stores ray origins, directions, throughput, pixel coordinates and path depth."
+                },
+                {
+                  "title": "ShadingQueue",
+                  "text": "Stores hit positions, normals, material and texture IDs, and path information required for shading."
+                },
+                {
+                  "title": "Scheduling",
+                  "text": "Policies generate a sorted index order before the queue is materialised for shading."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Keeping scheduling separate from the queue implementation allows different scheduling strategies to be evaluated without changing the rest of the renderer."
+            }
+          ]
+        },
+        {
+          "title": "PATH TRACING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The renderer implements a physically based path tracing pipeline with direct and indirect lighting, supporting diffuse, metallic, dielectric and emissive materials."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Next Event Estimation",
+                  "text": "Explicitly samples light sources to estimate direct illumination."
+                },
+                {
+                  "title": "Multiple Importance Sampling",
+                  "text": "Combines light sampling and BSDF sampling using the power heuristic."
+                },
+                {
+                  "title": "Adaptive Sampling",
+                  "text": "Uses Welford's online algorithm to estimate per-pixel convergence and stop sampling pixels once their estimated error falls below the threshold."
+                },
+                {
+                  "title": "Russian Roulette",
+                  "text": "Terminates low-contribution paths while maintaining an unbiased estimator."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ADAPTIVE SCHEDULING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Four scheduling policies were implemented to compare static and runtime-aware workload organisation:"
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "None",
+                  "text": "Preserves the original traversal order and provides the baseline."
+                },
+                {
+                  "title": "Material",
+                  "text": "Groups shading records by material to improve shader and material-data locality."
+                },
+                {
+                  "title": "Texture",
+                  "text": "Groups records according to texture access to target texture cache locality."
+                },
+                {
+                  "title": "Cost-Benefit",
+                  "text": "Combines material grouping, spatial ordering and runtime shading-cost estimates to prioritise work according to expected contribution relative to execution cost."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "COST-BENEFIT SCHEDULING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Cost-Benefit scheduler is the main research contribution. Runtime measurements are collected while rendering and used to estimate the cost of shading different materials and textures."
+            },
+            {
+              "type": "paragraph",
+              "text": "A per-material cost estimate is updated using an exponential moving average. The scheduler combines these estimates with accumulated ray throughput to calculate the expected contribution of shading work relative to its execution cost."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Runtime cost tracking",
+                  "text": "Measures shading cost during rendering and updates the estimates for subsequent scheduling passes."
+                },
+                {
+                  "title": "Work prioritisation",
+                  "text": "Higher contribution relative to estimated cost receives higher scheduling priority."
+                },
+                {
+                  "title": "Spatial ordering",
+                  "text": "Morton ordering is used within material groups to retain spatial locality."
+                },
+                {
+                  "title": "Cost-aware termination",
+                  "text": "Russian Roulette incorporates estimated material cost into path termination decisions."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "EVALUATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The scheduling policies were evaluated using two procedural OpenUSD benchmark scenes under identical rendering configurations. The Mixed Scene combines different geometry, materials and textures, while the Dragon Scene uses a higher triangle count with a more consistent distribution of geometry and materials."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Sample counts",
+                  "text": "256, 1024, 2048 and 4096 samples per pixel."
+                },
+                {
+                  "title": "Resolutions",
+                  "text": "600×600 through 1080×1080."
+                },
+                {
+                  "title": "Scheduling policies",
+                  "text": "None, Material, Texture and Cost-Benefit."
+                },
+                {
+                  "title": "Measurements",
+                  "text": "Shading time, pipeline time, scheduling overhead, execution coherence, cache-line homogeneity and image difference."
+                },
+                {
+                  "title": "Repetitions",
+                  "text": "Three independent runs were performed for each configuration."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Cost-Benefit produced the lowest shading time across both benchmark scenes and consistently improved on the unscheduled baseline. The improvement increased with rendering workload, reaching its largest reduction at the highest sample count."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "8–10% lower shading time at 4096 samples",
+                  "text": "At 4096 samples and 1080×1080 resolution, Cost-Benefit reduced shading time by 7.7% in the Mixed Scene and 9.6% in the Dragon Scene compared with the unscheduled baseline."
+                },
+                {
+                  "title": "Improved execution coherence",
+                  "text": "At 4096 samples, Cost-Benefit produced average material run lengths of 1474.5 records in the Mixed Scene and 1560.7 in the Dragon Scene, compared with 2.9 and 2.8 for the baseline."
+                },
+                {
+                  "title": "98.9% material cache-line homogeneity",
+                  "text": "Cost-Benefit achieved material cache-line homogeneity of 98.9% in the Mixed Scene and 98.8% in the Dragon Scene, compared with 21.9% and 19.0% for the baseline."
+                },
+                {
+                  "title": "Lowest total pipeline time",
+                  "text": "Cost-Benefit achieved the lowest total pipeline time across the evaluated experiments. The largest reduction occurred in shading, while smaller improvements were also observed in traversal. Scheduling introduced additional cost for runtime analysis, but this remained small relative to the time saved."
+                },
+                {
+                  "title": "Minimal image differences",
+                  "text": "Comparison with the baseline produced mean luminance differences of 0.0088 in the Mixed Scene and 0.0100 in the Dragon Scene. Most differences were concentrated around the ceiling light and did not change the final rendered result."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The results show that execution coherence alone was not sufficient to obtain the best rendering performance. Material scheduling achieved similarly high coherence, but Cost-Benefit performed better by incorporating runtime execution cost into the scheduling decision."
+            }
+          ]
+        },
+        {
+          "title": "OUTCOME",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This project was completed as my MSc research project in Computer Animation and Visual Effects at Bournemouth University, achieving a Distinction with a final grade of 87. The result reflects the substantial research, engineering and evaluation required to take the project from an initial research question through to a complete working renderer."
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/wavefront-renderer",
+          "isExternal": true
+        },
+        {
+          "label": "VIDEO TUTORIAL",
+          "changed": "V1DE0 TUT0RI4L",
+          "href": "https://www.youtube.com/watch?v=F0Y361VYwQo",
+          "isExternal": true
+        },
+        {
+          "label": "MSC PROJECT",
+          "changed": "MSC PR0J4CT",
+          "href": "https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc26/04/index.html",
+          "isExternal": true
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=sGyd81FOl10",
+        "poster": "/images/projects/wavefront/wavefront-thumbnail.png",
+        "category": "RENDERING RESEARCH",
+        "title": "Detailed Video Explanation"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "mocap": {
+      "title": "Motion Capture Retargeting & Cleanup",
+      "description": "Unreal Engine 5 motion capture retargeting and cleanup pipeline using IK Rigs, IK Retargeter, Control Rig, and Houdini.",
+      "tags": [
+        {
+          "label": "Unreal Engine 5",
+          "variant": "primary"
+        },
+        {
+          "label": "IK Rig",
+          "variant": "primary"
+        },
+        {
+          "label": "IK Retargeter",
+          "variant": "primary"
+        },
+        {
+          "label": "Control Rig",
+          "variant": "primary"
+        },
+        {
+          "label": "Houdini",
+          "variant": "primary"
+        },
+        {
+          "label": "Motion Capture",
+          "variant": "secondary"
+        },
+        {
+          "label": "Animation Cleanup",
+          "variant": "secondary"
+        },
+        {
+          "label": "MotionClip",
+          "variant": "secondary"
+        },
+        {
+          "label": "VEX",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/mocap.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Ballet dance",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/mocap/mocap-ik-rig1.png",
+          "type": "image",
+          "alt": "Mocap Retarget First Ik rig",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-ik-rig2.png",
+          "type": "image",
+          "alt": "Mocap Retarget Final Ik rig",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-ik-retargetter.png",
+          "type": "image",
+          "alt": "Mocap Retarget Ik retargetter",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-control-rig.png",
+          "type": "image",
+          "alt": "Mocap Retarget Control rig",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/videos/work/projects/mocap-cleanup.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Unreal engine cleanup",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/mocap-dance.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Ballet dance cleaned",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/mocap/mocap-mappoints.png",
+          "type": "image",
+          "alt": "Mocap Retarget Map points",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-motionclip.png",
+          "type": "image",
+          "alt": "Mocap Retarget Motion clip",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-rigpose.png",
+          "type": "image",
+          "alt": "Mocap Retarget Rig pose",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/videos/work/projects/mocap-tuneup.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Houdini tuneup",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A motion capture retargeting and cleanup pipeline developed for the group project Eternally Dancing. The workflow uses Unreal Engine 5 to retarget AI-generated motion capture onto production characters, clean the animation using Control Rig, and refine the resulting motion in Houdini."
+            },
+            {
+              "type": "paragraph",
+              "text": "My contribution focused on investigating the motion capture workflow, defining the UE5 and Houdini pipeline, building the retargeting setup, and cleaning the resulting animations for use in the final project."
+            }
+          ]
+        },
+        {
+          "title": "MOTION CAPTURE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project initially investigated several approaches for generating motion capture data. After testing multiple AI-based solutions against sample dance sequences, QuickMagic was selected for its ability to generate motion from recorded footage and refine tracking points before export."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Capture",
+                  "text": "Recorded dance footage following the requirements for the selected motion capture workflow."
+                },
+                {
+                  "title": "AI Tracking",
+                  "text": "Generated animation from the recorded footage using QuickMagic."
+                },
+                {
+                  "title": "2D Refinement",
+                  "text": "Corrected tracking points before exporting the resulting animation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "UE5 RETARGETING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The motion capture output was imported into Unreal Engine 5 and transferred onto the project's characters using the IK Rig and IK Retargeter systems. This allowed the captured performance to be adapted to different character skeletons while preserving the original movement."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "IK Rig",
+                  "text": "Configured the source and target character skeletons with IK systems for pose adjustment and retargeting."
+                },
+                {
+                  "title": "IK Retargeter",
+                  "text": "Mapped the captured animation onto the project's characters while maintaining the original performance."
+                },
+                {
+                  "title": "Control Rig",
+                  "text": "Used Control Rig inside Unreal Engine Sequencer to manually refine poses and correct sections of the animation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ANIMATION CLEANUP",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The retargeted animation was cleaned directly in Unreal Engine using Control Rig and Sequencer. Keyframes were added where required to correct the motion and refine larger body movements."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Ballet Animation",
+                  "text": "Refined the retargeted dance performance using Control Rig and Sequencer."
+                },
+                {
+                  "title": "Stretch Animation",
+                  "text": "Applied the same cleanup workflow to a second animation used for the character transition."
+                },
+                {
+                  "title": "Reference-driven Cleanup",
+                  "text": "Used the original performance as a reference when correcting poses and movement."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HOUDINI REFINEMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "After the initial UE5 cleanup, the animations were transferred to Houdini for further procedural refinement. Houdini provided additional tools for inspecting and modifying the complete animation sequence."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "MotionClip",
+                  "text": "Used MotionClip to inspect the complete animation sequence and edit motion procedurally."
+                },
+                {
+                  "title": "Motion Processing",
+                  "text": "Used nodes such as Stabilize Joint and Smooth to refine the resulting animation."
+                },
+                {
+                  "title": "Validation",
+                  "text": "Applied the cleaned animation to the project's 3D characters to verify the final result."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The final workflow separated the motion capture process into dedicated stages, using each application for the tasks it was best suited to handle."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Motion Capture",
+                  "text": "Recorded performance footage and generated the initial animation."
+                },
+                {
+                  "title": "QuickMagic",
+                  "text": "Generated and refined the AI motion capture data."
+                },
+                {
+                  "title": "Unreal Engine 5",
+                  "text": "Retargeted the animation using IK Rig and IK Retargeter, then performed manual cleanup with Control Rig."
+                },
+                {
+                  "title": "Houdini",
+                  "text": "Performed additional procedural refinement and validation using animation processing nodes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ADDITIONAL DEVELOPMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project also involved supporting the wider production with procedural tools and technical fixes in Houdini."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "VEX",
+                  "text": "Implemented VEX logic to dynamically control elements of the butterfly effects used around the character."
+                },
+                {
+                  "title": "Butterfly Movement",
+                  "text": "Adjusted movement and normal orientation to prevent butterflies from behaving erratically around the dancer."
+                },
+                {
+                  "title": "Transition Effects",
+                  "text": "Added controls to keep butterflies facing forward and maintain spacing during the transition spiral."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "CLEAN MOCAP DANCE",
+          "changed": "CL34N M0C4P D4NC3",
+          "href": "https://www.youtube.com/watch?v=o0mORrs4OIY",
+          "isExternal": true
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=VCVG-BMlEdQ",
+        "poster": "/images/projects/mocap/eternally-dancing.jpg",
+        "category": "FINAL SHORT FILM",
+        "title": "Eternally Dancing"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "snowglobe": {
+      "title": "Real-Time Snow Globe Simulation",
+      "description": "Real-time particle-based snow globe simulation using Position Based Dynamics, WebGL, and Three.js.",
+      "tags": [
+        {
+          "label": "TypeScript",
+          "variant": "primary"
+        },
+        {
+          "label": "Three.js",
+          "variant": "primary"
+        },
+        {
+          "label": "WebGL",
+          "variant": "primary"
+        },
+        {
+          "label": "Position Based Dynamics",
+          "variant": "primary"
+        },
+        {
+          "label": "React Three Fiber",
+          "variant": "primary"
+        },
+        {
+          "label": "Verlet Integration",
+          "variant": "secondary"
+        },
+        {
+          "label": "Spatial Hashing",
+          "variant": "secondary"
+        },
+        {
+          "label": "Particle Simulation",
+          "variant": "secondary"
+        },
+        {
+          "label": "GPU Instancing",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/snowglobe.mp4",
+          "type": "video",
+          "poster": "/images/projects/snowglobe/snowglobe.png",
+          "alt": "Snow globe demonstration",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe.png",
+          "type": "image",
+          "alt": "Snow globe",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe-ellipsoid.png",
+          "type": "image",
+          "alt": "Snow globe Ellipsoids",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe-forrest.png",
+          "type": "image",
+          "alt": "Snow globe Forrest scene",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe-performance.png",
+          "type": "image",
+          "alt": "Snow globe web performance",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A real-time snow globe simulation developed to investigate particle-based techniques and Position Based Dynamics in a browser-based environment. The system combines Verlet integration, iterative constraints, spatial hashing, collision handling, and GPU instanced rendering to simulate thousands of particles interactively."
+            },
+            {
+              "type": "paragraph",
+              "text": "The simulation supports two particle behaviours: a marble mode designed around rigid particle collisions and a snow mode that produces more clustered and cohesive movement while maintaining stable real-time performance."
+            }
+          ]
+        },
+        {
+          "title": "SIMULATION PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The simulation is structured as a sequence of particle update, neighbour search, constraint solving, collision handling, and rendering stages."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Integration",
+                  "text": "Verlet integration updates particle positions using current and previous positions."
+                },
+                {
+                  "title": "Spatial Hashing",
+                  "text": "Particles are assigned to grid cells so neighbour searches only evaluate nearby particles."
+                },
+                {
+                  "title": "Constraint Solver",
+                  "text": "Position Based Dynamics iteratively resolves particle overlaps and maintains minimum separation distances."
+                },
+                {
+                  "title": "Collision Handling",
+                  "text": "Particles are constrained against the snow globe and simplified scene collision geometry."
+                },
+                {
+                  "title": "Rendering",
+                  "text": "Three.js and WebGL render the particle system using GPU instancing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "POSITION BASED DYNAMICS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The simulation uses Position Based Dynamics to maintain stable particle interactions by directly correcting particle positions rather than relying on traditional force-based integration. Multiple solver iterations are performed each frame to reduce overlap and improve collision stability."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Verlet Integration",
+                  "text": "Calculates particle movement from the difference between the current and previous positions."
+                },
+                {
+                  "title": "Iterative Constraints",
+                  "text": "Repeatedly corrects particle positions to maintain separation and stable interactions."
+                },
+                {
+                  "title": "Damping",
+                  "text": "Reduces excessive bouncing and helps particles settle after collisions."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SPATIAL HASHING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Neighbour searches are accelerated using a spatial hashing grid. Instead of checking every particle against every other particle, each particle searches its current cell and the surrounding 26 cells."
+            },
+            {
+              "type": "paragraph",
+              "text": "This reduces the number of collision checks required as particle counts increase and was an important part of maintaining interactive performance with thousands of particles."
+            }
+          ]
+        },
+        {
+          "title": "MATERIAL BEHAVIOURS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two particle behaviours were implemented to explore different material responses within the same simulation framework."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Marble",
+                  "text": "Uses more rigid particle interactions, producing faster movement and more visible bouncing during collisions."
+                },
+                {
+                  "title": "Snow",
+                  "text": "Reduces relative particle movement and encourages particles to settle together, producing a denser snow-like appearance."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "REAL-TIME RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The simulation runs entirely in the browser using TypeScript, WebGL, Three.js, and React Three Fiber. GPU instanced rendering allows thousands of particles to be drawn using a shared mesh and material, reducing the rendering overhead associated with individual particle draw calls."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "GPU Instancing",
+                  "text": "Renders the particle system using instanced geometry to reduce draw calls."
+                },
+                {
+                  "title": "Interactive Gravity",
+                  "text": "Rotating the snow globe changes the direction of gravity inside the simulation."
+                },
+                {
+                  "title": "PBR Rendering",
+                  "text": "Uses physically based materials and HDR lighting for the final snow globe scenes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PERFORMANCE EVALUATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Performance was evaluated by increasing the number of simulated particles and measuring the resulting average frame rate. The tests show how simulation and neighbour-search costs increase as particle density grows."
+            },
+            {
+              "type": "table",
+              "columns": ["Particle Count", "Average FPS"],
+              "rows": [
+                ["2,000", "120 FPS"],
+                ["5,000", "120 FPS"],
+                ["8,000", "90 FPS"],
+                ["11,000", "70 FPS"],
+                ["14,000", "60 FPS"],
+                ["17,000", "45 FPS"],
+                ["20,000", "38 FPS"]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The simulation maintained interactive performance across the tested range, although performance decreased as particle counts increased. At higher densities, neighbour searches and collision solving became more expensive, making spatial hashing and GPU instanced rendering important for maintaining real-time interaction."
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/snow-globe-simulation",
+          "isExternal": true
+        },
+        {
+          "label": "LIVE DEMO",
+          "changed": "L1V3 D3M0",
+          "href": "https://snow-globe-simulation.vercel.app/",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "hair": {
+      "title": "Real-Time Hair Simulation & Rendering",
+      "description": "Real-time physically based hair simulation with CPU strand dynamics, GPU ribbon rendering, procedural follower strands, and interactive styling controls.",
+      "tags": [
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "OpenGL 4.1",
+          "variant": "primary"
+        },
+        {
+          "label": "GLSL",
+          "variant": "primary"
+        },
+        {
+          "label": "NumPy",
+          "variant": "primary"
+        },
+        {
+          "label": "PySide6",
+          "variant": "primary"
+        },
+        {
+          "label": "Verlet Integration",
+          "variant": "secondary"
+        },
+        {
+          "label": "GPU Ribbons",
+          "variant": "secondary"
+        },
+        {
+          "label": "Hair Simulation",
+          "variant": "secondary"
+        },
+        {
+          "label": "Collision Handling",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/hair.mp4",
+          "type": "video",
+          "poster": "/images/projects/hair/hair-controls.png",
+          "alt": "Hair simulation",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/hair-types.mp4",
+          "type": "video",
+          "poster": "/images/projects/hair/hair-controls.png",
+          "alt": "Hair simulation types",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-controls.png",
+          "type": "image",
+          "alt": "Hair simulation controls",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-wind.png",
+          "type": "image",
+          "alt": "Hair simulation wind controls",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-ellipsoid.png",
+          "type": "image",
+          "alt": "Hair simulation ellipsoid controls",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-test.png",
+          "type": "image",
+          "alt": "Hair simulation Pytest results",
+          "hasNoise": false,
+          "isHovered": false
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A real-time hair simulation and rendering system developed to explore physically based strand dynamics, GPU rendering techniques, procedural hair generation, collision handling, and interactive simulation controls."
+            },
+            {
+              "type": "paragraph",
+              "text": "The system combines CPU-side guide-strand simulation with GPU-side ribbon expansion and procedural follower strands, allowing visually dense hair to be rendered while keeping the physics workload manageable for real-time interaction."
+            }
+          ]
+        },
+        {
+          "title": "SIMULATION PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The system separates hair generation, physical simulation, collision handling, GPU rendering, and user interaction into independent stages."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Scalp Sampling",
+                  "text": "Hair roots are generated from sampled regions of the character mesh using a distribution mask."
+                },
+                {
+                  "title": "Strand Generation",
+                  "text": "Each guide strand is represented as a chain of particles connected by distance constraints."
+                },
+                {
+                  "title": "Physics Simulation",
+                  "text": "Verlet integration and iterative positional constraints update strand motion while preserving segment lengths."
+                },
+                {
+                  "title": "Collision Handling",
+                  "text": "Hair particles interact with ellipsoidal collision volumes fitted to the head and facial features."
+                },
+                {
+                  "title": "GPU Upload",
+                  "text": "Simulated guide-strand segment data is streamed to the GPU using a Texture Buffer Object."
+                },
+                {
+                  "title": "Ribbon Rendering",
+                  "text": "Guide segments are expanded into camera-facing ribbon geometry directly on the GPU."
+                },
+                {
+                  "title": "Follower Generation",
+                  "text": "Additional strands are generated procedurally on the GPU to increase visual density without increasing CPU simulation cost."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HAIR DYNAMICS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hair strands are represented as particle chains and simulated using Verlet integration. Instead of storing velocity explicitly, particle movement is reconstructed from current and previous positions, providing stable motion that integrates naturally with positional constraints."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Verlet Integration",
+                  "text": "Updates strand particles using positional history, acceleration, and damping."
+                },
+                {
+                  "title": "Distance Constraints",
+                  "text": "Iterative positional corrections preserve the rest length between neighbouring particles."
+                },
+                {
+                  "title": "Root Attachment",
+                  "text": "Root particles remain pinned to the animated head transform while the rest of the strand responds dynamically."
+                },
+                {
+                  "title": "Wind",
+                  "text": "Directional wind and turbulence produce secondary motion with increasing influence towards the strand tips."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL HAIR",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The system supports procedural hair styling while preserving the underlying physical simulation. Hair distribution is controlled using a grayscale scalp mask, allowing strands to be generated only within selected regions of the character mesh."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Straight Hair",
+                  "text": "Uses the simulated guide-strand structure directly for natural secondary motion."
+                },
+                {
+                  "title": "Curly Hair",
+                  "text": "Uses a procedural sinusoidal rest-shape deformation with configurable amplitude, frequency, and per-strand phase."
+                },
+                {
+                  "title": "Distribution Mask",
+                  "text": "Controls strand placement across the scalp to provide a natural hairline and artistic control over hair generation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "COLLISION SYSTEM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hair collision is approximated using ellipsoidal volumes fitted to the character rather than more expensive mesh-level collision detection. Collision tests are performed in head-local space to simplify the calculations."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Head Collider",
+                  "text": "An ellipsoid approximates the overall head volume and prevents strands from penetrating the character."
+                },
+                {
+                  "title": "Facial Colliders",
+                  "text": "Additional ellipsoids approximate the nose and mouth to improve interaction around facial features."
+                },
+                {
+                  "title": "Surface Projection",
+                  "text": "Particles detected inside a collider are projected back onto its surface and friction is applied to reduce sliding artifacts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "GPU RIBBON RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The primary renderer avoids generating full cylindrical geometry for every strand. Instead, simulated guide-strand segments are uploaded to the GPU and expanded into camera-facing ribbon quads, reducing the amount of geometry required for dense hair."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Guide Strands",
+                  "text": "A reduced set of physically simulated strands provides the underlying hair motion."
+                },
+                {
+                  "title": "Texture Buffer Objects",
+                  "text": "Guide-segment positions and radii are streamed to the GPU for rendering."
+                },
+                {
+                  "title": "Ribbon Expansion",
+                  "text": "The vertex shader expands each guide segment into camera-facing ribbon geometry."
+                },
+                {
+                  "title": "Follower Strands",
+                  "text": "Additional strands are generated procedurally on the GPU around each guide strand to create visually denser hair without simulating every strand individually."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SHADING & RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hair is rendered through a custom OpenGL 4.1 and GLSL pipeline with a simplified physically inspired shading model designed for thin directional geometry."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Hair Shading",
+                  "text": "Combines diffuse lighting, directional specular highlights, and rim lighting to approximate the anisotropic appearance of hair."
+                },
+                {
+                  "title": "Alpha-to-Coverage",
+                  "text": "Uses multisampling and alpha-to-coverage to reduce transparency and aliasing artifacts across overlapping ribbons."
+                },
+                {
+                  "title": "Dual Rendering",
+                  "text": "Supports both lightweight line rendering for debugging and GPU ribbon rendering for the final hair representation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "REAL-TIME INTERACTION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A PySide6 interface provides live control over the simulation and rendering system without requiring the application to restart or rebuild the scene."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Hair Controls",
+                  "text": "Adjust strand count, length, thickness, follower density, and hair style in real time."
+                },
+                {
+                  "title": "Simulation Controls",
+                  "text": "Toggle wind and modify parameters affecting the physical behaviour of the strands."
+                },
+                {
+                  "title": "Debugging",
+                  "text": "Visualise collision volumes and switch rendering modes while the simulation is running."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "OPTIMISATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rendering architecture is designed around simulating a limited number of guide strands on the CPU while generating additional visual density on the GPU. This keeps expensive physical simulation separate from the number of strands ultimately displayed."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Guide-Strand Simulation",
+                  "text": "Only the primary guide strands require full CPU physics simulation."
+                },
+                {
+                  "title": "GPU Followers",
+                  "text": "Follower strands increase apparent hair density without introducing equivalent CPU simulation cost."
+                },
+                {
+                  "title": "Adaptive Constraints",
+                  "text": "Constraint solving is structured to balance strand stability with simulation cost."
+                },
+                {
+                  "title": "GPU Streaming",
+                  "text": "Texture Buffer Objects provide a compact path for transferring simulated strand data to the rendering pipeline."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/hair-simulation",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "rendermanApi": {
+      "title": "Procedural RenderMan Rendering",
+      "description": "Procedural modelling and rendering of a real-world salt shaker using Pixar RenderMan, Python, and Open Shading Language.",
+      "tags": [
+        {
+          "label": "RenderMan",
+          "variant": "primary"
+        },
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "OSL",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Modelling",
+          "variant": "primary"
+        },
+        {
+          "label": "Physically Based Rendering",
+          "variant": "primary"
+        },
+        {
+          "label": "PxrSurface",
+          "variant": "secondary"
+        },
+        {
+          "label": "HDR Lighting",
+          "variant": "secondary"
+        },
+        {
+          "label": "Ray Tracing",
+          "variant": "secondary"
+        },
+        {
+          "label": "RIB",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/images/projects/renderman/renderman-reference.png",
+          "type": "image",
+          "alt": "RenderMan salt shaker reference recreation",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-reference1.png",
+          "type": "image",
+          "alt": "RenderMan salt shaker model first reference",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-reference2.png",
+          "type": "image",
+          "alt": "RenderMan salt shaker model second reference",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-body.png",
+          "type": "image",
+          "alt": "Procedural salt shaker body model",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-cap.png",
+          "type": "image",
+          "alt": "Procedural salt shaker cap model",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-model.png",
+          "type": "image",
+          "alt": "Procedural salt shaker model",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-render.png",
+          "type": "image",
+          "alt": "Procedural salt final render",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-render2.png",
+          "type": "image",
+          "alt": "Procedural salt final second render",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/renderman-comparison.mp4",
+          "type": "video",
+          "poster": "/images/projects/renderman/renderman-render.png",
+          "alt": "Renderman image comparison",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A procedural rendering project exploring Pixar RenderMan's Python API through the recreation of a real household salt shaker from photographic reference."
+            },
+            {
+              "type": "paragraph",
+              "text": "The complete asset and scene were generated through code, combining procedural geometry, physically based materials, custom OSL shaders, HDR environment lighting, and camera effects."
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL MODELLING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The salt shaker was broken down into several independently generated components, allowing the geometry to be constructed and adjusted procedurally rather than through a traditional modelling package."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Glass Body",
+                  "text": "Generated from a profile curve and revolved around a central axis to create the rotationally symmetric container."
+                },
+                {
+                  "title": "Inner Wall",
+                  "text": "Added to the main body to reproduce the thickness of the glass."
+                },
+                {
+                  "title": "Neck and Support Ring",
+                  "text": "Constructed from cylindrical geometry and assembled separately from the main body."
+                },
+                {
+                  "title": "Screw Thread",
+                  "text": "Generated procedurally around the neck to allow the cap and bottle to connect correctly."
+                },
+                {
+                  "title": "Cap",
+                  "text": "Created as an independent procedural component so it could be positioned separately in the scene."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RENDERMAN API",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The scene is generated directly through RenderMan's Python API. The Python entry point creates the RenderMan context, configures the renderer, builds the scene, assigns lighting and materials, and exports the resulting RIB scene for rendering."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Scene Generation",
+                  "text": "Python constructs the complete RenderMan scene and exports the RIB representation."
+                },
+                {
+                  "title": "Render Configuration",
+                  "text": "The renderer is configured with PxrPathTracer, ray-traced rendering, sampling controls, perspective projection, and depth of field."
+                },
+                {
+                  "title": "Shader Compilation",
+                  "text": "Custom OSL shaders are compiled before scene generation and made available through the RenderMan shader search path."
+                },
+                {
+                  "title": "Automated Rendering",
+                  "text": "A Makefile provides commands for scene generation, rendering, texture conversion, viewing, and cleaning generated files."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "MATERIALS & SHADING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Different material responses were required for the frosted glass body, plastic cap, printed label, and wooden surface. RenderMan's PxrSurface shader was used as the primary BRDF model, with parameters tuned for each material."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Frosted Glass",
+                  "text": "Reflection, refraction, and roughness were balanced to reproduce the cloudy appearance of the reference object."
+                },
+                {
+                  "title": "Plastic",
+                  "text": "The cap uses stronger diffuse response and softer specular highlights."
+                },
+                {
+                  "title": "Custom OSL",
+                  "text": "Procedural shaders were developed for frosted glass and wood grain, introducing controlled surface variation."
+                },
+                {
+                  "title": "Texture Mapping",
+                  "text": "The printed label and environmental surfaces use texture maps alongside procedural shading."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "LIGHTING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The lighting setup combines an HDR environment with manually positioned RenderMan lights. The HDR environment provides reflections and ambient illumination while additional lights reproduce the highlights and lighting direction visible in the reference photographs."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "HDR Environment",
+                  "text": "A PxrDomeLight provides environment illumination and reflection information for the glass."
+                },
+                {
+                  "title": "Key Light",
+                  "text": "A PxrSphereLight provides the primary directional lighting contribution."
+                },
+                {
+                  "title": "Fill Light",
+                  "text": "A secondary warm light adds additional illumination and variation."
+                },
+                {
+                  "title": "Highlight Lighting",
+                  "text": "Additional lights were positioned around the glass neck to control reflections and highlights."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "REFERENCE RECREATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Reference photographs were taken from multiple angles before modelling. The geometry, materials, camera and lighting were then iteratively adjusted against the photographs to reproduce the original composition."
+            },
+            {
+              "type": "paragraph",
+              "text": "Two final scenes were produced: one recreating the original reference composition and another presenting the completed salt shaker independently using the same lighting setup."
+            }
+          ]
+        },
+        {
+          "title": "CAMERA & RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The final scene uses a perspective camera with RenderMan depth of field to reproduce subtle photographic characteristics from the reference images. The render uses PxrPathTracer with ray-traced rendering and increased sampling for the final image."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Perspective Camera",
+                  "text": "Configured to match the composition and viewing angle of the reference photographs."
+                },
+                {
+                  "title": "Depth of Field",
+                  "text": "Applied subtly to soften areas outside the focal plane while preserving the overall composition."
+                },
+                {
+                  "title": "Path Tracing",
+                  "text": "PxrPathTracer handles indirect lighting, reflections, refractions, and other ray-traced effects."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project includes a small command-line rendering pipeline for automating the RenderMan workflow."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Texture Conversion",
+                  "text": "Source textures are converted into RenderMan's native texture format using txmake."
+                },
+                {
+                  "title": "Scene Generation",
+                  "text": "The Python API generates the procedural geometry, shaders, camera, lights, and scene configuration."
+                },
+                {
+                  "title": "RIB Export",
+                  "text": "The generated scene is exported as a RenderMan RIB file."
+                },
+                {
+                  "title": "Rendering",
+                  "text": "The RIB scene is rendered using Pixar RenderMan and produces the final EXR output."
+                },
+                {
+                  "title": "Review",
+                  "text": "Rendered output can be opened in the RenderMan framebuffer for inspection."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The final renders reproduced the main visual characteristics of the reference photographs, including the salt shaker's geometry, frosted glass, reflections, materials, lighting, and composition."
+            },
+            {
+              "type": "paragraph",
+              "text": "The project provided practical experience with procedural modelling, physically based shading, custom OSL development, HDR image-based lighting, and photorealistic rendering through RenderMan."
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/renderman-salt-shaker",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "impossibleStairs": {
+      "title": "Impossible Stairs",
+      "description": "Procedural staircase generation and ball animation system built with Python and PyMEL for Autodesk Maya.",
+      "tags": [
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "PyMEL",
+          "variant": "primary"
+        },
+        {
+          "label": "Autodesk Maya",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Generation",
+          "variant": "primary"
+        },
+        {
+          "label": "Animation",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Animation",
+          "variant": "secondary"
+        },
+        {
+          "label": "Squash & Stretch",
+          "variant": "secondary"
+        },
+        {
+          "label": "Motion Design",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/imp-stairs.mp4",
+          "type": "video",
+          "poster": "/images/projects/stairs/frontal-view.png",
+          "alt": "Procedurally generated staircase",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/ball-animation.mp4",
+          "type": "video",
+          "poster": "/images/projects/stairs/frontal-view.png",
+          "alt": "Procedurally generated staircase",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/stairs/torii-gates.png",
+          "type": "image",
+          "alt": "Procedurally generated torii gates",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/stairs/imp-stairs.png",
+          "type": "image",
+          "alt": "Procedurally generated impossible diamond stairs",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/stairs/frontal-view.png",
+          "type": "image",
+          "alt": "Procedurally generated impossible diamond stairs frontal view",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A procedural Maya project exploring environment generation and character animation through Python and PyMEL."
+            },
+            {
+              "type": "paragraph",
+              "text": "The system generates impossible-style stair environments and drives a ball through them using procedural animation logic rather than manually keyframing each movement."
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL ENVIRONMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The environment is generated from reusable Python modules, allowing different architectural elements to be created and assembled directly inside Maya."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Stair Generation",
+                  "text": "Creates stepped geometry from configurable rise, run, depth, and step-count values, with a diagonal base supporting the staircase."
+                },
+                {
+                  "title": "Torii Corridor",
+                  "text": "Duplicates and scales torii gates along a corridor while generating a progressively smaller staircase sequence behind them."
+                },
+                {
+                  "title": "Radial Bricks",
+                  "text": "Generates wedge-shaped brick meshes and distributes them around a circular layout with configurable gaps."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "STAIR GENERATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The staircase is constructed procedurally from individual cubes. Each step is positioned using incremental horizontal run and vertical rise values, while a rotated base follows the diagonal direction of the stairs."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Step Creation",
+                  "text": "Individual step meshes are generated and positioned from the configured run and rise."
+                },
+                {
+                  "title": "Base Generation",
+                  "text": "A diagonal base is calculated from the overall staircase dimensions and positioned beneath the steps."
+                },
+                {
+                  "title": "Grouping",
+                  "text": "All generated geometry is placed under a common transform for easier scene management."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL ANIMATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ball animation system determines its bounce targets directly from the generated stair geometry. This allows the animation to adapt to the scene rather than relying on manually authored positions."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Target Collection",
+                  "text": "The system searches stair groups, identifies individual steps, and calculates the top-center position of each target using the ball radius."
+                },
+                {
+                  "title": "Hop Timing",
+                  "text": "The available animation range is distributed across the required number of stair-to-stair hops."
+                },
+                {
+                  "title": "Bounce Arc",
+                  "text": "Each hop is constructed from contact, squash, recovery, launch, impulse, apex, and landing phases."
+                },
+                {
+                  "title": "Rolling",
+                  "text": "Ball rotation is accumulated from movement and velocity so the ball rolls naturally between contacts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SQUASH & STRETCH",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Squash and stretch are generated procedurally around each bounce to reinforce the impact and movement of the ball."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Contact",
+                  "text": "The ball compresses when reaching a stair surface."
+                },
+                {
+                  "title": "Recovery",
+                  "text": "The ball returns to its upright form before launching into the next bounce."
+                },
+                {
+                  "title": "Stretch",
+                  "text": "Vertical stretching is applied during the upward and pre-contact portions of the bounce."
+                },
+                {
+                  "title": "Apex",
+                  "text": "The animation uses dedicated timing and tangent controls to produce smoother transitions around the peak."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ANIMATION SYSTEM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The animation system supports both automatic stair traversal and explicitly defined step sequences, allowing different balls to follow different paths through the environment."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Automatic Traversal",
+                  "text": "The primary ball derives its targets from the configured stair-group order and step exclusions."
+                },
+                {
+                  "title": "Custom Sequences",
+                  "text": "A secondary ball can be assigned an explicit sequence of stair groups and step numbers."
+                },
+                {
+                  "title": "Animation Parameters",
+                  "text": "Jump power, squash amount, stretch amount, squash duration, impulse ratio, and total animation duration can be adjusted independently."
+                },
+                {
+                  "title": "Curve Cleanup",
+                  "text": "Contact frames use linear tangents while apex frames receive weighted smooth tangents for more controlled motion."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project is organised as a small procedural toolkit with separate modules for scene generation, animation, constants, and utility functions."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Environment",
+                  "text": "Python modules generate the staircase, torii corridor, and radial brick geometry."
+                },
+                {
+                  "title": "Animation Setup",
+                  "text": "The animation system identifies the ball controls and derives the ball radius from its geometry."
+                },
+                {
+                  "title": "Target Generation",
+                  "text": "Stair geometry is converted into a sequence of bounce targets."
+                },
+                {
+                  "title": "Keyframe Generation",
+                  "text": "Procedural timing logic generates translation, rotation, and squash/stretch keyframes."
+                },
+                {
+                  "title": "Scene Output",
+                  "text": "The resulting geometry and animation are created directly in Maya for further artistic adjustment."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project produces reusable procedural environment modules and an animation system capable of driving a ball through generated stair layouts without manually defining every bounce."
+            },
+            {
+              "type": "paragraph",
+              "text": "The resulting toolkit combines procedural modelling with animation automation, providing a foundation for generating variations of the environment and adapting the animation to different stair configurations."
+            }
+          ]
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=oaC0Q9vlnUU",
+        "poster": "/images/projects/stairs/stairs-thumbnail.png",
+        "category": "PROCEDURAL ANIMATION",
+        "title": "Impossible Stairs",
+        "loop": true
+      },
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/infinite-stairs-ball",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "hdaGarden": {
+      "title": "Garden Generator",
+      "description": "Procedural Japanese garden generation HDA for Houdini with interactive painting, terrain tools, and configurable environment systems.",
+      "tags": [
+        {
+          "label": "Houdini",
+          "variant": "primary"
+        },
+        {
+          "label": "HDA",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Generation",
+          "variant": "primary"
+        },
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "Environment Generation",
+          "variant": "primary"
+        },
+        {
+          "label": "Japanese Gardens",
+          "variant": "secondary"
+        },
+        {
+          "label": "Interactive Tools",
+          "variant": "secondary"
+        },
+        {
+          "label": "Terrain Generation",
+          "variant": "secondary"
+        },
+        {
+          "label": "Houdini Digital Asset",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/garden-terrain.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings paint tool",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings2.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings grass, pebbles and fences",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings3.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings rock and sand designs",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings4.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings stone curve",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings5.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings multi terrain and flip solver",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/garden/garden.png",
+          "type": "image",
+          "alt": "Houdini Procedural Japanese garden generator",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A Houdini Digital Asset for procedurally generating Japanese-style gardens with configurable terrain, vegetation, paths, rocks, fences, rivers, and bridges."
+            },
+            {
+              "type": "paragraph",
+              "text": "The HDA combines procedural environment generation with interactive viewport tools, allowing artists to generate a garden layout, paint geometry placement, edit curves, and switch between simplified and production-level assets."
+            }
+          ]
+        },
+        {
+          "title": "GARDEN TYPES",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The generator supports multiple garden layouts through a single HDA, with different systems becoming available depending on the selected garden type."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Zen",
+                  "text": "Generates rock arrangements and procedural sand patterns with options including combined, rings, lines, sunburst, and checker patterns."
+                },
+                {
+                  "title": "Tea",
+                  "text": "Generates structured walking paths using configurable rock styles, spacing, scale variation, and an editable path curve."
+                },
+                {
+                  "title": "Strolling",
+                  "text": "Generates flowing river layouts with optional bridge geometry and an editable river path."
+                },
+                {
+                  "title": "Custom",
+                  "text": "Uses a user-provided garden layout map to define a custom terrain pattern."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "TERRAIN SYSTEM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Terrain generation is controlled through garden dimensions, layout configuration, custom UV mapping, and surface bump parameters."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Garden Dimensions",
+                  "text": "Controls the overall width and depth of the generated garden."
+                },
+                {
+                  "title": "Layout Maps",
+                  "text": "Predefined maps are used for Zen and Tea layouts, while Custom mode accepts a user-defined garden layout map."
+                },
+                {
+                  "title": "Surface Detail",
+                  "text": "Non-strolling gardens use configurable noise-based bump settings to introduce terrain variation."
+                },
+                {
+                  "title": "Strolling Terrain",
+                  "text": "Uses separate lacunarity, roughness, element size, and amplitude controls for the floor surface."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL GEOMETRY",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Garden elements can be enabled independently and procedurally distributed across the generated terrain. Density, scale variation, rotation, colour, and random seeds provide control over the final environment."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Bamboo",
+                  "text": "Can be painted interactively onto the terrain with configurable height and size variation."
+                },
+                {
+                  "title": "Plants",
+                  "text": "Supports three independently configurable plant layers with density, iterations, scale variation, randomisation, and colour controls."
+                },
+                {
+                  "title": "Grass",
+                  "text": "Generates surface vegetation with configurable length, thickness, and colour."
+                },
+                {
+                  "title": "Pebbles",
+                  "text": "Distributes pebbles across the terrain with configurable scale, placement density, rotation, and colour."
+                },
+                {
+                  "title": "Fences",
+                  "text": "Generates boundaries from an interactively editable curve with configurable height, resolution, and colour."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "INTERACTIVE TOOLS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA provides interactive viewport tools for painting vegetation and editing garden curves directly on the generated environment."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Geometry Painting",
+                  "text": "Artists can paint bamboo and three plant types directly onto the terrain."
+                },
+                {
+                  "title": "Fence Editing",
+                  "text": "Fence geometry can be shaped interactively using an editable viewport curve."
+                },
+                {
+                  "title": "Rock Path Editing",
+                  "text": "Tea garden paths can be created and adjusted through an interactive curve."
+                },
+                {
+                  "title": "River Editing",
+                  "text": "The Strolling garden river can be shaped interactively before previewing its simulation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PYTHON VIEWER STATE MANAGEMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA uses a custom Python interaction layer to control Houdini's Scene Viewer and expose internal paint and curve tools directly through the asset interface. Rather than requiring artists to manually navigate into the HDA and activate individual nodes, Python switches the Scene Viewer to the appropriate internal node state and returns the user to the parent asset when the tool is exited."
+            },
+            {
+              "type": "paragraph",
+              "text": "The implementation uses Houdini's event loop callbacks to monitor the active viewer state and detect when the artist exits the internal tool. Active watchers are stored in hou.session, allowing multiple HDA instances and tool states to be tracked independently while preventing duplicate callbacks."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Tool State Entry",
+                  "text": "Dedicated Python functions launch the bamboo, plant, fence, rock path, and river editing tools by locating the corresponding internal node and entering its current Houdini viewer state."
+                },
+                {
+                  "title": "Scene Viewer Control",
+                  "text": "The Scene Viewer is redirected to the internal tool node before entering its interactive state, allowing the artist to work directly in the viewport without leaving the HDA workflow."
+                },
+                {
+                  "title": "Event Loop Monitoring",
+                  "text": "A hou.ui event loop callback continuously monitors the Scene Viewer state and detects when the active tool has been exited."
+                },
+                {
+                  "title": "Context-Aware Exit",
+                  "text": "The system distinguishes between normal viewport navigation and an actual tool exit, preventing accidental context switches while the artist is working."
+                },
+                {
+                  "title": "Automatic HDA Return",
+                  "text": "When an exit is detected, the Scene Viewer is returned to the parent HDA and the viewer is placed back into the Select state."
+                },
+                {
+                  "title": "Watcher Management",
+                  "text": "Callbacks are registered using a unique HDA and tool key, allowing existing watchers to be removed before a new one is installed and preventing duplicate event-loop callbacks."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PRODUCTION GEOMETRY",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA supports replacing simplified proxy geometry with higher-quality production assets for final scene output."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Proxy Workflow",
+                  "text": "Dummy geometry provides lightweight assets for viewport blocking and interactive painting."
+                },
+                {
+                  "title": "Production Assets",
+                  "text": "Grass, pebbles, bamboo, three plant types, and Zen rocks can use higher-resolution external geometry."
+                },
+                {
+                  "title": "Performance",
+                  "text": "Artists can work with simplified geometry during layout and switch to detailed assets when reviewing the final result."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ZEN GARDEN",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Zen mode focuses on minimal garden compositions using procedural rock placement and raked sand patterns."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Rock Placement",
+                  "text": "Rock position, height, scale variation, randomisation, and colour can be controlled procedurally."
+                },
+                {
+                  "title": "Sand Patterns",
+                  "text": "Five pattern styles are available: Combined, Rings, Lines, Sunburst, and Checkers."
+                },
+                {
+                  "title": "Pattern Controls",
+                  "text": "Spacing, strength, ring limits, ray counts, and checker scale control the resulting sand deformation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "TEA GARDEN",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Tea mode generates a structured walking path using procedurally arranged stepping stones."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Rock Path",
+                  "text": "A configurable sequence of stepping stones is distributed along an editable path curve."
+                },
+                {
+                  "title": "Rock Style",
+                  "text": "The path supports both circular and square stone styles."
+                },
+                {
+                  "title": "Variation",
+                  "text": "Rock amount, separation, scale range, and colour can be adjusted to change the appearance of the path."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "STROLLING GARDEN",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Strolling mode introduces a flowing river system and optional bridge geometry to create a navigable garden layout."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "River Path",
+                  "text": "The river layout is controlled through an editable curve with configurable resolution and radius."
+                },
+                {
+                  "title": "Variable Width",
+                  "text": "Independent scale controls at the beginning and end of the river allow the path to taper or widen."
+                },
+                {
+                  "title": "Bridge",
+                  "text": "An external bridge geometry asset can be positioned, rotated, and scaled along the river."
+                },
+                {
+                  "title": "FLIP Simulation",
+                  "text": "The river node contains a FLIP Solver that can be previewed to inspect the river animation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA is designed as a self-contained production tool with project-relative asset paths, interactive viewport workflows, procedural generation, and replaceable external geometry."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Project Setup",
+                  "text": "A base directory defines the root project path used to resolve maps, textures, geometry, and other external assets."
+                },
+                {
+                  "title": "Garden Configuration",
+                  "text": "Artists select the garden dimensions and layout type before configuring the corresponding environment systems."
+                },
+                {
+                  "title": "Interactive Layout",
+                  "text": "Geometry and curves can be painted or edited directly in the viewport."
+                },
+                {
+                  "title": "Procedural Generation",
+                  "text": "The HDA generates the selected terrain and environment elements from the configured parameters."
+                },
+                {
+                  "title": "Production Assets",
+                  "text": "Proxy geometry can be replaced with higher-resolution external assets for final rendering."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Garden Generator provides a reusable Houdini asset for creating multiple Japanese-style garden environments from a single procedural tool."
+            },
+            {
+              "type": "paragraph",
+              "text": "The combination of procedural generation, interactive viewport tools, configurable layouts, and production-geometry support allows the same HDA to be used for both environment exploration and higher-quality scene output."
+            }
+          ]
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=iITLC3yirDA",
+        "poster": "/images/projects/garden/garden-thumbnail.png",
+        "category": "HDA TUTORIAL",
+        "title": "Japanese Garden Generator"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
       }
     }
   }

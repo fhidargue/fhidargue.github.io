@@ -14,6 +14,7 @@ const Media = ({
   scale = 1.25,
   hasParallax = false,
   hasNoise = false,
+  hasBorder = false,
   noiseOpacity = 0.15,
   noiseDensity = 0.7,
   noiseSpeed = 120,
@@ -22,6 +23,7 @@ const Media = ({
   isHovered,
   autoPlay = false,
   className,
+  isFilled = false,
 }: MediaProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -60,13 +62,13 @@ const Media = ({
 
   return (
     <div
-      className={cx(
-        styles.media,
-        isHovered && styles["media--hovered"],
-        hasParallax && styles["media--parallax"],
-        autoPlay && styles["media--autoplay"],
-        className,
-      )}
+      className={cx(styles.media, className, {
+        [styles["media--hovered"]]: isHovered,
+        [styles["media--parallax"]]: hasParallax,
+        [styles["media--autoplay"]]: autoPlay,
+        [styles["media--filled"]]: isFilled,
+        [styles["media--border"]]: hasBorder,
+      })}
       style={
         {
           borderRadius,

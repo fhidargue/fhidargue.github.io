@@ -30,6 +30,7 @@ import useTheme from "@hooks/useTheme";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import type { ServiceItem, AwardItem, ColophonItem } from "./About.types";
+import { ROUTES } from "@constants/routes";
 
 const About = () => {
   const navigate = useNavigate();
@@ -156,15 +157,15 @@ const About = () => {
         <HomeBanner
           className={styles["about__banner"]}
           headingClassName={styles["about__banner-heading"]}
-          label="CONTACT"
-          buttonText="Let's Talk"
+          label={t("contact.banner.label")}
+          buttonText={t("contact.banner.buttonText")}
           buttonOnClick={() => {
-            navigate("/contact");
+            navigate(ROUTES.CONTACT);
           }}
         >
-          HAVE A COOL
+          {t("contact.banner.title1")}
           <br />
-          PROJECT?
+          {t("contact.banner.title2")}
         </HomeBanner>
       </Container>
     </main>
