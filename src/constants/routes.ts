@@ -8,7 +8,7 @@ export const ROUTES = {
     DCC_TRANSLATION: "/work/dcc-translation",
     WAVEFRONT_PATHTRACER: "/work/wavefront-pathtracer",
     MOCAP_RETARGET: "/work/mocap-retargeting",
-    SNOWBALL_SIM: "/work/snowball-simulation",
+    SNOWGLOBE_SIM: "/work/snowglobe-simulation",
     HAIR_SIM: "/work/hair-simulation",
     RENDERMAN_API: "/work/renderman-api",
     HDA_GARDEN: "/work/hda-garden-generator",

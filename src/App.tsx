@@ -15,6 +15,7 @@ import Project from "@pages/Project/Project";
 import DccTranslation from "@pages/Projects/DccTranslation/DccTranslation";
 import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPathtracer";
 import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting";
+import SnowGlobeSim from "@pages/Projects/SnowGlobeSim.tsx/SnowGlobeSim";
 
 import useLocale from "@hooks/useLocale";
 
@@ -85,8 +86,8 @@ const App = () => {
       element: <MocapRetargeting />,
     },
     {
-      path: ROUTES.PROJECTS.SNOWBALL_SIM,
-      element: <Project />,
+      path: ROUTES.PROJECTS.SNOWGLOBE_SIM,
+      element: <SnowGlobeSim />,
     },
     {
       path: ROUTES.PROJECTS.HAIR_SIM,

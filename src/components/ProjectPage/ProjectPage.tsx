@@ -13,13 +13,21 @@ import type {
   WorkProjectTag,
 } from "@components/WorkProject/WorkProject.types";
 
-import type { ProjectContentSection, ProjectLink } from "@constants/types";
+import type {
+  ProjectContentSection,
+  ProjectLink,
+  ProjectVideo,
+} from "@constants/types";
 import { useTranslation } from "react-i18next";
 import type { ProjectPageProps } from "./ProjectPage.types";
 
 import styles from "./ProjectPage.module.scss";
 
-const ProjectPage = ({ namespace, relatedProjects }: ProjectPageProps) => {
+const ProjectPage = ({
+  namespace,
+  relatedProjects,
+  children,
+}: ProjectPageProps) => {
   const { t } = useTranslation();
 
   const content = t(`${namespace}.content`, {
@@ -38,6 +46,13 @@ const ProjectPage = ({ namespace, relatedProjects }: ProjectPageProps) => {
     returnObjects: true,
   }) as WorkProjectMedia[];
 
+  const video = t(`${namespace}.video`, {
+    returnObjects: true,
+  }) as ProjectVideo;
+
+  const hasVideo =
+    typeof video === "object" && video !== null && "src" in video;
+
   return (
     <main className={styles["project-page"]}>
       <WorkProject
@@ -47,6 +62,7 @@ const ProjectPage = ({ namespace, relatedProjects }: ProjectPageProps) => {
         media={media}
       >
         <ProjectContent content={content} />
+        {children}
         <div className={styles["project-page__links"]}>
           <Text variant="roboto-large">{t(`${namespace}.linksTitle`)}</Text>
           <div className={styles["project-page__link-list"]}>
@@ -65,15 +81,17 @@ const ProjectPage = ({ namespace, relatedProjects }: ProjectPageProps) => {
           </div>
         </div>
       </WorkProject>
-      <Container className={styles["project-page__video-container"]}>
-        <Video
-          src={t(`${namespace}.video.src`)}
-          poster={t(`${namespace}.video.poster`)}
-          category={t(`${namespace}.video.category`)}
-          title={t(`${namespace}.video.title`)}
-          hasBorder
-        />
-      </Container>
+      {hasVideo && (
+        <Container className={styles["project-page__video-container"]}>
+          <Video
+            src={video.src}
+            poster={video.poster}
+            category={video.category}
+            title={video.title}
+            hasBorder
+          />
+        </Container>
+      )}
       <Container className={styles["project-page__ticker"]}>
         <Ticker
           title1={t(`${namespace}.ticker.title1`)}

@@ -14,7 +14,7 @@ const DccTranslation = () => {
           image: t("work.threeColumnCards.0.poster"),
           title: t("work.threeColumnCards.0.title"),
           category: t("work.threeColumnCards.0.category"),
-          to: ROUTES.PROJECTS.SNOWBALL_SIM,
+          to: ROUTES.PROJECTS.SNOWGLOBE_SIM,
         },
         {
           image: t("work.bottomCards.0.poster"),

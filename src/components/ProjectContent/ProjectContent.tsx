@@ -1,4 +1,5 @@
 import Text from "@components/Text/Text";
+
 import type { ProjectContentProps } from "./ProjectContent.types";
 
 import styles from "./ProjectContent.module.scss";
@@ -12,6 +13,7 @@ const ProjectContent = ({ content }: ProjectContentProps) => {
           className={styles["project-content__section"]}
         >
           <Text variant="roboto-large">{section.title}</Text>
+
           {section.blocks.map((block, index) => {
             if (block.type === "paragraph") {
               return (
@@ -43,6 +45,34 @@ const ProjectContent = ({ content }: ProjectContentProps) => {
                     </li>
                   ))}
                 </List>
+              );
+            }
+
+            if (block.type === "table") {
+              return (
+                <div
+                  key={index}
+                  className={styles["project-content__table-wrapper"]}
+                >
+                  <table className={styles["project-content__table"]}>
+                    <thead>
+                      <tr>
+                        {block.columns.map((column) => (
+                          <th key={column}>{column}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {block.rows.map((row, rowIndex) => (
+                        <tr key={rowIndex}>
+                          {row.map((cell, cellIndex) => (
+                            <td key={cellIndex}>{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               );
             }
 

@@ -43,6 +43,10 @@
     display: flex;
     flex-direction: column;
     gap: utils.toRem(8px);
+
+    @media #{variables.$screen-lg} {
+      gap: utils.toRem(16px);
+    }
   }
 
   &__description {

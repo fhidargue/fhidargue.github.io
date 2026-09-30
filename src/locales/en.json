@@ -5,8 +5,8 @@
       "changed": "H0M3"
     },
     "back": {
-      "default": "[ GO BACK ]",
-      "changed": "[ G0 B4CK ]"
+      "default": "[ GO HOME ]",
+      "changed": "[ G0 H0M3 ]"
     },
     "notFound": {
       "default": "[ GO HOME ]",
@@ -692,12 +692,12 @@
     ],
     "threeColumnCards": [
       {
-        "media": "/videos/work/snowball.mp4",
+        "media": "/videos/work/snowglobe.mp4",
         "type": "video",
-        "poster": "/images/work/snowball.png",
-        "title": "Snowball Simulation",
+        "poster": "/images/work/snowglobe.png",
+        "title": "Snow Globe Simulation",
         "category": "SIMULATION",
-        "to": "/work/snowball-simulation",
+        "to": "/work/snowglobe-simulation",
         "hasNoise": false
       },
       {
@@ -1733,6 +1733,267 @@
         "category": "FINAL SHORT FILM",
         "title": "Eternally Dancing"
       },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "snowglobe": {
+      "title": "Real-Time Snow Globe Simulation",
+      "description": "Real-time particle-based snow globe simulation using Position Based Dynamics, WebGL, and Three.js.",
+      "tags": [
+        {
+          "label": "TypeScript",
+          "variant": "primary"
+        },
+        {
+          "label": "Three.js",
+          "variant": "primary"
+        },
+        {
+          "label": "WebGL",
+          "variant": "primary"
+        },
+        {
+          "label": "Position Based Dynamics",
+          "variant": "primary"
+        },
+        {
+          "label": "React Three Fiber",
+          "variant": "primary"
+        },
+        {
+          "label": "Verlet Integration",
+          "variant": "secondary"
+        },
+        {
+          "label": "Spatial Hashing",
+          "variant": "secondary"
+        },
+        {
+          "label": "Particle Simulation",
+          "variant": "secondary"
+        },
+        {
+          "label": "GPU Instancing",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/snowglobe.mp4",
+          "type": "video",
+          "poster": "/images/projects/snowglobe/snowglobe.png",
+          "alt": "Snow globe demonstration",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe.png",
+          "type": "image",
+          "alt": "Snow globe",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe-ellipsoid.png",
+          "type": "image",
+          "alt": "Snow globe Ellipsoids",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe-forrest.png",
+          "type": "image",
+          "alt": "Snow globe Forrest scene",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/snowglobe/snowglobe-performance.png",
+          "type": "image",
+          "alt": "Snow globe web performance",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A real-time snow globe simulation developed to investigate particle-based techniques and Position Based Dynamics in a browser-based environment. The system combines Verlet integration, iterative constraints, spatial hashing, collision handling, and GPU instanced rendering to simulate thousands of particles interactively."
+            },
+            {
+              "type": "paragraph",
+              "text": "The simulation supports two particle behaviours: a marble mode designed around rigid particle collisions and a snow mode that produces more clustered and cohesive movement while maintaining stable real-time performance."
+            }
+          ]
+        },
+        {
+          "title": "SIMULATION PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The simulation is structured as a sequence of particle update, neighbour search, constraint solving, collision handling, and rendering stages."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Integration",
+                  "text": "Verlet integration updates particle positions using current and previous positions."
+                },
+                {
+                  "title": "Spatial Hashing",
+                  "text": "Particles are assigned to grid cells so neighbour searches only evaluate nearby particles."
+                },
+                {
+                  "title": "Constraint Solver",
+                  "text": "Position Based Dynamics iteratively resolves particle overlaps and maintains minimum separation distances."
+                },
+                {
+                  "title": "Collision Handling",
+                  "text": "Particles are constrained against the snow globe and simplified scene collision geometry."
+                },
+                {
+                  "title": "Rendering",
+                  "text": "Three.js and WebGL render the particle system using GPU instancing."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "POSITION BASED DYNAMICS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The simulation uses Position Based Dynamics to maintain stable particle interactions by directly correcting particle positions rather than relying on traditional force-based integration. Multiple solver iterations are performed each frame to reduce overlap and improve collision stability."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Verlet Integration",
+                  "text": "Calculates particle movement from the difference between the current and previous positions."
+                },
+                {
+                  "title": "Iterative Constraints",
+                  "text": "Repeatedly corrects particle positions to maintain separation and stable interactions."
+                },
+                {
+                  "title": "Damping",
+                  "text": "Reduces excessive bouncing and helps particles settle after collisions."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SPATIAL HASHING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Neighbour searches are accelerated using a spatial hashing grid. Instead of checking every particle against every other particle, each particle searches its current cell and the surrounding 26 cells."
+            },
+            {
+              "type": "paragraph",
+              "text": "This reduces the number of collision checks required as particle counts increase and was an important part of maintaining interactive performance with thousands of particles."
+            }
+          ]
+        },
+        {
+          "title": "MATERIAL BEHAVIOURS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Two particle behaviours were implemented to explore different material responses within the same simulation framework."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Marble",
+                  "text": "Uses more rigid particle interactions, producing faster movement and more visible bouncing during collisions."
+                },
+                {
+                  "title": "Snow",
+                  "text": "Reduces relative particle movement and encourages particles to settle together, producing a denser snow-like appearance."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "REAL-TIME RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The simulation runs entirely in the browser using TypeScript, WebGL, Three.js, and React Three Fiber. GPU instanced rendering allows thousands of particles to be drawn using a shared mesh and material, reducing the rendering overhead associated with individual particle draw calls."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "GPU Instancing",
+                  "text": "Renders the particle system using instanced geometry to reduce draw calls."
+                },
+                {
+                  "title": "Interactive Gravity",
+                  "text": "Rotating the snow globe changes the direction of gravity inside the simulation."
+                },
+                {
+                  "title": "PBR Rendering",
+                  "text": "Uses physically based materials and HDR lighting for the final snow globe scenes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PERFORMANCE EVALUATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Performance was evaluated by increasing the number of simulated particles and measuring the resulting average frame rate. The tests show how simulation and neighbour-search costs increase as particle density grows."
+            },
+            {
+              "type": "table",
+              "columns": ["Particle Count", "Average FPS"],
+              "rows": [
+                ["2,000", "120 FPS"],
+                ["5,000", "120 FPS"],
+                ["8,000", "90 FPS"],
+                ["11,000", "70 FPS"],
+                ["14,000", "60 FPS"],
+                ["17,000", "45 FPS"],
+                ["20,000", "38 FPS"]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The simulation maintained interactive performance across the tested range, although performance decreased as particle counts increased. At higher densities, neighbour searches and collision solving became more expensive, making spatial hashing and GPU instanced rendering important for maintaining real-time interaction."
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/snow-globe-simulation",
+          "isExternal": true
+        },
+        {
+          "label": "LIVE DEMO",
+          "changed": "L1V3 D3M0",
+          "href": "https://snow-globe-simulation.vercel.app/",
+          "isExternal": true
+        }
+      ],
       "ticker": {
         "title1": "MORE WORK",
         "title2": "YOU MIGHT BE INTERESTED"

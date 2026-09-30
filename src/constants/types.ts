@@ -10,6 +10,11 @@ export type ContentBlock =
   | {
       type: "unordered-list";
       items: ContentListItem[];
+    }
+  | {
+      type: "table";
+      columns: string[];
+      rows: string[][];
     };
 
 export type ContentListItem = {
@@ -27,4 +32,11 @@ export type ProjectLink = {
   changed: string;
   href: string;
   isExternal: true;
+};
+
+export type ProjectVideo = {
+  src: string;
+  poster: string;
+  category: string;
+  title: string;
 };

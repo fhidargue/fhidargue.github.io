@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export type ProjectRelatedProject = {
   image: string;
   title: string;
@@ -8,4 +10,5 @@ export type ProjectRelatedProject = {
 export interface ProjectPageProps {
   namespace: string;
   relatedProjects: ProjectRelatedProject[];
+  children?: ReactNode;
 }
