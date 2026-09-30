@@ -13,7 +13,6 @@ const ProjectContent = ({ content }: ProjectContentProps) => {
           className={styles["project-content__section"]}
         >
           <Text variant="roboto-large">{section.title}</Text>
-
           {section.blocks.map((block, index) => {
             if (block.type === "paragraph") {
               return (

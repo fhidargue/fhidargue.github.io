@@ -60,6 +60,9 @@ const WorkProject = ({
               isFilled={item.isFilled}
               hasBorder={item.hasBorder}
               borderRadius={32}
+              className={cx({
+                [styles["work-project__media--filled"]]: item.isFilled,
+              })}
             />
           ))}
         </div>

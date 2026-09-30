@@ -16,6 +16,7 @@ import DccTranslation from "@pages/Projects/DccTranslation/DccTranslation";
 import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPathtracer";
 import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting";
 import SnowGlobeSim from "@pages/Projects/SnowGlobeSim.tsx/SnowGlobeSim";
+import HairSim from "@pages/Projects/HairSim/HairSim";
 
 import useLocale from "@hooks/useLocale";
 
@@ -91,7 +92,7 @@ const App = () => {
     },
     {
       path: ROUTES.PROJECTS.HAIR_SIM,
-      element: <Project />,
+      element: <HairSim />,
     },
     {
       path: ROUTES.PROJECTS.RENDERMAN_API,

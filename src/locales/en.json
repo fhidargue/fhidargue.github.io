@@ -1998,6 +1998,358 @@
         "title1": "MORE WORK",
         "title2": "YOU MIGHT BE INTERESTED"
       }
+    },
+    "hair": {
+      "title": "Real-Time Hair Simulation & Rendering",
+      "description": "Real-time physically based hair simulation with CPU strand dynamics, GPU ribbon rendering, procedural follower strands, and interactive styling controls.",
+      "tags": [
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "OpenGL 4.1",
+          "variant": "primary"
+        },
+        {
+          "label": "GLSL",
+          "variant": "primary"
+        },
+        {
+          "label": "NumPy",
+          "variant": "primary"
+        },
+        {
+          "label": "PySide6",
+          "variant": "primary"
+        },
+        {
+          "label": "Verlet Integration",
+          "variant": "secondary"
+        },
+        {
+          "label": "GPU Ribbons",
+          "variant": "secondary"
+        },
+        {
+          "label": "Hair Simulation",
+          "variant": "secondary"
+        },
+        {
+          "label": "Collision Handling",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/hair.mp4",
+          "type": "video",
+          "poster": "/images/projects/hair/hair-controls.png",
+          "alt": "Hair simulation",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/hair-types.mp4",
+          "type": "video",
+          "poster": "/images/projects/hair/hair-controls.png",
+          "alt": "Hair simulation types",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-controls.png",
+          "type": "image",
+          "alt": "Hair simulation controls",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-wind.png",
+          "type": "image",
+          "alt": "Hair simulation wind controls",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-ellipsoid.png",
+          "type": "image",
+          "alt": "Hair simulation ellipsoid controls",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/hair/hair-test.png",
+          "type": "image",
+          "alt": "Hair simulation Pytest results",
+          "hasNoise": false,
+          "isHovered": false
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A real-time hair simulation and rendering system developed to explore physically based strand dynamics, GPU rendering techniques, procedural hair generation, collision handling, and interactive simulation controls."
+            },
+            {
+              "type": "paragraph",
+              "text": "The system combines CPU-side guide-strand simulation with GPU-side ribbon expansion and procedural follower strands, allowing visually dense hair to be rendered while keeping the physics workload manageable for real-time interaction."
+            }
+          ]
+        },
+        {
+          "title": "SIMULATION PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The system separates hair generation, physical simulation, collision handling, GPU rendering, and user interaction into independent stages."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Scalp Sampling",
+                  "text": "Hair roots are generated from sampled regions of the character mesh using a distribution mask."
+                },
+                {
+                  "title": "Strand Generation",
+                  "text": "Each guide strand is represented as a chain of particles connected by distance constraints."
+                },
+                {
+                  "title": "Physics Simulation",
+                  "text": "Verlet integration and iterative positional constraints update strand motion while preserving segment lengths."
+                },
+                {
+                  "title": "Collision Handling",
+                  "text": "Hair particles interact with ellipsoidal collision volumes fitted to the head and facial features."
+                },
+                {
+                  "title": "GPU Upload",
+                  "text": "Simulated guide-strand segment data is streamed to the GPU using a Texture Buffer Object."
+                },
+                {
+                  "title": "Ribbon Rendering",
+                  "text": "Guide segments are expanded into camera-facing ribbon geometry directly on the GPU."
+                },
+                {
+                  "title": "Follower Generation",
+                  "text": "Additional strands are generated procedurally on the GPU to increase visual density without increasing CPU simulation cost."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HAIR DYNAMICS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hair strands are represented as particle chains and simulated using Verlet integration. Instead of storing velocity explicitly, particle movement is reconstructed from current and previous positions, providing stable motion that integrates naturally with positional constraints."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Verlet Integration",
+                  "text": "Updates strand particles using positional history, acceleration, and damping."
+                },
+                {
+                  "title": "Distance Constraints",
+                  "text": "Iterative positional corrections preserve the rest length between neighbouring particles."
+                },
+                {
+                  "title": "Root Attachment",
+                  "text": "Root particles remain pinned to the animated head transform while the rest of the strand responds dynamically."
+                },
+                {
+                  "title": "Wind",
+                  "text": "Directional wind and turbulence produce secondary motion with increasing influence towards the strand tips."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL HAIR",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The system supports procedural hair styling while preserving the underlying physical simulation. Hair distribution is controlled using a grayscale scalp mask, allowing strands to be generated only within selected regions of the character mesh."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Straight Hair",
+                  "text": "Uses the simulated guide-strand structure directly for natural secondary motion."
+                },
+                {
+                  "title": "Curly Hair",
+                  "text": "Uses a procedural sinusoidal rest-shape deformation with configurable amplitude, frequency, and per-strand phase."
+                },
+                {
+                  "title": "Distribution Mask",
+                  "text": "Controls strand placement across the scalp to provide a natural hairline and artistic control over hair generation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "COLLISION SYSTEM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hair collision is approximated using ellipsoidal volumes fitted to the character rather than more expensive mesh-level collision detection. Collision tests are performed in head-local space to simplify the calculations."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Head Collider",
+                  "text": "An ellipsoid approximates the overall head volume and prevents strands from penetrating the character."
+                },
+                {
+                  "title": "Facial Colliders",
+                  "text": "Additional ellipsoids approximate the nose and mouth to improve interaction around facial features."
+                },
+                {
+                  "title": "Surface Projection",
+                  "text": "Particles detected inside a collider are projected back onto its surface and friction is applied to reduce sliding artifacts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "GPU RIBBON RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The primary renderer avoids generating full cylindrical geometry for every strand. Instead, simulated guide-strand segments are uploaded to the GPU and expanded into camera-facing ribbon quads, reducing the amount of geometry required for dense hair."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Guide Strands",
+                  "text": "A reduced set of physically simulated strands provides the underlying hair motion."
+                },
+                {
+                  "title": "Texture Buffer Objects",
+                  "text": "Guide-segment positions and radii are streamed to the GPU for rendering."
+                },
+                {
+                  "title": "Ribbon Expansion",
+                  "text": "The vertex shader expands each guide segment into camera-facing ribbon geometry."
+                },
+                {
+                  "title": "Follower Strands",
+                  "text": "Additional strands are generated procedurally on the GPU around each guide strand to create visually denser hair without simulating every strand individually."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SHADING & RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Hair is rendered through a custom OpenGL 4.1 and GLSL pipeline with a simplified physically inspired shading model designed for thin directional geometry."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Hair Shading",
+                  "text": "Combines diffuse lighting, directional specular highlights, and rim lighting to approximate the anisotropic appearance of hair."
+                },
+                {
+                  "title": "Alpha-to-Coverage",
+                  "text": "Uses multisampling and alpha-to-coverage to reduce transparency and aliasing artifacts across overlapping ribbons."
+                },
+                {
+                  "title": "Dual Rendering",
+                  "text": "Supports both lightweight line rendering for debugging and GPU ribbon rendering for the final hair representation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "REAL-TIME INTERACTION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A PySide6 interface provides live control over the simulation and rendering system without requiring the application to restart or rebuild the scene."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Hair Controls",
+                  "text": "Adjust strand count, length, thickness, follower density, and hair style in real time."
+                },
+                {
+                  "title": "Simulation Controls",
+                  "text": "Toggle wind and modify parameters affecting the physical behaviour of the strands."
+                },
+                {
+                  "title": "Debugging",
+                  "text": "Visualise collision volumes and switch rendering modes while the simulation is running."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "OPTIMISATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The rendering architecture is designed around simulating a limited number of guide strands on the CPU while generating additional visual density on the GPU. This keeps expensive physical simulation separate from the number of strands ultimately displayed."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Guide-Strand Simulation",
+                  "text": "Only the primary guide strands require full CPU physics simulation."
+                },
+                {
+                  "title": "GPU Followers",
+                  "text": "Follower strands increase apparent hair density without introducing equivalent CPU simulation cost."
+                },
+                {
+                  "title": "Adaptive Constraints",
+                  "text": "Constraint solving is structured to balance strand stability with simulation cost."
+                },
+                {
+                  "title": "GPU Streaming",
+                  "text": "Texture Buffer Objects provide a compact path for transferring simulated strand data to the rendering pipeline."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/hair-simulation",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
     }
   }
 }
