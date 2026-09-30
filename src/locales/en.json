@@ -1120,6 +1120,13 @@
           "alt": "Wavefront Rendering Heatmap Comparison",
           "hasNoise": false,
           "isHovered": false
+        },
+        {
+          "src": "/images/projects/wavefront/wavefront-test.png",
+          "type": "image",
+          "alt": "Wavefront Rendering Google Tests",
+          "hasNoise": false,
+          "isHovered": false
         }
       ],
       "content": [
@@ -1406,6 +1413,325 @@
         "poster": "/images/projects/wavefront/wavefront-thumbnail.png",
         "category": "RENDERING RESEARCH",
         "title": "Detailed Video Explanation"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
+    },
+    "mocap": {
+      "title": "Motion Capture Retargeting & Cleanup",
+      "description": "Unreal Engine 5 motion capture retargeting and cleanup pipeline using IK Rigs, IK Retargeter, Control Rig, and Houdini.",
+      "tags": [
+        {
+          "label": "Unreal Engine 5",
+          "variant": "primary"
+        },
+        {
+          "label": "IK Rig",
+          "variant": "primary"
+        },
+        {
+          "label": "IK Retargeter",
+          "variant": "primary"
+        },
+        {
+          "label": "Control Rig",
+          "variant": "primary"
+        },
+        {
+          "label": "Houdini",
+          "variant": "primary"
+        },
+        {
+          "label": "Motion Capture",
+          "variant": "secondary"
+        },
+        {
+          "label": "Animation Cleanup",
+          "variant": "secondary"
+        },
+        {
+          "label": "MotionClip",
+          "variant": "secondary"
+        },
+        {
+          "label": "VEX",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/mocap.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Ballet dance",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/mocap/mocap-ik-rig1.png",
+          "type": "image",
+          "alt": "Mocap Retarget First Ik rig",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-ik-rig2.png",
+          "type": "image",
+          "alt": "Mocap Retarget Final Ik rig",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-ik-retargetter.png",
+          "type": "image",
+          "alt": "Mocap Retarget Ik retargetter",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-control-rig.png",
+          "type": "image",
+          "alt": "Mocap Retarget Control rig",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/videos/work/projects/mocap-cleanup.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Unreal engine cleanup",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/mocap-dance.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Ballet dance cleaned",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/mocap/mocap-mappoints.png",
+          "type": "image",
+          "alt": "Mocap Retarget Map points",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-motionclip.png",
+          "type": "image",
+          "alt": "Mocap Retarget Motion clip",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/images/projects/mocap/mocap-rigpose.png",
+          "type": "image",
+          "alt": "Mocap Retarget Rig pose",
+          "hasNoise": false,
+          "isHovered": false
+        },
+        {
+          "src": "/videos/work/projects/mocap-tuneup.mp4",
+          "type": "video",
+          "poster": "/images/home/dancer.png",
+          "alt": "Mocap Retarget Houdini tuneup",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A motion capture retargeting and cleanup pipeline developed for the group project Eternally Dancing. The workflow uses Unreal Engine 5 to retarget AI-generated motion capture onto production characters, clean the animation using Control Rig, and refine the resulting motion in Houdini."
+            },
+            {
+              "type": "paragraph",
+              "text": "My contribution focused on investigating the motion capture workflow, defining the UE5 and Houdini pipeline, building the retargeting setup, and cleaning the resulting animations for use in the final project."
+            }
+          ]
+        },
+        {
+          "title": "MOTION CAPTURE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project initially investigated several approaches for generating motion capture data. After testing multiple AI-based solutions against sample dance sequences, QuickMagic was selected for its ability to generate motion from recorded footage and refine tracking points before export."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Capture",
+                  "text": "Recorded dance footage following the requirements for the selected motion capture workflow."
+                },
+                {
+                  "title": "AI Tracking",
+                  "text": "Generated animation from the recorded footage using QuickMagic."
+                },
+                {
+                  "title": "2D Refinement",
+                  "text": "Corrected tracking points before exporting the resulting animation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "UE5 RETARGETING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The motion capture output was imported into Unreal Engine 5 and transferred onto the project's characters using the IK Rig and IK Retargeter systems. This allowed the captured performance to be adapted to different character skeletons while preserving the original movement."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "IK Rig",
+                  "text": "Configured the source and target character skeletons with IK systems for pose adjustment and retargeting."
+                },
+                {
+                  "title": "IK Retargeter",
+                  "text": "Mapped the captured animation onto the project's characters while maintaining the original performance."
+                },
+                {
+                  "title": "Control Rig",
+                  "text": "Used Control Rig inside Unreal Engine Sequencer to manually refine poses and correct sections of the animation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ANIMATION CLEANUP",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The retargeted animation was cleaned directly in Unreal Engine using Control Rig and Sequencer. Keyframes were added where required to correct the motion and refine larger body movements."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Ballet Animation",
+                  "text": "Refined the retargeted dance performance using Control Rig and Sequencer."
+                },
+                {
+                  "title": "Stretch Animation",
+                  "text": "Applied the same cleanup workflow to a second animation used for the character transition."
+                },
+                {
+                  "title": "Reference-driven Cleanup",
+                  "text": "Used the original performance as a reference when correcting poses and movement."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HOUDINI REFINEMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "After the initial UE5 cleanup, the animations were transferred to Houdini for further procedural refinement. Houdini provided additional tools for inspecting and modifying the complete animation sequence."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "MotionClip",
+                  "text": "Used MotionClip to inspect the complete animation sequence and edit motion procedurally."
+                },
+                {
+                  "title": "Motion Processing",
+                  "text": "Used nodes such as Stabilize Joint and Smooth to refine the resulting animation."
+                },
+                {
+                  "title": "Validation",
+                  "text": "Applied the cleaned animation to the project's 3D characters to verify the final result."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The final workflow separated the motion capture process into dedicated stages, using each application for the tasks it was best suited to handle."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Motion Capture",
+                  "text": "Recorded performance footage and generated the initial animation."
+                },
+                {
+                  "title": "QuickMagic",
+                  "text": "Generated and refined the AI motion capture data."
+                },
+                {
+                  "title": "Unreal Engine 5",
+                  "text": "Retargeted the animation using IK Rig and IK Retargeter, then performed manual cleanup with Control Rig."
+                },
+                {
+                  "title": "Houdini",
+                  "text": "Performed additional procedural refinement and validation using animation processing nodes."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ADDITIONAL DEVELOPMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project also involved supporting the wider production with procedural tools and technical fixes in Houdini."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "VEX",
+                  "text": "Implemented VEX logic to dynamically control elements of the butterfly effects used around the character."
+                },
+                {
+                  "title": "Butterfly Movement",
+                  "text": "Adjusted movement and normal orientation to prevent butterflies from behaving erratically around the dancer."
+                },
+                {
+                  "title": "Transition Effects",
+                  "text": "Added controls to keep butterflies facing forward and maintain spacing during the transition spiral."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "CLEAN MOCAP DANCE",
+          "changed": "CL34N M0C4P D4NC3",
+          "href": "https://www.youtube.com/watch?v=o0mORrs4OIY",
+          "isExternal": true
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=VCVG-BMlEdQ",
+        "poster": "/images/projects/mocap/eternally-dancing.jpg",
+        "category": "FINAL SHORT FILM",
+        "title": "Eternally Dancing"
       },
       "ticker": {
         "title1": "MORE WORK",

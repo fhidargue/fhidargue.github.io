@@ -14,6 +14,7 @@ import NotFound from "@pages/NotFound/NotFound";
 import Project from "@pages/Project/Project";
 import DccTranslation from "@pages/Projects/DccTranslation/DccTranslation";
 import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPathtracer";
+import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting";
 
 import useLocale from "@hooks/useLocale";
 
@@ -81,7 +82,7 @@ const App = () => {
     },
     {
       path: ROUTES.PROJECTS.MOCAP_RETARGET,
-      element: <Project />,
+      element: <MocapRetargeting />,
     },
     {
       path: ROUTES.PROJECTS.SNOWBALL_SIM,
