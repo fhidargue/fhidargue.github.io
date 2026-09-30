@@ -88,6 +88,7 @@ const ProjectPage = ({
             poster={video.poster}
             category={video.category}
             title={video.title}
+            loop={video.loop}
             hasBorder
           />
         </Container>

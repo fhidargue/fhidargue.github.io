@@ -2699,6 +2699,307 @@
         "title1": "MORE WORK",
         "title2": "YOU MIGHT BE INTERESTED"
       }
+    },
+    "impossibleStairs": {
+      "title": "Impossible Stairs",
+      "description": "Procedural staircase generation and ball animation system built with Python and PyMEL for Autodesk Maya.",
+      "tags": [
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "PyMEL",
+          "variant": "primary"
+        },
+        {
+          "label": "Autodesk Maya",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Generation",
+          "variant": "primary"
+        },
+        {
+          "label": "Animation",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Animation",
+          "variant": "secondary"
+        },
+        {
+          "label": "Squash & Stretch",
+          "variant": "secondary"
+        },
+        {
+          "label": "Motion Design",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/imp-stairs.mp4",
+          "type": "video",
+          "poster": "/images/projects/stairs/frontal-view.png",
+          "alt": "Procedurally generated staircase",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/ball-animation.mp4",
+          "type": "video",
+          "poster": "/images/projects/stairs/frontal-view.png",
+          "alt": "Procedurally generated staircase",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/stairs/torii-gates.png",
+          "type": "image",
+          "alt": "Procedurally generated torii gates",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/stairs/imp-stairs.png",
+          "type": "image",
+          "alt": "Procedurally generated impossible diamond stairs",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/stairs/frontal-view.png",
+          "type": "image",
+          "alt": "Procedurally generated impossible diamond stairs frontal view",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A procedural Maya project exploring environment generation and character animation through Python and PyMEL."
+            },
+            {
+              "type": "paragraph",
+              "text": "The system generates impossible-style stair environments and drives a ball through them using procedural animation logic rather than manually keyframing each movement."
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL ENVIRONMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The environment is generated from reusable Python modules, allowing different architectural elements to be created and assembled directly inside Maya."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Stair Generation",
+                  "text": "Creates stepped geometry from configurable rise, run, depth, and step-count values, with a diagonal base supporting the staircase."
+                },
+                {
+                  "title": "Torii Corridor",
+                  "text": "Duplicates and scales torii gates along a corridor while generating a progressively smaller staircase sequence behind them."
+                },
+                {
+                  "title": "Radial Bricks",
+                  "text": "Generates wedge-shaped brick meshes and distributes them around a circular layout with configurable gaps."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "STAIR GENERATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The staircase is constructed procedurally from individual cubes. Each step is positioned using incremental horizontal run and vertical rise values, while a rotated base follows the diagonal direction of the stairs."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Step Creation",
+                  "text": "Individual step meshes are generated and positioned from the configured run and rise."
+                },
+                {
+                  "title": "Base Generation",
+                  "text": "A diagonal base is calculated from the overall staircase dimensions and positioned beneath the steps."
+                },
+                {
+                  "title": "Grouping",
+                  "text": "All generated geometry is placed under a common transform for easier scene management."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL ANIMATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ball animation system determines its bounce targets directly from the generated stair geometry. This allows the animation to adapt to the scene rather than relying on manually authored positions."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Target Collection",
+                  "text": "The system searches stair groups, identifies individual steps, and calculates the top-center position of each target using the ball radius."
+                },
+                {
+                  "title": "Hop Timing",
+                  "text": "The available animation range is distributed across the required number of stair-to-stair hops."
+                },
+                {
+                  "title": "Bounce Arc",
+                  "text": "Each hop is constructed from contact, squash, recovery, launch, impulse, apex, and landing phases."
+                },
+                {
+                  "title": "Rolling",
+                  "text": "Ball rotation is accumulated from movement and velocity so the ball rolls naturally between contacts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SQUASH & STRETCH",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Squash and stretch are generated procedurally around each bounce to reinforce the impact and movement of the ball."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Contact",
+                  "text": "The ball compresses when reaching a stair surface."
+                },
+                {
+                  "title": "Recovery",
+                  "text": "The ball returns to its upright form before launching into the next bounce."
+                },
+                {
+                  "title": "Stretch",
+                  "text": "Vertical stretching is applied during the upward and pre-contact portions of the bounce."
+                },
+                {
+                  "title": "Apex",
+                  "text": "The animation uses dedicated timing and tangent controls to produce smoother transitions around the peak."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ANIMATION SYSTEM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The animation system supports both automatic stair traversal and explicitly defined step sequences, allowing different balls to follow different paths through the environment."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Automatic Traversal",
+                  "text": "The primary ball derives its targets from the configured stair-group order and step exclusions."
+                },
+                {
+                  "title": "Custom Sequences",
+                  "text": "A secondary ball can be assigned an explicit sequence of stair groups and step numbers."
+                },
+                {
+                  "title": "Animation Parameters",
+                  "text": "Jump power, squash amount, stretch amount, squash duration, impulse ratio, and total animation duration can be adjusted independently."
+                },
+                {
+                  "title": "Curve Cleanup",
+                  "text": "Contact frames use linear tangents while apex frames receive weighted smooth tangents for more controlled motion."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project is organised as a small procedural toolkit with separate modules for scene generation, animation, constants, and utility functions."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Environment",
+                  "text": "Python modules generate the staircase, torii corridor, and radial brick geometry."
+                },
+                {
+                  "title": "Animation Setup",
+                  "text": "The animation system identifies the ball controls and derives the ball radius from its geometry."
+                },
+                {
+                  "title": "Target Generation",
+                  "text": "Stair geometry is converted into a sequence of bounce targets."
+                },
+                {
+                  "title": "Keyframe Generation",
+                  "text": "Procedural timing logic generates translation, rotation, and squash/stretch keyframes."
+                },
+                {
+                  "title": "Scene Output",
+                  "text": "The resulting geometry and animation are created directly in Maya for further artistic adjustment."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project produces reusable procedural environment modules and an animation system capable of driving a ball through generated stair layouts without manually defining every bounce."
+            },
+            {
+              "type": "paragraph",
+              "text": "The resulting toolkit combines procedural modelling with animation automation, providing a foundation for generating variations of the environment and adapting the animation to different stair configurations."
+            }
+          ]
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=oaC0Q9vlnUU",
+        "poster": "/images/projects/stairs/stairs-thumbnail.png",
+        "category": "PROCEDURAL ANIMATION",
+        "title": "Impossible Stairs",
+        "loop": true
+      },
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/infinite-stairs-ball",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
     }
   }
 }

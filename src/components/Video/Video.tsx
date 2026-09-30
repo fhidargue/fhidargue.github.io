@@ -8,30 +8,60 @@ import Text from "@components/Text/Text";
 import styles from "./Video.module.scss";
 import type { VideoProps } from "./Video.types";
 
-const getEmbedUrl = (src: string) => {
+const getEmbedUrl = (src: string, loop: boolean) => {
   try {
     const url = new URL(src);
 
     if (url.hostname.includes("youtube.com")) {
       const videoId = url.searchParams.get("v");
 
-      return videoId
-        ? `https://www.youtube.com/embed/${videoId}?autoplay=1`
-        : src;
+      if (!videoId) {
+        return src;
+      }
+
+      const params = new URLSearchParams({
+        autoplay: "1",
+      });
+
+      if (loop) {
+        params.set("loop", "1");
+        params.set("playlist", videoId);
+      }
+
+      return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
     }
 
     if (url.hostname.includes("youtu.be")) {
       const videoId = url.pathname.slice(1);
 
-      return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      const params = new URLSearchParams({
+        autoplay: "1",
+      });
+
+      if (loop) {
+        params.set("loop", "1");
+        params.set("playlist", videoId);
+      }
+
+      return `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
     }
 
     if (url.hostname.includes("vimeo.com")) {
       const videoId = url.pathname.split("/").filter(Boolean).pop();
 
-      return videoId
-        ? `https://player.vimeo.com/video/${videoId}?autoplay=1`
-        : src;
+      if (!videoId) {
+        return src;
+      }
+
+      const params = new URLSearchParams({
+        autoplay: "1",
+      });
+
+      if (loop) {
+        params.set("loop", "1");
+      }
+
+      return `https://player.vimeo.com/video/${videoId}?${params.toString()}`;
     }
 
     return src;
@@ -48,10 +78,11 @@ const Video = ({
   alt = title,
   className,
   hasBorder = false,
+  loop = false,
 }: VideoProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const embedUrl = getEmbedUrl(src);
+  const embedUrl = getEmbedUrl(src, loop);
 
   return (
     <article className={cx(styles.video, className)}>

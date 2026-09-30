@@ -18,6 +18,7 @@ import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting"
 import SnowGlobeSim from "@pages/Projects/SnowGlobeSim.tsx/SnowGlobeSim";
 import HairSim from "@pages/Projects/HairSim/HairSim";
 import Renderman from "@pages/Projects/Renderman/Renderman";
+import ImpStairs from "@pages/Projects/ImpStairs/ImpStairs";
 
 import useLocale from "@hooks/useLocale";
 
@@ -105,7 +106,7 @@ const App = () => {
     },
     {
       path: ROUTES.PROJECTS.IMP_STAIRS,
-      element: <Project />,
+      element: <ImpStairs />,
     },
   ];
 

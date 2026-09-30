@@ -39,4 +39,5 @@ export type ProjectVideo = {
   poster: string;
   category: string;
   title: string;
+  loop: boolean;
 };

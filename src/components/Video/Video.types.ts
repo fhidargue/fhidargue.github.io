@@ -6,4 +6,5 @@ export type VideoProps = {
   alt?: string;
   className?: string;
   hasBorder?: boolean;
+  loop?: boolean;
 };
