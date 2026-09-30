@@ -17,6 +17,7 @@ import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPa
 import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting";
 import SnowGlobeSim from "@pages/Projects/SnowGlobeSim.tsx/SnowGlobeSim";
 import HairSim from "@pages/Projects/HairSim/HairSim";
+import Renderman from "@pages/Projects/Renderman/Renderman";
 
 import useLocale from "@hooks/useLocale";
 
@@ -96,7 +97,7 @@ const App = () => {
     },
     {
       path: ROUTES.PROJECTS.RENDERMAN_API,
-      element: <Project />,
+      element: <Renderman />,
     },
     {
       path: ROUTES.PROJECTS.HDA_GARDEN,

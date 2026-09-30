@@ -2350,6 +2350,355 @@
         "title1": "MORE WORK",
         "title2": "YOU MIGHT BE INTERESTED"
       }
+    },
+    "rendermanApi": {
+      "title": "Procedural RenderMan Rendering",
+      "description": "Procedural modelling and rendering of a real-world salt shaker using Pixar RenderMan, Python, and Open Shading Language.",
+      "tags": [
+        {
+          "label": "RenderMan",
+          "variant": "primary"
+        },
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "OSL",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Modelling",
+          "variant": "primary"
+        },
+        {
+          "label": "Physically Based Rendering",
+          "variant": "primary"
+        },
+        {
+          "label": "PxrSurface",
+          "variant": "secondary"
+        },
+        {
+          "label": "HDR Lighting",
+          "variant": "secondary"
+        },
+        {
+          "label": "Ray Tracing",
+          "variant": "secondary"
+        },
+        {
+          "label": "RIB",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/images/projects/renderman/renderman-reference.png",
+          "type": "image",
+          "alt": "RenderMan salt shaker reference recreation",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-reference1.png",
+          "type": "image",
+          "alt": "RenderMan salt shaker model first reference",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-reference2.png",
+          "type": "image",
+          "alt": "RenderMan salt shaker model second reference",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-body.png",
+          "type": "image",
+          "alt": "Procedural salt shaker body model",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-cap.png",
+          "type": "image",
+          "alt": "Procedural salt shaker cap model",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-model.png",
+          "type": "image",
+          "alt": "Procedural salt shaker model",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-render.png",
+          "type": "image",
+          "alt": "Procedural salt final render",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/images/projects/renderman/renderman-render2.png",
+          "type": "image",
+          "alt": "Procedural salt final second render",
+          "hasNoise": false,
+          "isHovered": true
+        },
+        {
+          "src": "/videos/work/projects/renderman-comparison.mp4",
+          "type": "video",
+          "poster": "/images/projects/renderman/renderman-render.png",
+          "alt": "Renderman image comparison",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A procedural rendering project exploring Pixar RenderMan's Python API through the recreation of a real household salt shaker from photographic reference."
+            },
+            {
+              "type": "paragraph",
+              "text": "The complete asset and scene were generated through code, combining procedural geometry, physically based materials, custom OSL shaders, HDR environment lighting, and camera effects."
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL MODELLING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The salt shaker was broken down into several independently generated components, allowing the geometry to be constructed and adjusted procedurally rather than through a traditional modelling package."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Glass Body",
+                  "text": "Generated from a profile curve and revolved around a central axis to create the rotationally symmetric container."
+                },
+                {
+                  "title": "Inner Wall",
+                  "text": "Added to the main body to reproduce the thickness of the glass."
+                },
+                {
+                  "title": "Neck and Support Ring",
+                  "text": "Constructed from cylindrical geometry and assembled separately from the main body."
+                },
+                {
+                  "title": "Screw Thread",
+                  "text": "Generated procedurally around the neck to allow the cap and bottle to connect correctly."
+                },
+                {
+                  "title": "Cap",
+                  "text": "Created as an independent procedural component so it could be positioned separately in the scene."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RENDERMAN API",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The scene is generated directly through RenderMan's Python API. The Python entry point creates the RenderMan context, configures the renderer, builds the scene, assigns lighting and materials, and exports the resulting RIB scene for rendering."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Scene Generation",
+                  "text": "Python constructs the complete RenderMan scene and exports the RIB representation."
+                },
+                {
+                  "title": "Render Configuration",
+                  "text": "The renderer is configured with PxrPathTracer, ray-traced rendering, sampling controls, perspective projection, and depth of field."
+                },
+                {
+                  "title": "Shader Compilation",
+                  "text": "Custom OSL shaders are compiled before scene generation and made available through the RenderMan shader search path."
+                },
+                {
+                  "title": "Automated Rendering",
+                  "text": "A Makefile provides commands for scene generation, rendering, texture conversion, viewing, and cleaning generated files."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "MATERIALS & SHADING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Different material responses were required for the frosted glass body, plastic cap, printed label, and wooden surface. RenderMan's PxrSurface shader was used as the primary BRDF model, with parameters tuned for each material."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Frosted Glass",
+                  "text": "Reflection, refraction, and roughness were balanced to reproduce the cloudy appearance of the reference object."
+                },
+                {
+                  "title": "Plastic",
+                  "text": "The cap uses stronger diffuse response and softer specular highlights."
+                },
+                {
+                  "title": "Custom OSL",
+                  "text": "Procedural shaders were developed for frosted glass and wood grain, introducing controlled surface variation."
+                },
+                {
+                  "title": "Texture Mapping",
+                  "text": "The printed label and environmental surfaces use texture maps alongside procedural shading."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "LIGHTING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The lighting setup combines an HDR environment with manually positioned RenderMan lights. The HDR environment provides reflections and ambient illumination while additional lights reproduce the highlights and lighting direction visible in the reference photographs."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "HDR Environment",
+                  "text": "A PxrDomeLight provides environment illumination and reflection information for the glass."
+                },
+                {
+                  "title": "Key Light",
+                  "text": "A PxrSphereLight provides the primary directional lighting contribution."
+                },
+                {
+                  "title": "Fill Light",
+                  "text": "A secondary warm light adds additional illumination and variation."
+                },
+                {
+                  "title": "Highlight Lighting",
+                  "text": "Additional lights were positioned around the glass neck to control reflections and highlights."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "REFERENCE RECREATION",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Reference photographs were taken from multiple angles before modelling. The geometry, materials, camera and lighting were then iteratively adjusted against the photographs to reproduce the original composition."
+            },
+            {
+              "type": "paragraph",
+              "text": "Two final scenes were produced: one recreating the original reference composition and another presenting the completed salt shaker independently using the same lighting setup."
+            }
+          ]
+        },
+        {
+          "title": "CAMERA & RENDERING",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The final scene uses a perspective camera with RenderMan depth of field to reproduce subtle photographic characteristics from the reference images. The render uses PxrPathTracer with ray-traced rendering and increased sampling for the final image."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Perspective Camera",
+                  "text": "Configured to match the composition and viewing angle of the reference photographs."
+                },
+                {
+                  "title": "Depth of Field",
+                  "text": "Applied subtly to soften areas outside the focal plane while preserving the overall composition."
+                },
+                {
+                  "title": "Path Tracing",
+                  "text": "PxrPathTracer handles indirect lighting, reflections, refractions, and other ray-traced effects."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The project includes a small command-line rendering pipeline for automating the RenderMan workflow."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Texture Conversion",
+                  "text": "Source textures are converted into RenderMan's native texture format using txmake."
+                },
+                {
+                  "title": "Scene Generation",
+                  "text": "The Python API generates the procedural geometry, shaders, camera, lights, and scene configuration."
+                },
+                {
+                  "title": "RIB Export",
+                  "text": "The generated scene is exported as a RenderMan RIB file."
+                },
+                {
+                  "title": "Rendering",
+                  "text": "The RIB scene is rendered using Pixar RenderMan and produces the final EXR output."
+                },
+                {
+                  "title": "Review",
+                  "text": "Rendered output can be opened in the RenderMan framebuffer for inspection."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The final renders reproduced the main visual characteristics of the reference photographs, including the salt shaker's geometry, frosted glass, reflections, materials, lighting, and composition."
+            },
+            {
+              "type": "paragraph",
+              "text": "The project provided practical experience with procedural modelling, physically based shading, custom OSL development, HDR image-based lighting, and photorealistic rendering through RenderMan."
+            }
+          ]
+        }
+      ],
+      "linksTitle": "LINKS",
+      "links": [
+        {
+          "label": "GITHUB",
+          "changed": "G1THUB",
+          "href": "https://github.com/fhidargue/renderman-salt-shaker",
+          "isExternal": true
+        }
+      ],
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
     }
   }
 }
