@@ -50,6 +50,7 @@ const ProjectPage = ({
     returnObjects: true,
   }) as ProjectVideo;
 
+  const hasLinks = Array.isArray(links);
   const hasVideo =
     typeof video === "object" && video !== null && "src" in video;
 
@@ -63,23 +64,25 @@ const ProjectPage = ({
       >
         <ProjectContent content={content} />
         {children}
-        <div className={styles["project-page__links"]}>
-          <Text variant="roboto-large">{t(`${namespace}.linksTitle`)}</Text>
-          <div className={styles["project-page__link-list"]}>
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                changed={link.changed}
-                isExternal={link.isExternal}
-              >
-                <Text as="span" variant="roboto-large">
-                  {link.label}
-                </Text>
-              </Link>
-            ))}
+        {hasLinks && (
+          <div className={styles["project-page__links"]}>
+            <Text variant="roboto-large">{t(`${namespace}.linksTitle`)}</Text>
+            <div className={styles["project-page__link-list"]}>
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  changed={link.changed}
+                  isExternal={link.isExternal}
+                >
+                  <Text as="span" variant="roboto-large">
+                    {link.label}
+                  </Text>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </WorkProject>
       {hasVideo && (
         <Container className={styles["project-page__video-container"]}>

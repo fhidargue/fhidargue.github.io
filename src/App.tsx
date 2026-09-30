@@ -11,7 +11,6 @@ import TechStack from "@pages/TechStack/TechStack";
 import Contact from "@pages/Contact/Contact";
 import NotFound from "@pages/NotFound/NotFound";
 
-import Project from "@pages/Project/Project";
 import DccTranslation from "@pages/Projects/DccTranslation/DccTranslation";
 import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPathtracer";
 import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting";
@@ -19,6 +18,7 @@ import SnowGlobeSim from "@pages/Projects/SnowGlobeSim.tsx/SnowGlobeSim";
 import HairSim from "@pages/Projects/HairSim/HairSim";
 import Renderman from "@pages/Projects/Renderman/Renderman";
 import ImpStairs from "@pages/Projects/ImpStairs/ImpStairs";
+import HdaGarden from "@pages/Projects/HdaGarden/HdaGarden";
 
 import useLocale from "@hooks/useLocale";
 
@@ -102,7 +102,7 @@ const App = () => {
     },
     {
       path: ROUTES.PROJECTS.HDA_GARDEN,
-      element: <Project />,
+      element: <HdaGarden />,
     },
     {
       path: ROUTES.PROJECTS.IMP_STAIRS,

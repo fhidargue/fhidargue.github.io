@@ -23,10 +23,10 @@ const ImpStairs = () => {
           to: ROUTES.PROJECTS.DCC_TRANSLATION,
         },
         {
-          image: t("work.topCards.1.poster"),
-          title: t("work.topCards.1.title"),
-          category: t("work.topCards.1.category"),
-          to: ROUTES.PROJECTS.WAVEFRONT_PATHTRACER,
+          image: t("work.threeColumnCards.3.poster"),
+          title: t("work.threeColumnCards.3.title"),
+          category: t("work.threeColumnCards.3.category"),
+          to: ROUTES.PROJECTS.HDA_GARDEN,
         },
       ]}
     />

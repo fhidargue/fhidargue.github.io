@@ -3000,6 +3000,457 @@
         "title1": "MORE WORK",
         "title2": "YOU MIGHT BE INTERESTED"
       }
+    },
+    "hdaGarden": {
+      "title": "Garden Generator",
+      "description": "Procedural Japanese garden generation HDA for Houdini with interactive painting, terrain tools, and configurable environment systems.",
+      "tags": [
+        {
+          "label": "Houdini",
+          "variant": "primary"
+        },
+        {
+          "label": "HDA",
+          "variant": "primary"
+        },
+        {
+          "label": "Procedural Generation",
+          "variant": "primary"
+        },
+        {
+          "label": "Python",
+          "variant": "primary"
+        },
+        {
+          "label": "Environment Generation",
+          "variant": "primary"
+        },
+        {
+          "label": "Japanese Gardens",
+          "variant": "secondary"
+        },
+        {
+          "label": "Interactive Tools",
+          "variant": "secondary"
+        },
+        {
+          "label": "Terrain Generation",
+          "variant": "secondary"
+        },
+        {
+          "label": "Houdini Digital Asset",
+          "variant": "secondary"
+        }
+      ],
+      "media": [
+        {
+          "src": "/videos/work/projects/garden-terrain.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings paint tool",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings2.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings grass, pebbles and fences",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings3.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings rock and sand designs",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings4.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings stone curve",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/videos/work/projects/garden-settings5.mp4",
+          "type": "video",
+          "poster": "/images/projects/garden/garden.png",
+          "alt": "Houdini procedural garden generator settings multi terrain and flip solver",
+          "hasNoise": false,
+          "isHovered": true,
+          "hasBorder": true
+        },
+        {
+          "src": "/images/projects/garden/garden.png",
+          "type": "image",
+          "alt": "Houdini Procedural Japanese garden generator",
+          "hasNoise": false,
+          "isHovered": true
+        }
+      ],
+      "content": [
+        {
+          "title": "ABOUT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A Houdini Digital Asset for procedurally generating Japanese-style gardens with configurable terrain, vegetation, paths, rocks, fences, rivers, and bridges."
+            },
+            {
+              "type": "paragraph",
+              "text": "The HDA combines procedural environment generation with interactive viewport tools, allowing artists to generate a garden layout, paint geometry placement, edit curves, and switch between simplified and production-level assets."
+            }
+          ]
+        },
+        {
+          "title": "GARDEN TYPES",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The generator supports multiple garden layouts through a single HDA, with different systems becoming available depending on the selected garden type."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Zen",
+                  "text": "Generates rock arrangements and procedural sand patterns with options including combined, rings, lines, sunburst, and checker patterns."
+                },
+                {
+                  "title": "Tea",
+                  "text": "Generates structured walking paths using configurable rock styles, spacing, scale variation, and an editable path curve."
+                },
+                {
+                  "title": "Strolling",
+                  "text": "Generates flowing river layouts with optional bridge geometry and an editable river path."
+                },
+                {
+                  "title": "Custom",
+                  "text": "Uses a user-provided garden layout map to define a custom terrain pattern."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "TERRAIN SYSTEM",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Terrain generation is controlled through garden dimensions, layout configuration, custom UV mapping, and surface bump parameters."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Garden Dimensions",
+                  "text": "Controls the overall width and depth of the generated garden."
+                },
+                {
+                  "title": "Layout Maps",
+                  "text": "Predefined maps are used for Zen and Tea layouts, while Custom mode accepts a user-defined garden layout map."
+                },
+                {
+                  "title": "Surface Detail",
+                  "text": "Non-strolling gardens use configurable noise-based bump settings to introduce terrain variation."
+                },
+                {
+                  "title": "Strolling Terrain",
+                  "text": "Uses separate lacunarity, roughness, element size, and amplitude controls for the floor surface."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PROCEDURAL GEOMETRY",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Garden elements can be enabled independently and procedurally distributed across the generated terrain. Density, scale variation, rotation, colour, and random seeds provide control over the final environment."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Bamboo",
+                  "text": "Can be painted interactively onto the terrain with configurable height and size variation."
+                },
+                {
+                  "title": "Plants",
+                  "text": "Supports three independently configurable plant layers with density, iterations, scale variation, randomisation, and colour controls."
+                },
+                {
+                  "title": "Grass",
+                  "text": "Generates surface vegetation with configurable length, thickness, and colour."
+                },
+                {
+                  "title": "Pebbles",
+                  "text": "Distributes pebbles across the terrain with configurable scale, placement density, rotation, and colour."
+                },
+                {
+                  "title": "Fences",
+                  "text": "Generates boundaries from an interactively editable curve with configurable height, resolution, and colour."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "INTERACTIVE TOOLS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA provides interactive viewport tools for painting vegetation and editing garden curves directly on the generated environment."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Geometry Painting",
+                  "text": "Artists can paint bamboo and three plant types directly onto the terrain."
+                },
+                {
+                  "title": "Fence Editing",
+                  "text": "Fence geometry can be shaped interactively using an editable viewport curve."
+                },
+                {
+                  "title": "Rock Path Editing",
+                  "text": "Tea garden paths can be created and adjusted through an interactive curve."
+                },
+                {
+                  "title": "River Editing",
+                  "text": "The Strolling garden river can be shaped interactively before previewing its simulation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PYTHON VIEWER STATE MANAGEMENT",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA uses a custom Python interaction layer to control Houdini's Scene Viewer and expose internal paint and curve tools directly through the asset interface. Rather than requiring artists to manually navigate into the HDA and activate individual nodes, Python switches the Scene Viewer to the appropriate internal node state and returns the user to the parent asset when the tool is exited."
+            },
+            {
+              "type": "paragraph",
+              "text": "The implementation uses Houdini's event loop callbacks to monitor the active viewer state and detect when the artist exits the internal tool. Active watchers are stored in hou.session, allowing multiple HDA instances and tool states to be tracked independently while preventing duplicate callbacks."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Tool State Entry",
+                  "text": "Dedicated Python functions launch the bamboo, plant, fence, rock path, and river editing tools by locating the corresponding internal node and entering its current Houdini viewer state."
+                },
+                {
+                  "title": "Scene Viewer Control",
+                  "text": "The Scene Viewer is redirected to the internal tool node before entering its interactive state, allowing the artist to work directly in the viewport without leaving the HDA workflow."
+                },
+                {
+                  "title": "Event Loop Monitoring",
+                  "text": "A hou.ui event loop callback continuously monitors the Scene Viewer state and detects when the active tool has been exited."
+                },
+                {
+                  "title": "Context-Aware Exit",
+                  "text": "The system distinguishes between normal viewport navigation and an actual tool exit, preventing accidental context switches while the artist is working."
+                },
+                {
+                  "title": "Automatic HDA Return",
+                  "text": "When an exit is detected, the Scene Viewer is returned to the parent HDA and the viewer is placed back into the Select state."
+                },
+                {
+                  "title": "Watcher Management",
+                  "text": "Callbacks are registered using a unique HDA and tool key, allowing existing watchers to be removed before a new one is installed and preventing duplicate event-loop callbacks."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PRODUCTION GEOMETRY",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA supports replacing simplified proxy geometry with higher-quality production assets for final scene output."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Proxy Workflow",
+                  "text": "Dummy geometry provides lightweight assets for viewport blocking and interactive painting."
+                },
+                {
+                  "title": "Production Assets",
+                  "text": "Grass, pebbles, bamboo, three plant types, and Zen rocks can use higher-resolution external geometry."
+                },
+                {
+                  "title": "Performance",
+                  "text": "Artists can work with simplified geometry during layout and switch to detailed assets when reviewing the final result."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "ZEN GARDEN",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Zen mode focuses on minimal garden compositions using procedural rock placement and raked sand patterns."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Rock Placement",
+                  "text": "Rock position, height, scale variation, randomisation, and colour can be controlled procedurally."
+                },
+                {
+                  "title": "Sand Patterns",
+                  "text": "Five pattern styles are available: Combined, Rings, Lines, Sunburst, and Checkers."
+                },
+                {
+                  "title": "Pattern Controls",
+                  "text": "Spacing, strength, ring limits, ray counts, and checker scale control the resulting sand deformation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "TEA GARDEN",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Tea mode generates a structured walking path using procedurally arranged stepping stones."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "Rock Path",
+                  "text": "A configurable sequence of stepping stones is distributed along an editable path curve."
+                },
+                {
+                  "title": "Rock Style",
+                  "text": "The path supports both circular and square stone styles."
+                },
+                {
+                  "title": "Variation",
+                  "text": "Rock amount, separation, scale range, and colour can be adjusted to change the appearance of the path."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "STROLLING GARDEN",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Strolling mode introduces a flowing river system and optional bridge geometry to create a navigable garden layout."
+            },
+            {
+              "type": "unordered-list",
+              "items": [
+                {
+                  "title": "River Path",
+                  "text": "The river layout is controlled through an editable curve with configurable resolution and radius."
+                },
+                {
+                  "title": "Variable Width",
+                  "text": "Independent scale controls at the beginning and end of the river allow the path to taper or widen."
+                },
+                {
+                  "title": "Bridge",
+                  "text": "An external bridge geometry asset can be positioned, rotated, and scaled along the river."
+                },
+                {
+                  "title": "FLIP Simulation",
+                  "text": "The river node contains a FLIP Solver that can be previewed to inspect the river animation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "PIPELINE",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The HDA is designed as a self-contained production tool with project-relative asset paths, interactive viewport workflows, procedural generation, and replaceable external geometry."
+            },
+            {
+              "type": "ordered-list",
+              "items": [
+                {
+                  "title": "Project Setup",
+                  "text": "A base directory defines the root project path used to resolve maps, textures, geometry, and other external assets."
+                },
+                {
+                  "title": "Garden Configuration",
+                  "text": "Artists select the garden dimensions and layout type before configuring the corresponding environment systems."
+                },
+                {
+                  "title": "Interactive Layout",
+                  "text": "Geometry and curves can be painted or edited directly in the viewport."
+                },
+                {
+                  "title": "Procedural Generation",
+                  "text": "The HDA generates the selected terrain and environment elements from the configured parameters."
+                },
+                {
+                  "title": "Production Assets",
+                  "text": "Proxy geometry can be replaced with higher-resolution external assets for final rendering."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "RESULTS",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Garden Generator provides a reusable Houdini asset for creating multiple Japanese-style garden environments from a single procedural tool."
+            },
+            {
+              "type": "paragraph",
+              "text": "The combination of procedural generation, interactive viewport tools, configurable layouts, and production-geometry support allows the same HDA to be used for both environment exploration and higher-quality scene output."
+            }
+          ]
+        }
+      ],
+      "video": {
+        "src": "https://www.youtube.com/watch?v=iITLC3yirDA",
+        "poster": "/images/projects/garden/garden-thumbnail.png",
+        "category": "HDA TUTORIAL",
+        "title": "Japanese Garden Generator"
+      },
+      "ticker": {
+        "title1": "MORE WORK",
+        "title2": "YOU MIGHT BE INTERESTED"
+      }
     }
   }
 }
