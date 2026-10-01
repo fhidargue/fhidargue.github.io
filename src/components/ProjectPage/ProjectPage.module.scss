@@ -12,6 +12,7 @@
 
   &__link-list {
     display: flex;
+    flex-wrap: wrap;
     gap: utils.toRem(16px);
   }
 

@@ -7,6 +7,8 @@ import Tag from "@components/Tag/Tag";
 
 import styles from "./WorkProject.module.scss";
 import type { WorkProjectProps } from "./WorkProject.types";
+import { motion } from "motion/react";
+import { fadeVariants, gridVariants } from "@constants/animations";
 
 const WorkProject = ({
   title,
@@ -25,7 +27,12 @@ const WorkProject = ({
         })}
       >
         <div className={styles["work-project__content"]}>
-          <div className={styles["work-project__heading"]}>
+          <motion.div
+            className={styles["work-project__heading"]}
+            variants={fadeVariants}
+            initial="hidden"
+            animate="show"
+          >
             <Text as="p" variant="section-title-large">
               {title}
             </Text>
@@ -43,12 +50,17 @@ const WorkProject = ({
                 </Tag>
               ))}
             </div>
-          </div>
+          </motion.div>
           {children && (
             <div className={styles["work-project__about"]}>{children}</div>
           )}
         </div>
-        <div className={styles["work-project__media"]}>
+        <motion.div
+          className={styles["work-project__media"]}
+          variants={gridVariants}
+          initial="hidden"
+          animate="show"
+        >
           {media.map((item) => (
             <Media
               key={item.src}
@@ -65,7 +77,7 @@ const WorkProject = ({
               })}
             />
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

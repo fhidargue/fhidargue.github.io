@@ -20,6 +20,8 @@ import type {
 } from "@constants/types";
 import { useTranslation } from "react-i18next";
 import type { ProjectPageProps } from "./ProjectPage.types";
+import { motion } from "motion/react";
+import { fadeVariants } from "@constants/animations";
 
 import styles from "./ProjectPage.module.scss";
 
@@ -62,7 +64,9 @@ const ProjectPage = ({
         tags={tags}
         media={media}
       >
-        <ProjectContent content={content} />
+        <motion.div variants={fadeVariants} initial="hidden" animate="show">
+          <ProjectContent content={content} />
+        </motion.div>
         {children}
         {hasLinks && (
           <div className={styles["project-page__links"]}>

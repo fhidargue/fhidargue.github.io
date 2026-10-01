@@ -2,6 +2,15 @@
 
 .theme-toggle {
   position: relative;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  cursor: pointer;
 
   &:focus-visible {
     outline: utils.toRem(2px) solid var(--color-text);

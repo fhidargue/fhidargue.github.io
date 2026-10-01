@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import Container from "@components/Container/Container";
 import Link from "@components/Link/Link";
@@ -39,8 +40,11 @@ const OverlayMenu = ({
   const { t } = useTranslation();
   const [visible, setVisible] = useState(isOpen);
 
+  const location = useLocation();
+
   const overlayRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+  const previousPathnameRef = useRef(location.pathname);
 
   const menuItems = [
     { label: t("overlayMenu.items.0"), to: ROUTES.ABOUT },
@@ -64,6 +68,18 @@ const OverlayMenu = ({
 
     return [...headerElements, ...overlayElements];
   }, [headerRef]);
+
+  useEffect(() => {
+    if (location.pathname === previousPathnameRef.current) {
+      return;
+    }
+
+    previousPathnameRef.current = location.pathname;
+
+    if (isOpen) {
+      onClose();
+    }
+  }, [location.pathname, isOpen, onClose]);
 
   useEffect(() => {
     if (isOpen) {
@@ -151,13 +167,7 @@ const OverlayMenu = ({
       <Container className={styles["overlay-menu__container"]}>
         <nav className={styles["overlay-menu__navigation"]}>
           {menuItems.map(({ label, to }) => (
-            <OverlayMenuItem
-              key={to}
-              label={label}
-              to={to}
-              fullWidth
-              onClick={onClose}
-            />
+            <OverlayMenuItem key={to} label={label} to={to} fullWidth />
           ))}
         </nav>
         <div className={styles["overlay-menu__links"]}>

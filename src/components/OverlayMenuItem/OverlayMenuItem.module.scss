@@ -3,6 +3,33 @@
 .overlay-menu-item {
   display: inline-block;
   cursor: pointer;
+  color: var(--color-text);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+
+  &:focus-visible {
+    outline: none;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      width: 100vw;
+      height: utils.toRem(2px);
+      background: var(--color-text);
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      top: utils.toRem(-4px);
+    }
+
+    &::after {
+      bottom: utils.toRem(-4px);
+    }
+  }
 
   &__title {
     position: relative;
