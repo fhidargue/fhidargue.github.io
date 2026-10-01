@@ -76,13 +76,13 @@
         order: 1;
       }
 
-      .services__title {
+      .services__title-wrapper {
         order: 2;
       }
     }
 
     &--right {
-      .services__title {
+      .services__title-wrapper {
         order: 1;
       }
 
@@ -100,6 +100,22 @@
 
     @media #{variables.$screen-lg} {
       display: flex;
+      width: auto;
+      min-width: auto;
+      text-align: left;
+    }
+  }
+
+  &__title-wrapper {
+    overflow: hidden;
+
+    @media #{variables.$screen-md} {
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    @media #{variables.$screen-lg} {
       width: auto;
       min-width: auto;
       text-align: left;

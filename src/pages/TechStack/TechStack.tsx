@@ -5,6 +5,8 @@ import TechStackGrid from "@components/TechStackGrid/TechStackGrid";
 import useTheme from "@hooks/useTheme";
 
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
+import { fadeVariants, gridVariants } from "@constants/animations";
 
 import styles from "./TechStack.module.scss";
 
@@ -199,29 +201,38 @@ const TechStack = () => {
 
   return (
     <main>
-      <Container>
-        <HomeBanner label={t("techStack.homeBanner.label")}>
-          {t("techStack.homeBanner.title1")}
-          <br />
-          {t("techStack.homeBanner.title2")}
-        </HomeBanner>
-      </Container>
-      <Container className={styles["tech-stack__container"]}>
-        {sections.map((section, index) => (
-          <TechStackGrid
-            key={section.title}
-            title={section.title}
-            featuredCards={section.featuredCards.map((card, cardIndex) => ({
-              ...card,
-              icon: sectionIcons[index].featured[cardIndex],
-            }))}
-            techStackCards={section.techStackCards.map((card, cardIndex) => ({
-              ...card,
-              icon: sectionIcons[index].cards[cardIndex],
-            }))}
-          />
-        ))}
-      </Container>
+      <motion.div variants={fadeVariants} initial="hidden" animate="show">
+        <Container>
+          <HomeBanner label={t("techStack.homeBanner.label")}>
+            {t("techStack.homeBanner.title1")}
+            <br />
+            {t("techStack.homeBanner.title2")}
+          </HomeBanner>
+        </Container>
+      </motion.div>
+      <motion.div
+        className={styles["tech-stack__container"]}
+        variants={gridVariants}
+        initial="hidden"
+        animate="show"
+      >
+        <Container>
+          {sections.map((section, index) => (
+            <TechStackGrid
+              key={section.title}
+              title={section.title}
+              featuredCards={section.featuredCards.map((card, cardIndex) => ({
+                ...card,
+                icon: sectionIcons[index].featured[cardIndex],
+              }))}
+              techStackCards={section.techStackCards.map((card, cardIndex) => ({
+                ...card,
+                icon: sectionIcons[index].cards[cardIndex],
+              }))}
+            />
+          ))}
+        </Container>
+      </motion.div>
     </main>
   );
 };

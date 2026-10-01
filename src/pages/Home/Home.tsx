@@ -7,6 +7,8 @@ import HomeBanner from "@components/HomeBanner/HomeBanner";
 import styles from "./Home.module.scss";
 import { useTranslation } from "react-i18next";
 import type { HomeProject } from "./Home.types";
+import { motion } from "motion/react";
+import { fadeVariants, gridVariants } from "@constants/animations";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -17,11 +19,21 @@ const Home = () => {
 
   return (
     <main className={styles.home}>
-      <section className={styles["home__hero"]}>
-        <div className={styles["home__globe"]}>
+      <motion.section className={styles["home__hero"]}>
+        <motion.div
+          className={styles["home__globe"]}
+          variants={fadeVariants}
+          initial="hidden"
+          animate="show"
+        >
           <Globe />
-        </div>
-        <div className={styles["home__content"]}>
+        </motion.div>
+        <motion.div
+          className={styles["home__content"]}
+          variants={fadeVariants}
+          initial="hidden"
+          animate="show"
+        >
           <Container>
             <HomeBanner hasDot label={t("home.homeBanner.label")}>
               {t("home.homeBanner.title1")}
@@ -29,24 +41,31 @@ const Home = () => {
               {t("home.homeBanner.title2")}
             </HomeBanner>
           </Container>
-        </div>
-      </section>
-      <Container className={styles["home__grid"]}>
-        <CardGrid>
-          {projects.map((project) => (
-            <Card
-              key={project.image}
-              variant="project"
-              image={project.image}
-              title={project.title}
-              category={project.category}
-              to={project.to}
-              type="image"
-              hasNoise
-            />
-          ))}
-        </CardGrid>
-      </Container>
+        </motion.div>
+      </motion.section>
+      <motion.div
+        className={styles["home__grid"]}
+        variants={gridVariants}
+        initial="hidden"
+        animate="show"
+      >
+        <Container>
+          <CardGrid>
+            {projects.map((project) => (
+              <Card
+                key={project.image}
+                variant="project"
+                image={project.image}
+                title={project.title}
+                category={project.category}
+                to={project.to}
+                type="image"
+                hasNoise
+              />
+            ))}
+          </CardGrid>
+        </Container>
+      </motion.div>
     </main>
   );
 };

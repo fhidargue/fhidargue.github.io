@@ -11,6 +11,7 @@ import {
   SiDocker,
   SiGooglecloud,
 } from "@icons-pack/react-simple-icons";
+import { motion } from "motion/react";
 
 import Container from "@components/Container/Container";
 import HomeBanner from "@components/HomeBanner/HomeBanner";
@@ -31,6 +32,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import type { ServiceItem, AwardItem, ColophonItem } from "./About.types";
 import { ROUTES } from "@constants/routes";
+import { fadeVariants, gridVariants } from "@constants/animations";
 
 const About = () => {
   const navigate = useNavigate();
@@ -75,20 +77,24 @@ const About = () => {
 
   return (
     <main>
-      <Container>
-        <HomeBanner label={t("about.homeBanner.label")}>
-          {t("about.homeBanner.title1")}
-          <br />
-          {t("about.homeBanner.title2")}
-        </HomeBanner>
-      </Container>
-      <AboutMedia
-        src={t("about.aboutMedia.image")}
-        alt={t("about.aboutMedia.imageAlt")}
-        leftText={t("about.aboutMedia.leftText")}
-        rightText={t("about.aboutMedia.rightText")}
-        hasNoise
-      />
+      <motion.div variants={fadeVariants} initial="hidden" animate="show">
+        <Container>
+          <HomeBanner label={t("about.homeBanner.label")}>
+            {t("about.homeBanner.title1")}
+            <br />
+            {t("about.homeBanner.title2")}
+          </HomeBanner>
+        </Container>
+      </motion.div>
+      <motion.div variants={gridVariants} initial="hidden" animate="show">
+        <AboutMedia
+          src={t("about.aboutMedia.image")}
+          alt={t("about.aboutMedia.imageAlt")}
+          leftText={t("about.aboutMedia.leftText")}
+          rightText={t("about.aboutMedia.rightText")}
+          hasNoise
+        />
+      </motion.div>
       <Container className={styles["about__description"]}>
         <Text variant="paragraph-large">{t("about.pitch")}</Text>
       </Container>

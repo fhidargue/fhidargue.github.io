@@ -29,16 +29,16 @@
       {
         "prefix": "EXPLORE MY WORK &",
         "label": "SHOWREEL",
-        "changed": "SH0WREEL",
+        "changed": "SH0WR33L",
         "href": "https://www.youtube.com/watch?v=_JaxgaLM55I",
         "isExternal": true
       },
       {
-        "prefix": "BUILT BY ",
-        "label": "FELIPE",
-        "changed": "F3L1PE",
-        "href": "https://www.linkedin.com/in/fhidargue/",
-        "isExternal": false
+        "prefix": "ACCESS MY ",
+        "label": "CV",
+        "changed": "CV",
+        "href": "/documents/FHA-CV-2026.pdf",
+        "isExternal": true
       }
     ],
     "social": [
@@ -138,6 +138,7 @@
         "imagePosition": "right"
       }
     ],
+    "servicesTitle": "SERVICES",
     "sections": [
       {
         "title": "My Specialties",

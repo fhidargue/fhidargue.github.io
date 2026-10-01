@@ -1,6 +1,12 @@
 import type { ReactNode } from "react";
 
-export type ProjectCardProps = {
+type BaseCardProps = {
+  className?: string;
+  disableLink?: boolean;
+  animateOnView?: boolean;
+};
+
+export type ProjectCardProps = BaseCardProps & {
   variant: "project";
   image: string;
   title: string;
@@ -9,32 +15,26 @@ export type ProjectCardProps = {
   type?: "image" | "video";
   poster?: string;
   hasNoise?: boolean;
-  className?: string;
-  disableLink?: boolean;
 };
 
-export type TechStackCardProps = {
+export type TechStackCardProps = BaseCardProps & {
   variant: "tech-stack";
   icon: ReactNode;
   title: string;
   category: string;
   to?: string;
   href?: string;
-  className?: string;
-  disableLink?: boolean;
 };
 
-export type ClientCardProps = {
+export type ClientCardProps = BaseCardProps & {
   variant: "client";
   icon: ReactNode | string;
   name?: string;
   to?: string;
   href?: string;
-  className?: string;
-  disableLink?: boolean;
 };
 
-export type ColophonCardProps = {
+export type ColophonCardProps = BaseCardProps & {
   variant: "colophon";
   video: string;
   thumbnail: string;
@@ -43,22 +43,18 @@ export type ColophonCardProps = {
   to?: string;
   href?: string;
   hasNoise?: boolean;
-  className?: string;
-  disableLink?: boolean;
 };
 
-export type AwardCardProps = {
+export type AwardCardProps = BaseCardProps & {
   variant: "award";
   category: string;
   title: string;
   year: string;
   to?: string;
   href?: string;
-  className?: string;
-  disableLink?: boolean;
 };
 
-export type PlaygroundCardProps = {
+export type PlaygroundCardProps = BaseCardProps & {
   variant: "playground";
   media: string;
   title: string;
@@ -67,9 +63,7 @@ export type PlaygroundCardProps = {
   type?: "image" | "video";
   poster?: string;
   hasNoise?: boolean;
-  className?: string;
   autoPlay?: boolean;
-  disableLink?: boolean;
 };
 
 export type CardProps =

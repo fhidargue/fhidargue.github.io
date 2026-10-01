@@ -10,6 +10,8 @@ import cx from "classnames";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import type { WorkCard } from "./Work.types";
+import { motion } from "motion/react";
+import { fadeVariants } from "@constants/animations";
 
 const Work = () => {
   const { t } = useTranslation();
@@ -29,15 +31,17 @@ const Work = () => {
 
   return (
     <main>
-      <PlaygroundBanner
-        topHeading={t("work.banner.title1")}
-        bottomHeading={t("work.banner.title2")}
-        label={t("work.banner.label")}
-        media={t("work.banner.media")}
-        mediaAlt={t("work.banner.mediaAlt")}
-        mediaType="video"
-        className={styles["playground__container"]}
-      />
+      <motion.div variants={fadeVariants} initial="hidden" animate="show">
+        <PlaygroundBanner
+          topHeading={t("work.banner.title1")}
+          bottomHeading={t("work.banner.title2")}
+          label={t("work.banner.label")}
+          media={t("work.banner.media")}
+          mediaAlt={t("work.banner.mediaAlt")}
+          mediaType="video"
+          className={styles["playground__container"]}
+        />
+      </motion.div>
       <Container className={styles["playground__grid-container"]}>
         <Video
           src={t("work.video.src")}
@@ -47,7 +51,11 @@ const Work = () => {
         />
       </Container>
       <Container className={styles["playground__video-container"]}>
-        <CardGrid variant="playground" featuredPosition="right">
+        <CardGrid
+          variant="playground"
+          featuredPosition="right"
+          animateSecondary
+        >
           {topCards.map((card) => (
             <Card key={card.to} variant="playground" {...card} />
           ))}
@@ -68,7 +76,7 @@ const Work = () => {
           styles["playground__grid-container--left"],
         )}
       >
-        <CardGrid variant="playground" featuredPosition="left">
+        <CardGrid variant="playground" featuredPosition="left" animateSecondary>
           {bottomCards.map((card) => (
             <Card key={card.to} variant="playground" {...card} />
           ))}

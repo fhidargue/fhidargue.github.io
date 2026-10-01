@@ -11,10 +11,10 @@ const DccTranslation = () => {
       namespace="projects.dccTranslation"
       relatedProjects={[
         {
-          image: t("work.threeColumnCards.0.poster"),
-          title: t("work.threeColumnCards.0.title"),
-          category: t("work.threeColumnCards.0.category"),
-          to: ROUTES.PROJECTS.SNOWGLOBE_SIM,
+          image: t("work.threeColumnCards.3.poster"),
+          title: t("work.threeColumnCards.3.title"),
+          category: t("work.threeColumnCards.3.category"),
+          to: ROUTES.PROJECTS.HDA_GARDEN,
         },
         {
           image: t("work.bottomCards.0.poster"),
