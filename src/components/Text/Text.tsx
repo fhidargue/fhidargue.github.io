@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import cx from "classnames";
 
 import styles from "./Text.module.scss";
@@ -13,9 +14,10 @@ const Text = <T extends React.ElementType = "p">({
   id,
   ...props
 }: TextProps<T>) => {
-  return (
-    <Tag
-      className={cx(
+  return createElement(
+    Tag,
+    {
+      className: cx(
         styles.text,
         styles[variant],
         className,
@@ -23,12 +25,11 @@ const Text = <T extends React.ElementType = "p">({
         {
           [styles[`text--${colorType}`]]: colorType !== "",
         },
-      )}
-      id={id}
-      {...props}
-    >
-      {children}
-    </Tag>
+      ),
+      id,
+      ...props,
+    },
+    children,
   );
 };
 

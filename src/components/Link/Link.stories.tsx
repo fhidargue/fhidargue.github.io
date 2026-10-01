@@ -3,7 +3,8 @@ import { MemoryRouter } from "react-router-dom";
 
 import Text from "@components/Text/Text";
 
-import Link, { type LinkProps } from "./Link";
+import Link from "./Link";
+import type { LinkProps } from "./Link.types";
 
 const meta = {
   title: "Components/Link",

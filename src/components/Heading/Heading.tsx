@@ -7,7 +7,7 @@ const Heading = ({
   className = "",
   id = "",
 }: HeadingProps) => {
-  const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
+  const Tag = `h${level}` as "h1" | "h2" | "h3";
 
   const headingClass = styles[`heading-${level}`];
 

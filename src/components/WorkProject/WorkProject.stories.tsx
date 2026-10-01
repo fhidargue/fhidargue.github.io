@@ -37,6 +37,8 @@ export const Default: Story = {
         alt: "HUD project",
         hasNoise: true,
         isHovered: false,
+        isFilled: false,
+        hasBorder: false,
       },
       {
         src: "/images/film-strip/peace.png",
@@ -44,6 +46,8 @@ export const Default: Story = {
         alt: "HUD project",
         hasNoise: false,
         isHovered: false,
+        isFilled: false,
+        hasBorder: false,
       },
       {
         src: "/images/film-strip/deck.png",
@@ -51,6 +55,8 @@ export const Default: Story = {
         alt: "HUD project",
         hasNoise: true,
         isHovered: false,
+        isFilled: false,
+        hasBorder: false,
       },
     ],
     children: (
