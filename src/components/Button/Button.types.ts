@@ -8,4 +8,5 @@ export interface ButtonProps extends HTMLMotionProps<"button"> {
   children?: ReactNode;
   iconOnly?: boolean;
   iconSize?: number;
+  isActive?: boolean;
 }

@@ -8,6 +8,11 @@
   overflow: hidden;
   border-radius: utils.toRem(32px);
 
+  &:focus-visible {
+    outline: utils.toRem(2px) solid var(--color-text);
+    outline-offset: utils.toRem(4px);
+  }
+
   &--project,
   &--tech-stack,
   &--client,
@@ -212,7 +217,7 @@
 
   &--playground {
     height: max-content;
-    border-radius: 0;
+    border-radius: utils.toRem(32px);
     overflow: visible;
 
     .card__media {

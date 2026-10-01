@@ -15,6 +15,16 @@
       aspect-ratio: 16 / 9;
     }
 
+    &:has(.video__poster:focus-visible) {
+      outline: utils.toRem(2px) solid var(--color-text);
+      outline-offset: utils.toRem(4px);
+
+      .video__play {
+        outline: utils.toRem(2px) solid var(--color-white);
+        outline-offset: utils.toRem(4px);
+      }
+    }
+
     &--border {
       &::after {
         position: absolute;
