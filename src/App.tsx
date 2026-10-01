@@ -24,9 +24,6 @@ import useLocale from "@hooks/useLocale";
 
 import { ROUTES } from "@constants/routes";
 
-import "./styles/main.scss";
-import "./i18n/i18n";
-
 const ScrollReset = () => {
   const { pathname } = useLocation();
 

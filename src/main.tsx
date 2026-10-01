@@ -1,3 +1,6 @@
+import "./styles/main.scss";
+import "./i18n/i18n";
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";

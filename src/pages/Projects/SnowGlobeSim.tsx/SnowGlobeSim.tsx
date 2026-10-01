@@ -11,16 +11,16 @@ const SnowGlobeSim = () => {
       namespace="projects.snowglobe"
       relatedProjects={[
         {
-          image: t("work.topCards.0.poster"),
-          title: t("work.topCards.0.title"),
-          category: t("work.topCards.0.category"),
-          to: ROUTES.PROJECTS.DCC_TRANSLATION,
-        },
-        {
           image: t("work.threeColumnCards.1.poster"),
           title: t("work.threeColumnCards.1.title"),
           category: t("work.threeColumnCards.1.category"),
           to: ROUTES.PROJECTS.HAIR_SIM,
+        },
+        {
+          image: t("work.bottomCards.1.poster"),
+          title: t("work.bottomCards.1.title"),
+          category: t("work.bottomCards.1.category"),
+          to: ROUTES.PROJECTS.IMP_STAIRS,
         },
         {
           image: t("work.threeColumnCards.3.poster"),
