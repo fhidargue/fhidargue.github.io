@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import Footer from "@components/Footer/Footer";
 import TopBar from "@components/TopBar/TopBar";
@@ -108,7 +108,7 @@ const App = () => {
   ];
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollReset />
       <div className="app">
         <TopBar />
@@ -127,7 +127,7 @@ const App = () => {
         </div>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
