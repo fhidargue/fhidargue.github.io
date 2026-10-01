@@ -210,13 +210,8 @@ const TechStack = () => {
           </HomeBanner>
         </Container>
       </motion.div>
-      <motion.div
-        className={styles["tech-stack__container"]}
-        variants={gridVariants}
-        initial="hidden"
-        animate="show"
-      >
-        <Container>
+      <motion.div variants={gridVariants} initial="hidden" animate="show">
+        <Container className={styles["tech-stack__container"]}>
           {sections.map((section, index) => (
             <TechStackGrid
               key={section.title}
