@@ -1,11 +1,14 @@
 import { useState, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import cx from "classnames";
+import { motion } from "motion/react";
 
 import Button from "@components/Button/Button";
 import Media from "@components/Media/Media";
 import Tag from "@components/Tag/Tag";
 import Text from "@components/Text/Text";
+
+import { cardSecondaryVariants } from "@constants/animations";
 
 import type { CardProps } from "./Card.types";
 import styles from "./Card.module.scss";
@@ -276,8 +279,12 @@ const Card = (props: CardProps) => {
   const variantClass = styles[`card--${props.variant}`];
 
   return (
-    <article
+    <motion.article
       className={cx(styles.card, variantClass, props.className)}
+      initial={props.animateOnView ? "hidden" : false}
+      whileInView={props.animateOnView ? "show" : undefined}
+      viewport={{ once: true, amount: 0 }}
+      variants={props.animateOnView ? cardSecondaryVariants : undefined}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsFocused(true)}
@@ -288,7 +295,7 @@ const Card = (props: CardProps) => {
       tabIndex={props.disableLink ? -1 : 0}
     >
       {renderContent()}
-    </article>
+    </motion.article>
   );
 };
 

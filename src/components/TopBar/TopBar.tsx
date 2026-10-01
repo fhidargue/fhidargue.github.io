@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 import cx from "classnames";
 
 import Container from "@components/Container/Container";
@@ -13,6 +14,7 @@ import useTheme from "@hooks/useTheme";
 import useIsNotFound from "@hooks/useIsNotFound";
 
 import { ROUTES } from "@constants/routes";
+import { topBarVariants } from "@constants/animations";
 
 import styles from "./TopBar.module.scss";
 
@@ -56,7 +58,13 @@ const TopBar = ({ className }: TopBarProps) => {
 
   return (
     <>
-      <header ref={headerRef} className={cx(styles["top-bar"], className)}>
+      <motion.header
+        ref={headerRef}
+        className={cx(styles["top-bar"], className)}
+        initial="hidden"
+        animate="show"
+        variants={topBarVariants}
+      >
         <Container className={styles["top-bar__container"]}>
           <div className={styles["top-bar__logo"]}>
             <Logo size={40} theme={theme} />
@@ -92,7 +100,7 @@ const TopBar = ({ className }: TopBarProps) => {
             <ThemeToggle iconSize={26} />
           </nav>
         </Container>
-      </header>
+      </motion.header>
       <OverlayMenu
         headerRef={headerRef}
         menuButtonRef={menuButtonRef}

@@ -6,12 +6,16 @@ import Media from "@components/Media/Media";
 import Text from "@components/Text/Text";
 
 import type { ServicesProps } from "./Services.types";
+import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 import styles from "./Services.module.scss";
 
 import useBreakpoints from "@hooks/useBreakpoints";
+import { servicesTextVariants } from "@constants/animations";
 
 const Services = ({ services, className }: ServicesProps) => {
   const { isMobile, isTablet } = useBreakpoints();
+  const { t } = useTranslation();
 
   return (
     <Container>
@@ -21,7 +25,7 @@ const Services = ({ services, className }: ServicesProps) => {
       >
         <div id="services-heading" className={styles["services__heading"]}>
           <Text as="p" variant="roboto-large">
-            SERVICES
+            {t("about.servicesTitle")}
           </Text>
         </div>
         <ul className={styles["services__list"]}>
@@ -44,12 +48,24 @@ const Services = ({ services, className }: ServicesProps) => {
                   />
                 </div>
               )}
-              <Heading
-                level={isMobile ? 3 : 2}
-                className={styles["services__title"]}
+              <motion.div
+                className={styles["services__title-wrapper"]}
+                initial="hidden"
+                whileInView="show"
+                viewport={{
+                  once: true,
+                  amount: 0,
+                }}
               >
-                {service.title}
-              </Heading>
+                <motion.div variants={servicesTextVariants}>
+                  <Heading
+                    level={isMobile ? 2 : 1}
+                    className={styles["services__title"]}
+                  >
+                    {service.title}
+                  </Heading>
+                </motion.div>
+              </motion.div>
             </li>
           ))}
         </ul>
