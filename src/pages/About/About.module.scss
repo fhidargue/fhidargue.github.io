@@ -1,0 +1,48 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+@use "@styles/abstracts/mixins";
+
+.about {
+  &__description {
+    padding: utils.toRem(100px) utils.toRem(32px);
+
+    @media #{variables.$screen-md} {
+      padding: utils.toRem(140px) utils.toRem(32px);
+    }
+
+    @media #{variables.$screen-lg} {
+      padding: utils.toRem(150px) utils.toRem(172px);
+    }
+  }
+
+  &__clients {
+    @media #{variables.$screen-md} {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__client-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+
+  &__awards {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(8px);
+  }
+
+  &__awards > * {
+    width: 100%;
+    height: utils.toRem(96px);
+  }
+
+  &__colophon-card {
+    width: 100%;
+    height: utils.toRem(240px);
+  }
+
+  &__banner-heading {
+    @include mixins.banner-heading();
+  }
+}

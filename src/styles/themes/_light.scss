@@ -1,0 +1,60 @@
+@use "@styles/abstracts/variables";
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  // Background
+  --color-background: #{variables.$white};
+
+  // Text
+  --color-text: #{variables.$black};
+  --color-text-secondary: #{variables.$grey-500};
+  --color-text-tertiary: #{variables.$grey-200};
+  --color-text-inverse: #{variables.$white};
+  --color-text-link: #{variables.$black};
+
+  // Cards
+  --color-card: #{variables.$grey-050};
+  --color-card-hover: #{variables.$grey-100};
+  --color-border: rgba(0, 0, 0, 0.12);
+
+  // Buttons CTA
+  --color-button: #{variables.$black};
+  --color-button-secondary: #{variables.$white};
+  --color-button-alpha: rgba(152, 152, 152, 60%);
+  --color-button-text: #{variables.$white};
+  --color-button-text-secondary: #{variables.$black};
+  --color-button-text-hover: #{variables.$black};
+
+  // Tags
+  --color-tag: #{variables.$black};
+  --color-tag-secondary: #{variables.$white};
+  --color-tag-border: rgba(0, 0, 0, 0.12);
+  --color-tag-alpha: rgba(152, 152, 152, 60%);
+  --color-tag-text: #{variables.$white};
+  --color-tag-text-secondary: #{variables.$black};
+  --color-tag-text-hover: #{variables.$white};
+
+  // Status Indicator
+  --color-dot: #{variables.$black};
+  --color-dot-background: #{variables.$grey-300};
+
+  // Border
+  --color-border: rgba(0, 0, 0, 0.12);
+
+  // Icons
+  --color-icon: #{variables.$black};
+  --color-icon-inverse: #{variables.$white};
+
+  // Accents
+  --color-accent: #{variables.$blue};
+  --color-accent-alpha: rgba(0, 180, 245, 0.36);
+
+  // Tint
+  --color-black: #{variables.$black};
+  --color-white: #{variables.$white};
+
+  // Materials
+  --color-glass: rgba(0, 0, 0, 0.36);
+  --color-transparent: rgba(255, 255, 255, 0);
+}

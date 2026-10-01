@@ -1,0 +1,51 @@
+@use "@styles/abstracts/utils";
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: utils.toRem(32px);
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(12px);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: utils.toRem(8px);
+
+    margin: 0;
+    padding-left: utils.toRem(24px);
+
+    li {
+      padding-left: utils.toRem(4px);
+    }
+  }
+
+  &__table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: utils.toRem(12px) utils.toRem(8px);
+      border: 1px solid var(--color-text);
+      text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    td {
+      font-weight: 400;
+    }
+  }
+}

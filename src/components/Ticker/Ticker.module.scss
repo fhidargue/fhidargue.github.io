@@ -1,0 +1,55 @@
+@use "@styles/abstracts/utils";
+
+$ticker-fade: 10%;
+
+.ticker {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: utils.toRem(80px);
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    var(--color-background) $ticker-fade,
+    var(--color-background) calc(100% - $ticker-fade),
+    transparent
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    var(--color-background) $ticker-fade,
+    var(--color-background) calc(100% - $ticker-fade),
+    transparent
+  );
+
+  &__marquee {
+    display: flex;
+    width: max-content;
+    min-width: max-content;
+    grid-column: 1;
+  }
+
+  &__item {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &__title {
+    &--primary {
+      margin: 0 utils.toRem(64px);
+      color: var(--color-text);
+    }
+
+    &--secondary {
+      color: var(--color-text-tertiary);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.tech-stack {
+  &__container {
+    > div:not(:first-child) {
+      margin-top: utils.toRem(64px);
+
+      @media #{variables.$screen-lg} {
+        margin-top: utils.toRem(96px);
+      }
+    }
+  }
+}

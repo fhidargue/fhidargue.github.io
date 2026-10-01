@@ -1,87 +1,134 @@
-import "./App.css";
+import { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
-function App() {
+import Footer from "@components/Footer/Footer";
+import TopBar from "@components/TopBar/TopBar";
+
+import Home from "@pages/Home/Home";
+import About from "@pages/About/About";
+import Work from "@pages/Work/Work";
+import TechStack from "@pages/TechStack/TechStack";
+import Contact from "@pages/Contact/Contact";
+import NotFound from "@pages/NotFound/NotFound";
+
+import DccTranslation from "@pages/Projects/DccTranslation/DccTranslation";
+import WavefrontPathtracer from "@pages/Projects/WavefrontPathtracer/WavefrontPathtracer";
+import MocapRetargeting from "@pages/Projects/MocapRetargeting/MocapRetargeting";
+import SnowGlobeSim from "@pages/Projects/SnowGlobeSim.tsx/SnowGlobeSim";
+import HairSim from "@pages/Projects/HairSim/HairSim";
+import Renderman from "@pages/Projects/Renderman/Renderman";
+import ImpStairs from "@pages/Projects/ImpStairs/ImpStairs";
+import HdaGarden from "@pages/Projects/HdaGarden/HdaGarden";
+
+import useLocale from "@hooks/useLocale";
+
+import { ROUTES } from "@constants/routes";
+
+const ScrollReset = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = "auto";
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    document.documentElement.style.scrollBehavior = "";
+  }, [pathname]);
+
+  return null;
+};
+
+const App = () => {
+  useLocale();
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const theme = savedTheme === "light" ? "light" : "dark";
+
+    document.documentElement.setAttribute("data-theme", theme);
+  }, []);
+
+  useEffect(() => {
+    const updateFavicon = () => {
+      const theme = document.documentElement.getAttribute("data-theme");
+      const favicon =
+        document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+
+      if (!favicon) {
+        return;
+      }
+
+      favicon.href =
+        theme === "light" ? "/logos/star-black.svg" : "/logos/star-white.svg";
+    };
+
+    updateFavicon();
+
+    const observer = new MutationObserver(updateFavicon);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const PROJECT_ROUTES = [
+    {
+      path: ROUTES.PROJECTS.DCC_TRANSLATION,
+      element: <DccTranslation />,
+    },
+    {
+      path: ROUTES.PROJECTS.WAVEFRONT_PATHTRACER,
+      element: <WavefrontPathtracer />,
+    },
+    {
+      path: ROUTES.PROJECTS.MOCAP_RETARGET,
+      element: <MocapRetargeting />,
+    },
+    {
+      path: ROUTES.PROJECTS.SNOWGLOBE_SIM,
+      element: <SnowGlobeSim />,
+    },
+    {
+      path: ROUTES.PROJECTS.HAIR_SIM,
+      element: <HairSim />,
+    },
+    {
+      path: ROUTES.PROJECTS.RENDERMAN_API,
+      element: <Renderman />,
+    },
+    {
+      path: ROUTES.PROJECTS.HDA_GARDEN,
+      element: <HdaGarden />,
+    },
+    {
+      path: ROUTES.PROJECTS.IMP_STAIRS,
+      element: <ImpStairs />,
+    },
+  ];
+
   return (
-    <main className="portfolio">
-      <section className="hero">
-        <img
-          className="profile-image"
-          src="/felipehidalgo.png"
-          alt="Felipe Hidalgo"
-        />
-
-        <h1>Felipe Hidalgo</h1>
-
-        <h2>Pipeline TD · Senior Software Developer</h2>
-
-        <div className="description">
-          <p>
-            I'm Felipe Hidalgo, a problem solver with a background in software
-            engineering, web development, and architecture.
-          </p>
-
-          <p>
-            I'm passionate about using technology to solve problems and make
-            other people's work a little easier. I enjoy building tools,
-            automating workflows, and exploring the technology behind animation
-            and VFX. I'm currently finishing my MSc in Computer Animation and
-            Visual Effects at Bournemouth University, where I've been able to
-            explore these interests further through pipeline development,
-            OpenUSD, rendering, computer graphics, and simulation.
-          </p>
-
-          <p>
-            I've had the chance to work across software engineering, tool
-            development, and automation, while also exploring areas such as
-            pipeline development, OpenUSD, rendering, computer graphics, and
-            simulation. I'm always interested in learning more about the
-            technology behind how things are made.
-          </p>
+    <BrowserRouter>
+      <ScrollReset />
+      <div className="app">
+        <TopBar />
+        <div className="app__content">
+          <Routes>
+            <Route path={ROUTES.HOME} element={<Home />} />
+            <Route path={ROUTES.WORK} element={<Work />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.STACK} element={<TechStack />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+            {PROJECT_ROUTES.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
+          </Routes>
         </div>
-
-        <nav className="links" aria-label="Contact links">
-          <a
-            href="https://www.linkedin.com/in/fhidargue"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-
-          <a
-            href="https://github.com/fhidargue"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-
-          <a
-            href="https://www.youtube.com/@phil_ha"
-            target="_blank"
-            rel="noreferrer"
-          >
-            YouTube
-          </a>
-
-          <a
-            href="https://www.youtube.com/watch?v=_JaxgaLM55I"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Showreel
-          </a>
-
-          <a href="mailto:fi.ha@hotmail.com">Contact</a>
-        </nav>
-      </section>
-
-      <footer>
-        <p>🚧 This portfolio is currently under construction. 🚧</p>
-        <span>More projects and updates coming soon.</span>
-      </footer>
-    </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

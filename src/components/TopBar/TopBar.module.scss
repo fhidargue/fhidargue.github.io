@@ -1,0 +1,59 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+$contrast-shadow: utils.toRem(1px);
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: utils.toRem(32px);
+
+    @media #{variables.$screen-md} {
+      padding: utils.toRem(42px);
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: utils.toRem(16px);
+
+    & :global(img) {
+      filter: drop-shadow($contrast-shadow 0 0 var(--color-background))
+        drop-shadow(calc($contrast-shadow * -1) 0 0 var(--color-background))
+        drop-shadow(0 $contrast-shadow 0 var(--color-background))
+        drop-shadow(0 calc($contrast-shadow * -1) 0 var(--color-background));
+    }
+
+    & :global(span) {
+      -webkit-text-stroke: utils.toRem(2px) var(--color-background);
+      paint-order: stroke fill;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: utils.toRem(8px);
+
+    & :global(svg) {
+      filter: drop-shadow($contrast-shadow 0 0 var(--color-background))
+        drop-shadow(calc($contrast-shadow * -1) 0 0 var(--color-background))
+        drop-shadow(0 $contrast-shadow 0 var(--color-background))
+        drop-shadow(0 calc($contrast-shadow * -1) 0 var(--color-background));
+    }
+
+    & :global(span) {
+      -webkit-text-stroke: utils.toRem(2px) var(--color-background);
+      paint-order: stroke fill;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.card-story-container {
+  width: utils.toRem(480px);
+
+  &--project {
+    width: utils.toRem(582px);
+    height: utils.toRem(582px);
+
+    @media #{variables.$screen-xl} {
+      width: utils.toRem(696px);
+    }
+  }
+
+  &--square {
+    width: utils.toRem(480px);
+    height: utils.toRem(480px);
+  }
+
+  &--colophon {
+    width: utils.toRem(480px);
+    height: utils.toRem(320px);
+  }
+
+  &--award {
+    width: utils.toRem(720px);
+    height: utils.toRem(96px);
+  }
+}

@@ -1,0 +1,39 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+html {
+  background: var(--color-background);
+}
+
+body {
+  min-width: utils.toRem(320px);
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root,
+.app {
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex: 1;
+    padding-top: utils.toRem(104px);
+
+    @media #{variables.$screen-md} {
+      padding-top: utils.toRem(124px);
+    }
+  }
+}

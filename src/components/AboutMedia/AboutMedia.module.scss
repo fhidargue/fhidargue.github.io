@@ -1,0 +1,55 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/variables";
+
+.about-media {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+
+  @media #{variables.$screen-lg} {
+    grid-template-columns: minmax(0, 1fr) minmax(0, utils.toRem(564px)) minmax(
+        0,
+        1fr
+      );
+    gap: utils.toRem(48px);
+  }
+
+  &__container {
+    padding: utils.toRem(8px);
+
+    @media #{variables.$screen-lg} {
+      padding: utils.toRem(16px);
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @media #{variables.$screen-lg} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: utils.toRem(240px);
+      margin: 0 auto;
+      text-align: center;
+
+      & p {
+        margin: 0;
+        color: var(--color-text-secondary);
+      }
+    }
+  }
+
+  &__media {
+    width: 100%;
+    height: utils.toRem(550px);
+
+    @media #{variables.$screen-md} {
+      height: utils.toRem(1100px);
+    }
+
+    @media #{variables.$screen-lg} {
+      height: utils.toRem(846px);
+    }
+  }
+}

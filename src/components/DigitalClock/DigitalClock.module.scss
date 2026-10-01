@@ -1,0 +1,54 @@
+@use "@styles/abstracts/utils";
+@use "@styles/abstracts/fonts";
+@use "@styles/abstracts/variables";
+@use "@styles/base/typography";
+
+.digital-clock {
+  width: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: utils.toRem(64px);
+
+    @media #{variables.$screen-md} {
+      padding: utils.toRem(88px);
+    }
+
+    @media #{variables.$screen-lg} {
+      padding: utils.toRem(160px);
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__label-text {
+    color: var(--color-text-secondary);
+  }
+
+  &__time {
+    @include typography.heading-2;
+    color: var(--color-text-primary);
+    font-family: fonts.$font-family-secondary;
+    font-size: utils.toRem(40px);
+    font-weight: 700;
+    white-space: nowrap;
+
+    @media #{variables.$screen-md} {
+      font-size: utils.toRem(96px);
+      margin-top: utils.toRem(32px);
+    }
+
+    @media #{variables.$screen-lg} {
+      font-size: utils.toRem(120px);
+      margin-top: utils.toRem(48px);
+    }
+  }
+}
