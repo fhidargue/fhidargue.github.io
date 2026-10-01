@@ -5,6 +5,12 @@
   text-decoration: none;
   cursor: pointer;
 
+  &:focus-visible {
+    outline: utils.toRem(2px) solid var(--color-text);
+    outline-offset: utils.toRem(4px);
+    border-radius: utils.toRem(8px);
+  }
+
   &__content {
     display: inline-flex;
     align-items: center;

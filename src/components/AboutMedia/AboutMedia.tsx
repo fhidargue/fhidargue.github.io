@@ -25,11 +25,9 @@ const AboutMedia = ({
             </Text>
           )}
         </div>
-
         <div className={styles["about-media__media"]}>
           <Media src={src} alt={alt} hasNoise={hasNoise} borderRadius={32} />
         </div>
-
         <div className={styles["about-media__text"]}>
           {rightText && (
             <Text as="p" variant="roboto-small">

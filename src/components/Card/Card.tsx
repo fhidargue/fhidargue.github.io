@@ -95,7 +95,13 @@ const CardTitle = ({ children, variant }: CardTitleProps) => (
   </div>
 );
 
-const CardLink = ({ label }: { label: string }) => (
+const CardLink = ({
+  label,
+  isActive,
+}: {
+  label: string;
+  isActive: boolean;
+}) => (
   <div className={styles["card__link"]}>
     <Button
       className={styles["card__link-button"]}
@@ -103,7 +109,9 @@ const CardLink = ({ label }: { label: string }) => (
       iconOnly
       iconSize={24}
       type="button"
+      tabIndex={-1}
       aria-label={label}
+      isActive={isActive}
     />
   </div>
 );
@@ -111,6 +119,7 @@ const CardLink = ({ label }: { label: string }) => (
 const Card = (props: CardProps) => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleClick = () => {
     if ("href" in props && props.href) {
@@ -147,7 +156,10 @@ const Card = (props: CardProps) => {
               {props.category}
             </CardCategory>
             <CardTitle variant="section-title-small">{props.title}</CardTitle>
-            <CardLink label={`View ${props.title} project`} />
+            <CardLink
+              label={`View ${props.title} project`}
+              isActive={isFocused}
+            />
           </>
         );
 
@@ -181,7 +193,9 @@ const Card = (props: CardProps) => {
               <div className={styles["card__icon"]}>{props.icon}</div>
             )}
             <CardTitle variant="paragraph-large">{props.title}</CardTitle>
-            {!props.disableLink && <CardLink label={`View ${props.title}`} />}
+            {!props.disableLink && (
+              <CardLink label={`View ${props.title}`} isActive={isFocused} />
+            )}
           </>
         );
 
@@ -197,7 +211,7 @@ const Card = (props: CardProps) => {
                 props.icon
               )}
             </div>
-            <CardLink label="View client" />
+            <CardLink label="View client" isActive={isFocused} />
           </>
         );
 
@@ -216,7 +230,9 @@ const Card = (props: CardProps) => {
               {props.category}
             </CardCategory>
             <CardTitle variant="paragraph-small">{props.title}</CardTitle>
-            {!props.disableLink && <CardLink label={`View ${props.title}`} />}
+            {!props.disableLink && (
+              <CardLink label={`View ${props.title}`} isActive={isFocused} />
+            )}
           </>
         );
 
@@ -231,7 +247,7 @@ const Card = (props: CardProps) => {
                   {props.year}
                 </Text>
               </div>
-              <CardLink label={`View ${props.title}`} />
+              <CardLink label={`View ${props.title}`} isActive={isFocused} />
             </div>
           </>
         );
@@ -264,6 +280,8 @@ const Card = (props: CardProps) => {
       className={cx(styles.card, variantClass, props.className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => setIsFocused(false)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       role="link"

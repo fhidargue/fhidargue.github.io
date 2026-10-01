@@ -15,6 +15,11 @@
   font: inherit;
   cursor: pointer;
 
+  &:focus-visible {
+    outline: utils.toRem(2px) solid var(--color-text);
+    outline-offset: utils.toRem(4px);
+  }
+
   &__accent {
     position: absolute;
     inset: 0;

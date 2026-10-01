@@ -10,6 +10,7 @@ const Button = ({
   children,
   iconOnly = false,
   iconSize = 52,
+  isActive = false,
   className,
   type = "button",
   ...props
@@ -52,6 +53,7 @@ const Button = ({
         className,
       )}
       initial="initial"
+      animate={isActive ? "hover" : "initial"}
       whileHover={isAlpha ? undefined : "hover"}
       whileTap={isAlpha ? undefined : { scale: 0.97 }}
       variants={{
